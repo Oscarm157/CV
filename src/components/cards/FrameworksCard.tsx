@@ -9,7 +9,7 @@ const frameworks = [
     abbr: "JTBD",
     color: "#6B5CE7",
     desc: "Entender qué trabajo real contrata el cliente cuando elige un producto o servicio, no solo lo que dice querer.",
-    example: "Un cliente no busca un spot de video: busca que su marca transmita confianza antes de que el comprador entre al showroom.",
+    example: "Alguien que compra casa no busca metros cuadrados: busca seguridad para su familia y estatus. Eso cambia el mensaje, el canal y el cierre.",
   },
   {
     name: "Design Thinking",
