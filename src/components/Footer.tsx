@@ -1,40 +1,82 @@
 "use client";
 
 import { motion } from "motion/react";
+import { Mail, Phone, MapPin } from "lucide-react";
 
 export default function Footer() {
   return (
     <motion.footer
       id="contacto"
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true }}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.5 }}
-      className="px-8 py-10 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-ink/6"
+      className="mx-4 sm:mx-6 mb-6 rounded-[20px] overflow-hidden"
+      style={{ background: "var(--ink)" }}
     >
-      <span className="font-display font-bold text-ink text-sm">Oscar Arredondo</span>
-      <div className="flex flex-wrap items-center gap-4 sm:gap-6">
-        <a
+      <div className="px-8 md:px-12 py-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+
+        {/* Left */}
+        <div>
+          <p className="font-label text-xs uppercase tracking-widest mb-3" style={{ color: "var(--amber)" }}>
+            Contacto
+          </p>
+          <p className="font-display font-bold text-white text-2xl md:text-3xl leading-tight">
+            ¿Hablamos?
+          </p>
+          <p className="font-grotesk text-sm text-white/40 mt-2">
+            Abierto a nuevas oportunidades y proyectos.
+          </p>
+        </div>
+
+        {/* Center — contact info */}
+        <div className="flex flex-col gap-3">
+          <a href="mailto:oscar.amayoral@gmail.com"
+            className="flex items-center gap-3 group">
+            <div className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 transition-colors"
+              style={{ background: "rgba(245,158,11,0.12)" }}>
+              <Mail size={16} color="var(--amber)" />
+            </div>
+            <span className="font-grotesk text-sm text-white/60 group-hover:text-white transition-colors">
+              oscar.amayoral@gmail.com
+            </span>
+          </a>
+          <a href="tel:6647312695"
+            className="flex items-center gap-3 group">
+            <div className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
+              style={{ background: "rgba(245,158,11,0.12)" }}>
+              <Phone size={16} color="var(--amber)" />
+            </div>
+            <span className="font-grotesk text-sm text-white/60 group-hover:text-white transition-colors">
+              664 731 26 95
+            </span>
+          </a>
+          <div className="flex items-center gap-3">
+            <div className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
+              style={{ background: "rgba(245,158,11,0.12)" }}>
+              <MapPin size={16} color="var(--amber)" />
+            </div>
+            <span className="font-grotesk text-sm text-white/40">Tijuana, Baja California</span>
+          </div>
+        </div>
+
+        {/* Right — CTA */}
+        <motion.a
           href="mailto:oscar.amayoral@gmail.com"
-          className="font-label text-xs uppercase tracking-widest text-ink/40 hover:text-amber transition-colors"
+          whileHover={{ scale: 1.04 }}
+          whileTap={{ scale: 0.97 }}
+          className="font-label text-xs uppercase tracking-widest px-8 py-4 rounded-full font-bold flex-shrink-0"
+          style={{ background: "var(--amber)", color: "var(--ink)" }}
         >
-          oscar.amayoral@gmail.com
-        </a>
-        <span className="text-ink/20">·</span>
-        <a
-          href="tel:6647312695"
-          className="font-label text-xs uppercase tracking-widest text-ink/40 hover:text-amber transition-colors"
-        >
-          664 731 26 95
-        </a>
-        <span className="text-ink/20">·</span>
-        <span className="font-label text-xs uppercase tracking-widest text-ink/20">
-          Tijuana, B.C.
-        </span>
+          Enviar mensaje
+        </motion.a>
       </div>
-      <span className="font-label text-xs uppercase tracking-widest text-ink/20">
-        © 2025
-      </span>
+
+      {/* Bottom strip */}
+      <div className="px-8 md:px-12 py-4 border-t border-white/6 flex items-center justify-between">
+        <span className="font-display font-bold text-white/30 text-sm">Oscar Arredondo</span>
+        <span className="font-label text-xs uppercase tracking-widest text-white/20">© 2025</span>
+      </div>
     </motion.footer>
   );
 }

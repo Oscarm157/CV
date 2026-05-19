@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
+import { Film, Camera, PenTool, ArrowUpRight } from "lucide-react";
 import { cardVariants } from "../BentoGrid";
 
 const links = [
@@ -8,19 +9,25 @@ const links = [
     label: "Producción de Video",
     desc: "Spots y contenido audiovisual para marcas",
     href: "https://drive.google.com/drive/folders/1YdN7X_0a04WcTK3i0o9HBkBLwZ6Zmtyg?usp=sharing",
-    emoji: "🎬",
+    Icon: Film,
+    color: "#9999FF",
+    bg: "rgba(153,153,255,0.08)",
   },
   {
     label: "Fotografía Profesional",
     desc: "Sesiones comerciales y publicitarias",
     href: "https://drive.google.com/drive/folders/1LCHCFkNIYMVhNQEqVJ70p2ewZ4S3S7U0?usp=sharing",
-    emoji: "📷",
+    Icon: Camera,
+    color: "#10B981",
+    bg: "rgba(16,185,129,0.08)",
   },
   {
     label: "Diseño Gráfico",
     desc: "Branding, identidad y piezas digitales",
     href: "https://drive.google.com/drive/folders/1EX2owUMIZdZnIS0APjwi3cPH8Q3EJHOz?usp=sharing",
-    emoji: "🖼️",
+    Icon: PenTool,
+    color: "#F59E0B",
+    bg: "rgba(245,158,11,0.08)",
   },
 ];
 
@@ -38,10 +45,10 @@ export default function PortfolioCard() {
       </div>
 
       <div className="p-4 grid grid-cols-1 sm:grid-cols-3 gap-3">
-        {links.map((link, i) => (
+        {links.map(({ label, desc, href, Icon, color, bg }, i) => (
           <motion.a
-            key={link.label}
-            href={link.href}
+            key={label}
+            href={href}
             target="_blank"
             rel="noopener noreferrer"
             initial={{ opacity: 0, y: 8 }}
@@ -50,15 +57,19 @@ export default function PortfolioCard() {
             transition={{ delay: i * 0.08 }}
             whileHover={{ y: -3, boxShadow: "0 8px 20px rgba(0,0,0,0.07)" }}
             className="group rounded-2xl p-5 flex flex-col gap-3 transition-colors"
-            style={{ background: "rgba(15,23,42,0.03)" }}
+            style={{ background: bg }}
           >
-            <span className="text-2xl">{link.emoji}</span>
-            <div>
-              <p className="font-display font-semibold text-ink text-sm leading-snug">{link.label}</p>
-              <p className="font-grotesk text-sm text-ink/40 mt-0.5">{link.desc}</p>
+            <div className="w-10 h-10 rounded-xl flex items-center justify-center"
+              style={{ background: `${color}18` }}>
+              <Icon size={18} color={color} strokeWidth={1.8} />
             </div>
-            <span className="font-label text-xs text-amber opacity-50 group-hover:opacity-100 transition-opacity mt-auto">
-              Ver →
+            <div>
+              <p className="font-display font-semibold text-ink text-sm leading-snug">{label}</p>
+              <p className="font-grotesk text-sm text-ink/40 mt-0.5">{desc}</p>
+            </div>
+            <span className="flex items-center gap-1 font-label text-xs opacity-40 group-hover:opacity-100 transition-opacity mt-auto"
+              style={{ color }}>
+              Ver trabajo <ArrowUpRight size={13} />
             </span>
           </motion.a>
         ))}
