@@ -6,28 +6,31 @@ import { cardVariants } from "../BentoGrid";
 
 const links = [
   {
-    label: "Producción de Video",
-    desc: "Spots y contenido audiovisual para marcas",
+    label: "Video",
+    sublabel: "Producción",
+    desc: "Spots y contenido audiovisual para marcas internacionales",
     href: "https://drive.google.com/drive/folders/1YdN7X_0a04WcTK3i0o9HBkBLwZ6Zmtyg?usp=sharing",
     Icon: Film,
-    color: "#9999FF",
-    bg: "rgba(153,153,255,0.08)",
+    accent: "#9999FF",
+    bg: "linear-gradient(135deg, #1a1033 0%, #2d1b69 100%)",
   },
   {
-    label: "Fotografía Profesional",
-    desc: "Sesiones comerciales y publicitarias",
+    label: "Fotografía",
+    sublabel: "Comercial",
+    desc: "Sesiones publicitarias para automotriz, gastronomía y moda",
     href: "https://drive.google.com/drive/folders/1LCHCFkNIYMVhNQEqVJ70p2ewZ4S3S7U0?usp=sharing",
     Icon: Camera,
-    color: "#10B981",
-    bg: "rgba(16,185,129,0.08)",
+    accent: "#10B981",
+    bg: "linear-gradient(135deg, #051a10 0%, #0d3b26 100%)",
   },
   {
-    label: "Diseño Gráfico",
-    desc: "Branding, identidad y piezas digitales",
+    label: "Diseño",
+    sublabel: "Gráfico",
+    desc: "Branding, identidad visual y piezas digitales",
     href: "https://drive.google.com/drive/folders/1EX2owUMIZdZnIS0APjwi3cPH8Q3EJHOz?usp=sharing",
     Icon: PenTool,
-    color: "#F59E0B",
-    bg: "rgba(245,158,11,0.08)",
+    accent: "#F59E0B",
+    bg: "linear-gradient(135deg, #1a0f00 0%, #3d2400 100%)",
   },
 ];
 
@@ -36,41 +39,60 @@ export default function PortfolioCard() {
     <motion.div
       id="portafolio"
       variants={cardVariants}
-      className="md:col-span-2 bg-white rounded-[20px]"
-      style={{ boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }}
+      className="md:col-span-2 rounded-[20px] overflow-hidden"
+      style={{ background: "var(--ink)", boxShadow: "0 2px 12px rgba(0,0,0,0.10)" }}
     >
-      <div className="px-6 pt-5 pb-4 border-b border-ink/6 flex items-center justify-between">
-        <p className="font-label text-xs uppercase tracking-widest text-ink/40">Portafolio</p>
-        <span className="font-label text-xs uppercase tracking-widest text-ink/50">Google Drive</span>
+      <div className="px-6 pt-5 pb-4 border-b border-white/8 flex items-center justify-between">
+        <p className="font-label text-xs uppercase tracking-widest text-white/50">Portafolio Creativo</p>
+        <span className="font-label text-xs uppercase tracking-widest text-white/30">Google Drive</span>
       </div>
 
       <div className="p-4 grid grid-cols-1 sm:grid-cols-3 gap-3">
-        {links.map(({ label, desc, href, Icon, color, bg }, i) => (
+        {links.map(({ label, sublabel, desc, href, Icon, accent, bg }, i) => (
           <motion.a
             key={label}
             href={href}
             target="_blank"
             rel="noopener noreferrer"
-            initial={{ opacity: 0, y: 8 }}
+            initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: i * 0.08 }}
-            whileHover={{ y: -3, boxShadow: "0 8px 20px rgba(0,0,0,0.07)" }}
-            className="group rounded-2xl p-5 flex flex-col gap-3 transition-colors"
-            style={{ background: bg }}
+            transition={{ delay: i * 0.1, type: "spring", stiffness: 300, damping: 24 }}
+            whileHover={{ y: -4, scale: 1.02 }}
+            className="group relative rounded-2xl p-5 flex flex-col gap-4 overflow-hidden cursor-pointer"
+            style={{ background: bg, minHeight: 200 }}
           >
-            <div className="w-10 h-10 rounded-xl flex items-center justify-center"
-              style={{ background: `${color}18` }}>
-              <Icon size={18} color={color} strokeWidth={1.8} />
+            {/* Glow circle */}
+            <div className="absolute -top-8 -right-8 w-28 h-28 rounded-full pointer-events-none transition-opacity duration-300 opacity-40 group-hover:opacity-70"
+              style={{ background: `radial-gradient(circle, ${accent}55, transparent 70%)` }} />
+
+            {/* Icon */}
+            <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 relative z-10"
+              style={{ background: `${accent}22`, border: `1px solid ${accent}33` }}>
+              <Icon size={18} color={accent} strokeWidth={1.6} />
             </div>
-            <div>
-              <p className="font-display font-semibold text-ink text-sm leading-snug">{label}</p>
-              <p className="font-grotesk text-sm text-ink/70 mt-0.5">{desc}</p>
+
+            {/* Text */}
+            <div className="relative z-10 flex-1">
+              <p className="font-label text-xs uppercase tracking-widest mb-1" style={{ color: accent }}>
+                {sublabel}
+              </p>
+              <p className="font-display font-bold text-white text-xl leading-tight">{label}</p>
+              <p className="font-grotesk text-sm text-white/60 mt-2 leading-snug">{desc}</p>
             </div>
-            <span className="flex items-center gap-1 font-label text-xs opacity-40 group-hover:opacity-100 transition-opacity mt-auto"
-              style={{ color }}>
-              Ver trabajo <ArrowUpRight size={13} />
-            </span>
+
+            {/* CTA */}
+            <div className="relative z-10 flex items-center gap-1.5 font-label text-xs uppercase tracking-widest font-bold transition-all duration-200 opacity-60 group-hover:opacity-100"
+              style={{ color: accent }}>
+              Ver trabajo
+              <motion.span
+                animate={{ x: 0 }}
+                whileHover={{ x: 3 }}
+                className="inline-flex"
+              >
+                <ArrowUpRight size={14} />
+              </motion.span>
+            </div>
           </motion.a>
         ))}
       </div>
