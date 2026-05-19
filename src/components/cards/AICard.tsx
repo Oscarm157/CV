@@ -5,7 +5,7 @@ import { cardVariants } from "../BentoGrid";
 
 const tags = [
   "Claude", "Claude Code", "Codificación Agéntica",
-  "Make", "ChatGPT-4", "Midjourney",
+  "Zapier", "ChatGPT", "Midjourney",
   "Prompting Avanzado", "Agentes IA",
 ];
 
@@ -52,8 +52,8 @@ export default function AICard() {
         </div>
 
         <p className="font-grotesk text-sm text-white/50 leading-relaxed">
-          Orquesto agentes de IA para automatizar flujos de CRM, generar reportes
-          y construir herramientas internas con Claude Code.
+          Desde el departamento de TI orquesto agentes de IA, automatizo flujos de CRM
+          y construyo herramientas internas con Claude Code.
         </p>
 
         <motion.div

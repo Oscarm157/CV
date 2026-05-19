@@ -2,14 +2,14 @@
 
 import { motion } from "motion/react";
 import { cardVariants } from "../BentoGrid";
-import { SiWebflow, SiWordpress, SiSemrush, SiMake, SiMailchimp } from "react-icons/si";
+import { SiWebflow, SiWordpress, SiSemrush, SiZapier, SiMailchimp } from "react-icons/si";
 import { Video, ImageIcon, Sun, BarChart3 } from "lucide-react";
 
 const software = [
   { name: "Webflow",    Icon: SiWebflow,   color: "#4353FF", lucide: false },
   { name: "WordPress",  Icon: SiWordpress,  color: "#21759B", lucide: false },
   { name: "Semrush",    Icon: SiSemrush,    color: "#FF642D", lucide: false },
-  { name: "Make",       Icon: SiMake,       color: "#6D00CC", lucide: false },
+  { name: "Zapier",     Icon: SiZapier,     color: "#FF4A00", lucide: false },
   { name: "Mailchimp",  Icon: SiMailchimp,  color: "#FFE01B", lucide: false },
   { name: "Premiere",   Icon: Video,        color: "#9999FF", lucide: true  },
   { name: "Photoshop",  Icon: ImageIcon,    color: "#31A8FF", lucide: true  },
