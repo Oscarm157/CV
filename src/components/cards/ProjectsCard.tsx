@@ -19,10 +19,10 @@ const projects: Project[] = [
   {
     title: { es: "Dashboard KPIs", en: "KPIs Dashboard" },
     desc: {
-      es: "Panel de tickets de soporte Alfresco en ATISA: categorización, tasa de resolución y tiempos por categoría.",
-      en: "Alfresco support ticket dashboard at ATISA: categorization, resolution rate and per-category timing.",
+      es: "Panel ejecutivo con KPIs operativos: volumen, tasa de resolución, tiempos y tendencias.",
+      en: "Executive dashboard with operational KPIs: volume, resolution rate, timing and trends.",
     },
-    tools: ["Claude Code", "Next.js", "Alfresco"],
+    tools: ["Claude Code", "Next.js", "Supabase"],
     images: ["/screenshots/alfresco-dashboard-1.png", "/screenshots/alfresco-dashboard-2.png"],
   },
   {
