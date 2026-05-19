@@ -17,10 +17,13 @@ export default function Page() {
       <main>
         <Hero />
         <BentoGrid>
+          {/* Row 1: Perfil (2col) + AI dark (1col) */}
           <ProfileCard />
-          <StatsCard />
-          <ExperienceCard />
           <AICard />
+          {/* Row 2: Experiencia (2col) + Stats amber (1col) */}
+          <ExperienceCard />
+          <StatsCard />
+          {/* Row 3: Software + Formacion + Portfolio (2col) */}
           <SoftwareCard />
           <FormacionCard />
           <PortfolioCard />

@@ -1,139 +1,194 @@
 "use client";
 
 import { motion } from "motion/react";
+import { useRef } from "react";
+import { useInView, useMotionValue, animate } from "motion/react";
+import { useEffect } from "react";
 
 const letterVariants = {
-  hidden: { opacity: 0, y: 40 },
+  hidden: { opacity: 0, y: 60, rotateX: -40 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { type: "spring" as const, stiffness: 400, damping: 22 },
+    rotateX: 0,
+    transition: { type: "spring" as const, stiffness: 380, damping: 20 },
   },
 };
 
 const containerVariants = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.04, delayChildren: 0.1 } },
+  visible: { transition: { staggerChildren: 0.035, delayChildren: 0.05 } },
 };
 
-function AnimatedWord({ word, className }: { word: string; className?: string }) {
+function AnimatedName({ word }: { word: string }) {
   return (
     <motion.span
       variants={containerVariants}
       initial="hidden"
       animate="visible"
-      className={`inline-flex ${className}`}
+      className="inline-flex"
+      style={{ perspective: 800 }}
       aria-label={word}
     >
       {word.split("").map((char, i) => (
-        <motion.span key={i} variants={letterVariants} style={{ display: "inline-block" }}>
-          {char}
+        <motion.span
+          key={i}
+          variants={letterVariants}
+          style={{ display: "inline-block", transformOrigin: "top center" }}
+        >
+          {char === " " ? " " : char}
         </motion.span>
       ))}
     </motion.span>
   );
 }
 
+function StatBig({ value, label }: { value: number; label: string }) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const motionVal = useMotionValue(0);
+  const inView = useInView(ref, { once: true });
+  useEffect(() => {
+    if (!inView) return;
+    const c = animate(motionVal, value, {
+      duration: 1.2,
+      ease: "easeOut",
+      onUpdate: (v) => { if (ref.current) ref.current.textContent = Math.round(v).toString(); },
+    });
+    return c.stop;
+  }, [inView, value, motionVal]);
+  return (
+    <div className="flex flex-col items-center gap-1">
+      <span
+        ref={ref}
+        className="font-display font-black leading-none"
+        style={{ fontSize: "clamp(2.5rem, 5vw, 4rem)", color: "var(--ink)" }}
+      >0</span>
+      <span className="font-label text-[9px] uppercase tracking-widest text-ink/50">{label}</span>
+    </div>
+  );
+}
+
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col justify-center px-8 pt-24 pb-16 overflow-hidden">
-      {/* Mesh gradient background */}
-      <div
-        className="absolute top-0 right-0 w-[600px] h-[600px] pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse at 80% 10%, rgba(245,158,11,0.08) 0%, transparent 60%)",
-        }}
-      />
-      <div
-        className="absolute bottom-0 left-0 w-[400px] h-[400px] pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse at 10% 90%, rgba(16,185,129,0.05) 0%, transparent 60%)",
-        }}
-      />
+    <section className="relative min-h-screen flex overflow-hidden">
+      {/* LEFT: text */}
+      <div className="flex-1 flex flex-col justify-center px-8 lg:px-14 py-28 relative z-10">
+        {/* Mesh gradient */}
+        <div className="absolute inset-0 pointer-events-none"
+          style={{ background: "radial-gradient(ellipse at 0% 60%, rgba(16,185,129,0.06) 0%, transparent 55%)" }} />
 
-      {/* Eyebrow */}
-      <motion.p
-        initial={{ opacity: 0, y: 8 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.05, duration: 0.4 }}
-        className="font-label text-xs uppercase tracking-widest text-ink/40 mb-6"
-      >
-        Coordinador CRM · Atisa Group · 2024–Presente
-      </motion.p>
-
-      {/* Name */}
-      <h1
-        className="font-display font-bold leading-none tracking-tight text-ink mb-2"
-        style={{ fontSize: "clamp(3.5rem, 10vw, 8.5rem)" }}
-      >
-        <AnimatedWord word="OSCAR" />
-        <br />
-        <AnimatedWord word="ARREDONDO" className="mt-1 block" />
-      </h1>
-
-      {/* Subtitle */}
-      <motion.div
-        initial={{ opacity: 0, y: 16 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.7, duration: 0.5, ease: "easeOut" }}
-        className="mt-6 flex flex-wrap items-center gap-3"
-      >
-        <span
-          className="font-display text-ink/70"
-          style={{ fontSize: "clamp(1rem, 2.5vw, 1.5rem)" }}
+        <motion.p
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0, duration: 0.4 }}
+          className="font-label text-[10px] uppercase tracking-[0.2em] text-ink/40 mb-8"
         >
-          Marketing &amp; Growth
-        </span>
-        <span className="w-1.5 h-1.5 rounded-full bg-amber" />
-        <span
-          className="font-display text-ink/50"
-          style={{ fontSize: "clamp(1rem, 2.5vw, 1.5rem)" }}
-        >
-          CRM · Agentes IA · Automatización
-        </span>
-      </motion.div>
+          Coordinador CRM · Atisa Group · Tijuana B.C.
+        </motion.p>
 
-      {/* CTAs */}
-      <motion.div
-        initial={{ opacity: 0, y: 16 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.9, duration: 0.4 }}
-        className="mt-10 flex flex-wrap gap-4"
-      >
-        <motion.a
-          href="#portafolio"
-          whileHover={{ scale: 1.03 }}
-          whileTap={{ scale: 0.97 }}
-          className="font-label text-sm uppercase tracking-widest bg-amber text-ink px-8 py-4 rounded-full font-bold"
+        <h1
+          className="font-display font-black leading-[0.9] tracking-tighter text-ink mb-8"
+          style={{ fontSize: "clamp(3.8rem, 9vw, 8rem)" }}
         >
-          Ver portafolio
-        </motion.a>
-        <motion.a
-          href="mailto:oscar.amayoral@gmail.com"
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.97 }}
-          className="font-label text-sm uppercase tracking-widest bg-white text-ink px-8 py-4 rounded-full font-bold"
-          style={{ boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }}
-        >
-          Contactar
-        </motion.a>
-      </motion.div>
+          <AnimatedName word="OSCAR" />
+          <br />
+          <span style={{ display: "block", height: "0.06em" }} />
+          <AnimatedName word="ARREDONDO" />
+        </h1>
 
-      {/* Scroll hint */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.4, duration: 0.5 }}
-        className="absolute bottom-8 left-8 flex items-center gap-2"
-      >
         <motion.div
-          animate={{ y: [0, 6, 0] }}
-          transition={{ repeat: Infinity, duration: 1.6, ease: "easeInOut" }}
-          className="w-px h-8 bg-ink/20"
-        />
-        <span className="font-label text-[10px] uppercase tracking-widest text-ink/30">Scroll</span>
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.65 }}
+          className="flex flex-wrap items-center gap-3 mb-10"
+        >
+          <span className="font-display font-semibold text-ink/70" style={{ fontSize: "clamp(1rem, 2vw, 1.35rem)" }}>
+            Marketing &amp; Growth
+          </span>
+          <span className="inline-block w-1 h-1 rounded-full bg-amber" />
+          <span className="font-display text-ink/40" style={{ fontSize: "clamp(1rem, 2vw, 1.35rem)" }}>
+            CRM · Agentes IA · Automatización
+          </span>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.8 }}
+          className="flex flex-wrap gap-3"
+        >
+          <motion.a
+            href="#portafolio"
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.96 }}
+            className="font-label text-xs uppercase tracking-widest bg-ink text-cream px-7 py-3.5 rounded-full font-bold"
+          >
+            Ver portafolio
+          </motion.a>
+          <motion.a
+            href="mailto:oscar.amayoral@gmail.com"
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.96 }}
+            className="font-label text-xs uppercase tracking-widest border border-ink/15 text-ink px-7 py-3.5 rounded-full font-bold hover:bg-white transition-colors"
+          >
+            Contactar
+          </motion.a>
+        </motion.div>
+
+        {/* Bottom left: contact tiny */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.2 }}
+          className="absolute bottom-8 left-8 lg:left-14"
+        >
+          <p className="font-label text-[10px] uppercase tracking-widest text-ink/25">
+            oscar.amayoral@gmail.com · 664 731 26 95
+          </p>
+        </motion.div>
+      </div>
+
+      {/* RIGHT: amber panel */}
+      <motion.div
+        initial={{ x: 80, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+        className="hidden lg:flex w-[38%] flex-col justify-between relative overflow-hidden"
+        style={{ background: "var(--amber)" }}
+      >
+        {/* Decorative circles */}
+        <div className="absolute top-[-80px] right-[-80px] w-[320px] h-[320px] rounded-full"
+          style={{ background: "rgba(255,255,255,0.12)" }} />
+        <div className="absolute bottom-[-60px] left-[-60px] w-[240px] h-[240px] rounded-full"
+          style={{ background: "rgba(0,0,0,0.06)" }} />
+        <div className="absolute top-[40%] left-[10%] w-[120px] h-[120px] rounded-full"
+          style={{ background: "rgba(255,255,255,0.08)" }} />
+
+        {/* Top label */}
+        <div className="relative z-10 p-10 pt-28">
+          <p className="font-label text-[10px] uppercase tracking-[0.2em] text-ink/50">En cifras</p>
+        </div>
+
+        {/* Stats */}
+        <div className="relative z-10 flex flex-col items-center justify-center gap-10 py-8">
+          <StatBig value={9} label="Años de exp." />
+          <div className="w-16 h-px bg-ink/15" />
+          <StatBig value={15} label="Personas dirigidas" />
+          <div className="w-16 h-px bg-ink/15" />
+          <StatBig value={8} label="Industrias" />
+        </div>
+
+        {/* Bottom: industries */}
+        <div className="relative z-10 p-10 pb-12">
+          <p className="font-label text-[9px] uppercase tracking-widest text-ink/40 mb-3">Sectores</p>
+          <div className="flex flex-wrap gap-1.5">
+            {["Automotriz", "Inmobiliario", "Médico", "Gastronómico", "Industrial", "CRM", "IA"].map(s => (
+              <span key={s} className="font-label text-[9px] uppercase tracking-wide bg-ink/10 text-ink/70 px-2.5 py-1 rounded-full">
+                {s}
+              </span>
+            ))}
+          </div>
+        </div>
       </motion.div>
     </section>
   );

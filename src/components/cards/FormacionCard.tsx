@@ -9,12 +9,14 @@ const estudios = [
     escuela: "Universidad Autónoma de Baja California",
     periodo: "2013 – 2017",
     lugar: "Tijuana, México",
+    flag: "🇲🇽",
   },
   {
     titulo: "Estancia Académica",
     escuela: "Universidad de La Coruña",
     periodo: "2015 – 2016",
     lugar: "A Coruña, España",
+    flag: "🇪🇸",
   },
 ];
 
@@ -22,37 +24,32 @@ export default function FormacionCard() {
   return (
     <motion.div
       variants={cardVariants}
-      whileHover={{ y: -4, boxShadow: "0 12px 32px rgba(0,0,0,0.10)" }}
+      whileHover={{ y: -3, boxShadow: "0 16px 40px rgba(0,0,0,0.10)" }}
       transition={{ type: "spring", stiffness: 400, damping: 17 }}
-      className="md:col-span-1 bg-white rounded-[20px] p-8"
-      style={{ boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }}
+      className="md:col-span-1 bg-white rounded-[20px] overflow-hidden"
+      style={{ boxShadow: "0 2px 12px rgba(0,0,0,0.07)" }}
     >
-      <p className="font-label text-[10px] uppercase tracking-widest text-ink/40 mb-5">
-        Formación
-      </p>
-
-      <div className="flex flex-col gap-5">
+      <div className="px-6 pt-5 pb-4 border-b border-ink/6">
+        <p className="font-label text-[10px] uppercase tracking-widest text-ink/40">Formación</p>
+      </div>
+      <div className="p-6 flex flex-col gap-5">
         {estudios.map((e, i) => (
           <motion.div
             key={e.escuela}
-            initial={{ opacity: 0, y: 12 }}
+            initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: i * 0.1, duration: 0.4, ease: "easeOut" }}
+            transition={{ delay: i * 0.1, duration: 0.35 }}
+            className="flex gap-3"
           >
-            <div className="flex items-start gap-2 mb-1">
-              <div className="w-1.5 h-1.5 rounded-full bg-amber mt-1.5 shrink-0" />
-              <div>
-                <p className="font-display font-semibold text-ink text-sm">{e.titulo}</p>
-                <p className="font-grotesk text-sm text-ink/60">{e.escuela}</p>
-                <div className="flex gap-2 mt-1">
-                  <span className="font-label text-[10px] uppercase tracking-widest text-amber">
-                    {e.periodo}
-                  </span>
-                  <span className="font-label text-[10px] uppercase tracking-widest text-ink/30">
-                    {e.lugar}
-                  </span>
-                </div>
+            <span className="text-2xl mt-0.5">{e.flag}</span>
+            <div>
+              <p className="font-display font-semibold text-ink text-sm leading-snug">{e.titulo}</p>
+              <p className="font-grotesk text-xs text-ink/50 mt-0.5">{e.escuela}</p>
+              <div className="flex gap-2 mt-1.5">
+                <span className="font-label text-[9px] uppercase tracking-widest text-amber">{e.periodo}</span>
+                <span className="text-ink/20">·</span>
+                <span className="font-label text-[9px] uppercase tracking-widest text-ink/30">{e.lugar}</span>
               </div>
             </div>
           </motion.div>
