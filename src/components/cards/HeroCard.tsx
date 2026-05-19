@@ -33,13 +33,13 @@ function HeroStat({ value, label }: { value: number; label: string }) {
   useEffect(() => {
     const c = animate(mv, value, {
       duration: 1.4, ease: "easeOut", delay: 0.6,
-      onUpdate: (v) => { if (ref.current) ref.current.textContent = Math.round(v).toString(); },
+      onUpdate: (v) => { if (ref.current) ref.current.textContent = `+${Math.round(v)}`; },
     });
     return c.stop;
   }, [value, mv]);
   return (
     <div className="flex flex-col items-center text-center">
-      <span ref={ref} className="font-display font-black text-white leading-none text-4xl tabular-nums">0</span>
+      <span ref={ref} className="font-display font-black text-white leading-none text-4xl tabular-nums">+0</span>
       <span className="font-label text-xs uppercase tracking-widest text-white/50 mt-1.5">{label}</span>
     </div>
   );
@@ -132,10 +132,8 @@ export default function HeroCard() {
           className="absolute inset-x-0 bottom-0 flex flex-col gap-4 px-6 pb-6 pt-16"
           style={{ background: "linear-gradient(to top, rgba(15,23,42,0.95) 60%, transparent)" }}
         >
-          <div className="flex items-end justify-between gap-4">
+          <div className="flex items-end justify-center gap-8">
             <HeroStat value={9} label="Años exp." />
-            <div className="w-px h-8 bg-white/15" />
-            <HeroStat value={15} label="Personas" />
             <div className="w-px h-8 bg-white/15" />
             <HeroStat value={8} label="Industrias" />
           </div>
