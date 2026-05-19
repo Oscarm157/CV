@@ -36,7 +36,7 @@ const frameworks = {
       name: "Jobs To Be Done",
       abbr: "JTBD",
       color: "#6B5CE7",
-      desc: "Understanding the real job a customer hires a product to do — not just what they say they want.",
+      desc: "Understanding the real job a customer hires a product to do, not just what they say they want.",
       exampleLabel: "Example",
       example: "Someone buying a home for family security needs a completely different message than an investor chasing returns. Same property, two different jobs. Generic copy converts neither.",
     },
@@ -54,7 +54,7 @@ const frameworks = {
       color: "#0284C7",
       desc: "Create your own market instead of competing for an existing one. Differentiation and value at the same time make direct competition irrelevant.",
       exampleLabel: "Example",
-      example: "Netflix didn't beat Blockbuster — it made the whole concept of renting a DVD irrelevant.",
+      example: "Netflix didn't beat Blockbuster; it made the whole concept of renting a DVD irrelevant.",
     },
   ],
 };
