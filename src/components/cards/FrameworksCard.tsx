@@ -20,7 +20,7 @@ const frameworks = {
       color: "#059669",
       desc: "Mapear el recorrido completo del cliente, desde que ve la publicidad hasta la postventa. Cada punto de contacto suma o resta energía hacia el cierre.",
       exampleLabel: "Ejemplo",
-      example: "Un anuncio claro lleva al formulario; si el formulario confunde, la energía se pierde ahí. El resto del recorrido no compensa esa fricción.",
+      example: "El anuncio convence, el formulario fluye, pero si ventas tarda 4 días hábiles en contactar al lead, ya se enfrió. Cada paso tiene que sostener al siguiente.",
     },
     {
       name: "Blue Ocean Strategy",
@@ -46,7 +46,7 @@ const frameworks = {
       color: "#059669",
       desc: "Map the full customer path, from first ad to post-sale. Every touchpoint adds or drains energy toward the close.",
       exampleLabel: "Example",
-      example: "A clear ad leads to the form; if the form confuses, that's where the energy dies. The rest of the journey can't make up for that friction.",
+      example: "The ad converts, the form flows, but if sales takes 4 business days to reach out, the lead is already cold. Every step has to carry the next.",
     },
     {
       name: "Blue Ocean Strategy",
