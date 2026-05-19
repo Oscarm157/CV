@@ -16,7 +16,7 @@ const frameworks = [
     abbr: "DT",
     color: "#059669",
     desc: "Empatizar con el usuario antes de proponer soluciones. Definir el problema real, idear, prototipar y testear antes de ejecutar a escala.",
-    example: "IDEO rediseñó el carrito de supermercado en 5 días observando a compradores reales — sin asumir lo que necesitaban, preguntando y probando en campo.",
+    example: "En vez de lanzar una campaña asumiendo qué quiere el cliente, primero lo observas, hablas con él y pruebas un mensaje pequeño antes de invertir el presupuesto completo.",
   },
   {
     name: "Blue Ocean Strategy",
