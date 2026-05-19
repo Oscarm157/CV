@@ -45,7 +45,7 @@ function HeroStat({ value, label }: { value: number; label: string }) {
   );
 }
 
-const clients = ["Mazda", "BMW", "Mini Cooper", "Carl Zeiss", "Chef Javier Plascencia"];
+const clients = ["Mazda", "BMW", "Mini Cooper", "Carl Zeiss", "Chef Javier Plascencia", "+70 marcas"];
 
 export default function HeroCard() {
   return (
