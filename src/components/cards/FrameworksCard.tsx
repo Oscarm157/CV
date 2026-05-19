@@ -9,7 +9,7 @@ const frameworks = [
     abbr: "JTBD",
     color: "#6B5CE7",
     desc: "Entender qué trabajo real contrata el cliente cuando elige un producto o servicio, no solo lo que dice querer.",
-    example: "Alguien que compra casa no busca metros cuadrados: busca seguridad para su familia y estatus. Eso cambia el mensaje, el canal y el cierre.",
+    example: "Quien compra casa por seguridad familiar necesita un mensaje distinto al inversionista que busca rentabilidad. El mismo inmueble, dos trabajos distintos. Copys genéricos no convierten a ninguno de los dos.",
   },
   {
     name: "Design Thinking",
