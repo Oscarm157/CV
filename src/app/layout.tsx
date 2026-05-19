@@ -22,9 +22,9 @@ const spaceMono = Space_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Oscar Arredondo — Marketing & Agentes IA",
+  title: "Oscar Arredondo · Marketing & AI Agents",
   description:
-    "Coordinador CRM en Atisa Group. Marketing, automatización y codificación agéntica.",
+    "CRM Manager at Atisa Group. Marketing, automation and agentic coding.",
 };
 
 export default function RootLayout({
@@ -32,7 +32,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html
-      lang="es"
+      lang="en"
       className={`${syne.variable} ${spaceGrotesk.variable} ${spaceMono.variable} h-full antialiased`}
     >
       <body className="min-h-full"><LanguageProvider>{children}</LanguageProvider></body>
