@@ -77,11 +77,11 @@ export default function FrameworksCard() {
       className="md:col-span-9 rounded-[20px] overflow-hidden"
       style={{ background: "var(--paper)", boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }}
     >
-      <div className="px-6 pt-5 pb-5 relative overflow-hidden" style={{ background: "var(--ink)" }}>
+      <div className="px-6 pt-5 pb-5 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 relative overflow-hidden" style={{ background: "var(--ink)" }}>
         <div className="absolute right-0 top-0 w-56 h-56 rounded-full pointer-events-none"
           style={{ background: "rgba(107,92,231,0.10)", transform: "translate(30%, -30%)" }} />
         <p className="font-label text-[15px] uppercase tracking-widest text-white relative z-10">{t.eyebrow}</p>
-        <p className="font-grotesk text-base text-white mt-1 relative z-10">{t.sub}</p>
+        <p className="font-grotesk text-sm text-white/85 relative z-10">{t.sub}</p>
       </div>
 
       <div className="p-4 grid grid-cols-1 sm:grid-cols-3 gap-3">
