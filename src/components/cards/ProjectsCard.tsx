@@ -266,7 +266,7 @@ export default function ProjectsCard() {
 
             <div className="p-4 flex flex-col gap-2 flex-1">
               <p className="font-display font-bold text-ink text-base leading-tight">{p.title[lang]}</p>
-              <p className="font-grotesk text-sm text-ink/65 leading-snug">{p.desc[lang]}</p>
+              <p className="font-grotesk text-sm text-ink/80 leading-snug">{p.desc[lang]}</p>
               <div className="flex flex-wrap gap-1.5 mt-auto pt-2">
                 {p.tools.map((tool) => (
                   <span key={tool} className="font-label text-[10px] uppercase tracking-wide text-ink/70 bg-ink/6 px-2 py-1 rounded-md">

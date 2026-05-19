@@ -119,7 +119,7 @@ export default function SoftwareCard() {
       <div className="p-5 flex flex-col gap-4">
         {groups.map((group) => (
           <div key={group.label.es}>
-            <p className="font-label text-[11px] uppercase tracking-widest text-ink/45 mb-2.5">
+            <p className="font-label text-[12px] font-bold uppercase tracking-widest text-ink mb-2.5">
               {group.label[lang]}
             </p>
             <div className="grid grid-cols-3 gap-2">

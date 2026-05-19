@@ -137,7 +137,7 @@ export default function ExperienceCard() {
 
               <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5 mb-2">
                 <span className="font-display font-semibold text-ink text-base">{job.title}</span>
-                <span className="font-grotesk text-sm text-ink/65">· {job.company}</span>
+                <span className="font-grotesk text-sm text-ink/80">· {job.company}</span>
                 <span className="font-label text-xs uppercase tracking-widest ml-auto" style={{ color: job.accentColor }}>
                   {job.period}
                 </span>

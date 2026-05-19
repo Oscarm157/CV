@@ -24,16 +24,16 @@ export default function Nav() {
         Oscar Arredondo
       </span>
       <div className="flex items-center gap-6">
-        <a href="#experiencia" className="font-label text-xs uppercase tracking-widest text-ink/50 hover:text-ink transition-colors">
+        <a href="#experiencia" className="font-label text-xs uppercase tracking-widest text-ink/70 hover:text-ink transition-colors">
           {t.exp}
         </a>
-        <a href="#skills" className="font-label text-xs uppercase tracking-widest text-ink/50 hover:text-ink transition-colors">
+        <a href="#skills" className="font-label text-xs uppercase tracking-widest text-ink/70 hover:text-ink transition-colors">
           {t.skills}
         </a>
-        <a href="#ia" className="font-label text-xs uppercase tracking-widest text-ink/50 hover:text-ink transition-colors">
+        <a href="#ia" className="font-label text-xs uppercase tracking-widest text-ink/70 hover:text-ink transition-colors">
           {t.ia}
         </a>
-        <a href="#contacto" className="font-label text-xs uppercase tracking-widest text-ink/50 hover:text-ink transition-colors">
+        <a href="#contacto" className="font-label text-xs uppercase tracking-widest text-ink/70 hover:text-ink transition-colors">
           {t.contact}
         </a>
 
@@ -43,9 +43,9 @@ export default function Nav() {
           className="font-label text-xs uppercase tracking-widest flex items-center gap-1 cursor-pointer"
           aria-label="Toggle language"
         >
-          <span className={lang === "es" ? "text-ink" : "text-ink/40"}>ES</span>
+          <span className={lang === "es" ? "text-ink" : "text-ink/55"}>ES</span>
           <span className="text-ink/25">/</span>
-          <span className={lang === "en" ? "text-ink" : "text-ink/40"}>EN</span>
+          <span className={lang === "en" ? "text-ink" : "text-ink/55"}>EN</span>
         </button>
 
         <motion.a

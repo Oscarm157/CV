@@ -134,7 +134,7 @@ export default function PortfolioCard() {
                   {sublabel}
                 </p>
                 <p className="font-display font-bold text-ink text-xl leading-tight">{label}</p>
-                <p className="font-grotesk text-sm text-ink/60 mt-1.5 leading-snug">{desc}</p>
+                <p className="font-grotesk text-sm text-ink/80 mt-1.5 leading-snug">{desc}</p>
               </div>
 
               {/* CTA */}

@@ -77,8 +77,8 @@ export default function FormacionCard() {
               <p className="font-grotesk text-sm text-ink/70 mt-0.5">{e.escuela}</p>
               <div className="flex flex-wrap gap-x-2 gap-y-0.5 mt-1.5">
                 <span className="font-label text-xs uppercase tracking-widest text-amber">{e.periodo}</span>
-                <span className="text-ink/40">·</span>
-                <span className="font-label text-xs uppercase tracking-widest text-ink/60">{e.lugar}</span>
+                <span className="text-ink/55">·</span>
+                <span className="font-label text-xs uppercase tracking-widest text-ink/80">{e.lugar}</span>
               </div>
             </div>
           </motion.div>

@@ -56,7 +56,7 @@ export default function ProfileCard() {
         <p className="font-grotesk text-base text-ink font-medium leading-relaxed mb-4">
           {t.p1}
         </p>
-        <p className="font-grotesk text-sm text-ink/70 leading-relaxed mb-5">
+        <p className="font-grotesk text-sm text-ink/80 leading-relaxed mb-5">
           {t.p2}
         </p>
 

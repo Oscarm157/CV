@@ -97,12 +97,12 @@ export default function FrameworksCard() {
           >
             <div className="flex items-center gap-3">
               <span className="font-display font-black text-2xl" style={{ color }}>{abbr}</span>
-              <span className="font-label text-xs uppercase tracking-widest text-ink/40">{name}</span>
+              <span className="font-label text-xs uppercase tracking-widest text-ink/70">{name}</span>
             </div>
             <p className="font-grotesk text-sm text-ink/70 leading-relaxed">{desc}</p>
             <div className="rounded-xl px-3 py-2.5" style={{ background: `${color}10` }}>
               <p className="font-label text-xs uppercase tracking-widest mb-1" style={{ color }}>{exampleLabel}</p>
-              <p className="font-grotesk text-xs text-ink/65 leading-relaxed italic">{example}</p>
+              <p className="font-grotesk text-xs text-ink/80 leading-relaxed italic">{example}</p>
             </div>
           </motion.div>
         ))}
