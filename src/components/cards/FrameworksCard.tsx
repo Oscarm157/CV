@@ -8,19 +8,22 @@ const frameworks = [
     name: "Jobs To Be Done",
     abbr: "JTBD",
     color: "#6B5CE7",
-    desc: "Entender qué trabajo real contrata el cliente cuando elige un producto. Permite diseñar mensajes y ofertas que resuelven la necesidad de fondo, no solo la superficie.",
+    desc: "Entender qué trabajo real contrata el cliente cuando elige un producto o servicio, no solo lo que dice querer.",
+    example: "Un cliente no busca un spot de video: busca que su marca transmita confianza antes de que el comprador entre al showroom.",
   },
   {
     name: "Design Thinking",
     abbr: "DT",
     color: "#059669",
-    desc: "Proceso de 5 pasos centrado en el usuario: Empatizar, Definir, Idear, Prototipar y Testear. Lo aplico para diseñar campañas y flujos de customer journey desde el problema real del cliente.",
+    desc: "Empatizar con el usuario antes de proponer soluciones. Definir el problema real, idear, prototipar y testear antes de ejecutar a escala.",
+    example: "Antes de diseñar una campaña de leads, entrevisto al equipo de ventas para saber qué fricción tienen con los prospectos que ya llegan.",
   },
   {
     name: "Blue Ocean Strategy",
     abbr: "BOS",
     color: "#0284C7",
-    desc: "Crear espacios de mercado sin competencia en lugar de disputar los existentes. Busca diferenciación y bajo costo simultáneamente para hacer irrelevante a la competencia.",
+    desc: "Crear espacios de mercado propios en lugar de pelear por los existentes. Diferenciación y valor simultáneos hacen irrelevante a la competencia directa.",
+    example: "En Kraken me enfoqué en industrias sin producción audiovisual de calidad — gastronómica y médica — donde no había con quién competir por precio.",
   },
 ];
 
@@ -34,11 +37,12 @@ export default function FrameworksCard() {
       style={{ boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }}
     >
       <div className="px-6 pt-5 pb-4 border-b border-ink/6">
-        <p className="font-label text-xs uppercase tracking-widest text-ink/40">Frameworks</p>
+        <p className="font-label text-xs uppercase tracking-widest text-ink/40">Metodología</p>
+        <p className="font-grotesk text-sm text-ink/55 mt-1">La base de cómo abordo cada proyecto</p>
       </div>
 
       <div className="p-4 grid grid-cols-1 sm:grid-cols-3 gap-3">
-        {frameworks.map(({ name, abbr, color, desc }, i) => (
+        {frameworks.map(({ name, abbr, color, desc, example }, i) => (
           <motion.div
             key={name}
             initial={{ opacity: 0, y: 8 }}
@@ -53,6 +57,10 @@ export default function FrameworksCard() {
               <span className="font-label text-xs uppercase tracking-widest text-ink/40">{name}</span>
             </div>
             <p className="font-grotesk text-sm text-ink/70 leading-relaxed">{desc}</p>
+            <div className="rounded-xl px-3 py-2.5" style={{ background: `${color}10` }}>
+              <p className="font-label text-xs uppercase tracking-widest mb-1" style={{ color }}>Ejemplo</p>
+              <p className="font-grotesk text-xs text-ink/65 leading-relaxed italic">{example}</p>
+            </div>
           </motion.div>
         ))}
       </div>
