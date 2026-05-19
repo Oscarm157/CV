@@ -94,7 +94,7 @@ export default function HeroCard() {
       style={{ background: "var(--ink)" }}
     >
       {/* LEFT — text */}
-      <div className="flex-1 flex flex-col justify-center px-6 sm:px-8 md:px-12 py-8 md:py-10 relative overflow-hidden">
+      <div className="flex-1 flex flex-col justify-center px-5 sm:px-8 md:px-12 py-8 md:py-10 relative overflow-hidden">
         <div className="absolute -top-24 -left-24 w-72 h-72 rounded-full pointer-events-none"
           style={{ background: "rgba(245,158,11,0.07)" }} />
 
@@ -131,7 +131,7 @@ export default function HeroCard() {
 
         <h1
           className="font-display font-black tracking-tighter text-white leading-[0.88] relative z-10"
-          style={{ fontSize: "clamp(2.2rem, 9.5vw, 5rem)" }}
+          style={{ fontSize: "clamp(1.8rem, 8vw, 5rem)", letterSpacing: "-0.04em" }}
         >
           <AnimatedName word="OSCAR" />
           <br />
