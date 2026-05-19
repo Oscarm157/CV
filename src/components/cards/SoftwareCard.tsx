@@ -2,7 +2,7 @@
 
 import { motion } from "motion/react";
 import { cardVariants } from "../BentoGrid";
-import { SiWebflow, SiSemrush, SiZapier, SiMailchimp, SiZoho, SiGithub, SiVercel, SiSupabase, SiClaude, SiReplicate, SiMeta, SiGoogleads } from "react-icons/si";
+import { SiWebflow, SiSemrush, SiZapier, SiMailchimp, SiZoho, SiGithub, SiVercel, SiSupabase, SiClaude, SiReplicate, SiMeta, SiGoogleads, SiAsana } from "react-icons/si";
 import { FaLinkedin } from "react-icons/fa";
 import { BarChart3, Webhook, Bot, Terminal } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
@@ -40,27 +40,58 @@ type SoftwareItem = {
   Custom?: React.ComponentType;
 };
 
-const software: SoftwareItem[] = [
-  { name: "Claude",         Icon: SiClaude,    color: "#CC785C" },
-  { name: "Claude Code",    Icon: Terminal,    color: "#A0522D" },
-  { name: "Webflow",        Icon: SiWebflow,   color: "#4353FF" },
-  { name: "Zapier",         Icon: SiZapier,    color: "#FF4A00" },
-  { name: "Zoho CRM",       Icon: SiZoho,      color: "#E42527" },
-  { name: "Semrush",        Icon: SiSemrush,   color: "#FF642D" },
-  { name: "Meta Ads",       Icon: SiMeta,      color: "#0866FF" },
-  { name: "Google Ads",     Icon: SiGoogleads, color: "#4285F4" },
-  { name: "LinkedIn Ads",   Icon: FaLinkedin,  color: "#0A66C2" },
-  { name: "GitHub",         Icon: SiGithub,    color: "#24292E" },
-  { name: "Vercel",         Icon: SiVercel,    color: "#18181B" },
-  { name: "Supabase (SQL)", Icon: SiSupabase,  color: "#3ECF8E" },
-  { name: "Replicate",      Icon: SiReplicate, color: "#000000" },
-  { name: "APIs",           Icon: Webhook,     color: "#9999FF" },
-  { name: "Weavy.ai",       Icon: Bot,         color: "#6D00CC" },
-  { name: "Mailchimp",      Icon: SiMailchimp, color: "#FFE01B" },
-  { name: "MS Clarity",     Icon: BarChart3,   color: "#008272" },
-  { name: "Premiere",       Custom: AdobePr,   color: "#9999FF" },
-  { name: "Photoshop",      Custom: AdobePs,   color: "#31A8FF" },
-  { name: "Lightroom",      Custom: AdobeLr,   color: "#74B8F5" },
+type Group = {
+  label: { es: string; en: string };
+  items: SoftwareItem[];
+};
+
+const groups: Group[] = [
+  {
+    label: { es: "IA & Agentes", en: "AI & Agents" },
+    items: [
+      { name: "Claude",      Icon: SiClaude,    color: "#CC785C" },
+      { name: "Claude Code", Icon: Terminal,    color: "#A0522D" },
+      { name: "Weavy.ai",    Icon: Bot,         color: "#6D00CC" },
+      { name: "Replicate",   Icon: SiReplicate, color: "#000000" },
+    ],
+  },
+  {
+    label: { es: "CRM, Automatización & PM", en: "CRM, Automation & PM" },
+    items: [
+      { name: "Zoho CRM", Icon: SiZoho,   color: "#E42527" },
+      { name: "Zapier",   Icon: SiZapier, color: "#FF4A00" },
+      { name: "Asana",    Icon: SiAsana,  color: "#F06A6A" },
+    ],
+  },
+  {
+    label: { es: "Paid & Marketing", en: "Paid & Marketing" },
+    items: [
+      { name: "Meta Ads",     Icon: SiMeta,      color: "#0866FF" },
+      { name: "Google Ads",   Icon: SiGoogleads, color: "#4285F4" },
+      { name: "LinkedIn Ads", Icon: FaLinkedin,  color: "#0A66C2" },
+      { name: "Semrush",      Icon: SiSemrush,   color: "#FF642D" },
+      { name: "Mailchimp",    Icon: SiMailchimp, color: "#FFE01B" },
+      { name: "MS Clarity",   Icon: BarChart3,   color: "#008272" },
+    ],
+  },
+  {
+    label: { es: "Web & Dev", en: "Web & Dev" },
+    items: [
+      { name: "Webflow",        Icon: SiWebflow,  color: "#4353FF" },
+      { name: "GitHub",         Icon: SiGithub,   color: "#24292E" },
+      { name: "Vercel",         Icon: SiVercel,   color: "#18181B" },
+      { name: "Supabase (SQL)", Icon: SiSupabase, color: "#3ECF8E" },
+      { name: "APIs",           Icon: Webhook,    color: "#9999FF" },
+    ],
+  },
+  {
+    label: { es: "Diseño", en: "Design" },
+    items: [
+      { name: "Premiere",  Custom: AdobePr, color: "#9999FF" },
+      { name: "Photoshop", Custom: AdobePs, color: "#31A8FF" },
+      { name: "Lightroom", Custom: AdobeLr, color: "#74B8F5" },
+    ],
+  },
 ];
 
 const labels = {
@@ -85,23 +116,32 @@ export default function SoftwareCard() {
           style={{ background: "rgba(245,158,11,0.08)", transform: "translate(30%, -30%)" }} />
         <p className="font-label text-[15px] uppercase tracking-widest text-white relative z-10">{labels[lang]}</p>
       </div>
-      <div className="p-5 grid grid-cols-3 gap-2.5">
-        {software.map(({ name, Icon, Custom, color }, i) => (
-          <motion.div
-            key={typeof name === "string" ? name : name.es}
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: i * 0.04, type: "spring", stiffness: 400, damping: 22 }}
-            whileHover={{ scale: 1.07, y: -2 }}
-            className="flex flex-col items-center gap-2 rounded-xl p-3 cursor-default"
-            style={{ background: "rgba(15,23,42,0.04)" }}
-          >
-            {Custom ? <Custom /> : Icon ? <Icon size={22} color={color} /> : null}
-            <span className="font-label text-xs uppercase tracking-wide text-ink/75 text-center leading-tight">
-              {typeof name === "string" ? name : name[lang]}
-            </span>
-          </motion.div>
+      <div className="p-5 flex flex-col gap-4">
+        {groups.map((group) => (
+          <div key={group.label.es}>
+            <p className="font-label text-[11px] uppercase tracking-widest text-ink/45 mb-2.5">
+              {group.label[lang]}
+            </p>
+            <div className="grid grid-cols-3 gap-2">
+              {group.items.map(({ name, Icon, Custom, color }, i) => (
+                <motion.div
+                  key={typeof name === "string" ? name : name.es}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.03, type: "spring", stiffness: 400, damping: 22 }}
+                  whileHover={{ scale: 1.07, y: -2 }}
+                  className="flex flex-col items-center gap-1.5 rounded-xl p-2.5 cursor-default"
+                  style={{ background: "rgba(15,23,42,0.04)" }}
+                >
+                  {Custom ? <Custom /> : Icon ? <Icon size={20} color={color} /> : null}
+                  <span className="font-label text-[10px] uppercase tracking-wide text-ink/75 text-center leading-tight">
+                    {typeof name === "string" ? name : name[lang]}
+                  </span>
+                </motion.div>
+              ))}
+            </div>
+          </div>
         ))}
       </div>
     </motion.div>
