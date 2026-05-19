@@ -4,8 +4,8 @@ import { motion } from "motion/react";
 import { cardVariants } from "../BentoGrid";
 
 const competencias = [
-  "Estrategia Digital", "Customer Journey", "Generación de Leads", "CRM",
-  "Automatización", "Blueprints", "SEO / SEM", "Facebook / IG / Google Ads",
+  "Estrategia Digital", "Customer Journey", "Design Thinking", "Generación de Leads",
+  "CRM", "Automatización", "Blueprints", "SEO / SEM", "Facebook / IG / Google Ads",
   "Contenido Audiovisual", "Email Marketing", "Branding", "Gestión de Equipos",
 ];
 
@@ -31,11 +31,13 @@ export default function ProfileCard() {
 
       {/* Body */}
       <div className="bg-white px-6 py-5">
-        <p className="font-grotesk text-sm text-ink/70 leading-relaxed mb-5">
+        <p className="font-grotesk text-base text-ink font-medium leading-relaxed mb-4">
           9 años cubriendo el customer journey completo: generación de leads, contenido audiovisual,
           SEO, redes sociales y CRM. Mi enfoque es estratégico: construir confianza en cada punto
-          de contacto y convertirla en ventas. Fundé{" "}
-          <span className="text-ink font-medium">Kraken Mkt Studio</span> (2016–2022), equipo de hasta
+          de contacto y convertirla en ventas.
+        </p>
+        <p className="font-grotesk text-sm text-ink/70 leading-relaxed mb-5">
+          Fundé <span className="text-ink font-medium">Kraken Mkt Studio</span> (2016–2022), equipo de hasta
           15 personas, clientes como Mazda, BMW, Ruba y Chef Javier Plascencia. En{" "}
           <span className="text-ink font-medium">Atisa Group</span> diseño blueprints de automatización
           y desarrollo agentes de IA para filtrado y atención rápida de leads.

@@ -10,14 +10,15 @@ const jobs = [
     period: "Jun 2024 – Presente",
     accentColor: "#10B981",
     bullets: [
-      "Coordinación de 2 analistas de CRM · Zoho CRM",
+      "Coordinación y capacitación del equipo de ventas y 2 analistas de CRM · Zoho CRM",
       "Diseño de blueprints de automatización para el ciclo completo de leads",
       "Desarrollo de agente IA para atención rápida y filtrado de leads (en curso)",
+      "Campañas de SEO, paid media y email marketing",
       "Dashboards de KPIs y análisis de desempeño de vendedores",
     ],
   },
   {
-    title: "Consultor Empresarial",
+    title: "Consultor Freelance",
     company: "Independiente",
     period: "Ene 2023 – May 2024",
     accentColor: "#F59E0B",
@@ -27,14 +28,16 @@ const jobs = [
     ],
   },
   {
-    title: "Fundador & Project Manager",
+    title: "Fundador · Director Creativo",
     company: "Kraken Mkt Studio",
     period: "Ene 2016 – Oct 2022",
     accentColor: "#F59E0B",
     bullets: [
-      "Agencia B.C.: Automotriz, Inmobiliario, Gastronómico, Médico",
-      "Clientes: Mazda, BMW, Ruba, Chef Javier Plascencia, Carl Zeiss",
-      "Equipo de hasta 15 personas",
+      "Agencia creativa B.C.: Automotriz, Inmobiliario, Gastronómico, Médico",
+      "Dirección creativa de campañas audiovisuales, branding y contenido digital",
+      "Gestión de leads, SEO y estrategia en redes para marcas regionales y nacionales",
+      "Clientes: Mazda, BMW, Mini Cooper, Ruba, Carl Zeiss, Chef Javier Plascencia",
+      "Dirigí un equipo de hasta 15 personas: creativos, fotógrafos y community managers",
     ],
   },
 ];

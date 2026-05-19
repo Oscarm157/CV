@@ -5,13 +5,14 @@ import { Mail, Phone, MapPin } from "lucide-react";
 
 export default function Footer() {
   return (
+    <section className="px-4 sm:px-6 pb-6">
     <motion.footer
       id="contacto"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.5 }}
-      className="mx-4 sm:mx-6 mb-6 rounded-[20px] overflow-hidden"
+      className="max-w-[1400px] mx-auto rounded-[20px] overflow-hidden"
       style={{ background: "var(--ink)" }}
     >
       <div className="px-8 md:px-12 py-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
@@ -78,5 +79,6 @@ export default function Footer() {
         <span className="font-label text-xs uppercase tracking-widest text-white/50">© 2025</span>
       </div>
     </motion.footer>
+    </section>
   );
 }
