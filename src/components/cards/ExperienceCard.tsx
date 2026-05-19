@@ -10,10 +10,10 @@ const jobs = [
     period: "Jun 2024 – Presente",
     accentColor: "#10B981",
     bullets: [
-      "Coordinación de 2 analistas de CRM en Zoho CRM",
-      "Automatizaciones con Zapier y agentes IA para flujos de leads",
-      "Dashboards de KPIs, análisis de mercado y desempeño de vendedores",
-      "Desarrollo de herramientas internas desde el área de TI",
+      "Coordinación de 2 analistas de CRM · Zoho CRM",
+      "Diseño de blueprints de automatización para el ciclo completo de leads",
+      "Desarrollo de agente IA para atención rápida y filtrado de leads (en curso)",
+      "Dashboards de KPIs y análisis de desempeño de vendedores",
     ],
   },
   {

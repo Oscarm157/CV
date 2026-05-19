@@ -4,9 +4,9 @@ import { motion } from "motion/react";
 import { cardVariants } from "../BentoGrid";
 
 const competencias = [
-  "Marketing Digital", "CRM", "Gestión de Equipos", "Análisis de Datos",
-  "Automatización", "Email Marketing", "Facebook / IG / Google Ads",
-  "SEO / SEM", "Branding", "Producción de Video",
+  "Estrategia Digital", "Customer Journey", "Generación de Leads", "CRM",
+  "Automatización", "Blueprints", "SEO / SEM", "Facebook / IG / Google Ads",
+  "Contenido Audiovisual", "Email Marketing", "Branding", "Gestión de Equipos",
 ];
 
 export default function ProfileCard() {
@@ -32,11 +32,13 @@ export default function ProfileCard() {
       {/* Body */}
       <div className="bg-white px-6 py-5">
         <p className="font-grotesk text-sm text-ink/70 leading-relaxed mb-5">
-          9 años gestionando marcas, equipos y campañas en Automotriz, Inmobiliario, Médico y Gastronómico.
-          Hoy orquesto agentes de IA, automatizaciones y dashboards en{" "}
-          <span className="text-ink font-medium">Atisa Group</span>. Fundé{" "}
-          <span className="text-ink font-medium">Kraken Mkt Studio</span> (2016–2022) dirigiendo
-          un equipo de 15 personas con clientes como Mazda, BMW, Ruba y Chef Javier Plascencia.
+          9 años cubriendo el customer journey completo: generación de leads, contenido audiovisual,
+          SEO, redes sociales y CRM. Mi enfoque es estratégico: construir confianza en cada punto
+          de contacto y convertirla en ventas. Fundé{" "}
+          <span className="text-ink font-medium">Kraken Mkt Studio</span> (2016–2022), equipo de hasta
+          15 personas, clientes como Mazda, BMW, Ruba y Chef Javier Plascencia. En{" "}
+          <span className="text-ink font-medium">Atisa Group</span> diseño blueprints de automatización
+          y desarrollo agentes de IA para filtrado y atención rápida de leads.
           Lic. UABC · Estancia en Universidad de La Coruña, España.
         </p>
 

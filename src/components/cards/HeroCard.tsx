@@ -80,7 +80,7 @@ export default function HeroCard() {
           initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.65 }}
           className="font-grotesk text-base text-white/50 mt-4 relative z-10"
         >
-          Marketing &amp; Growth · CRM · Agentes IA · Automatización
+          Estrategia Digital · Customer Journey · Leads · Automatización · Agentes IA
         </motion.p>
 
         <motion.div

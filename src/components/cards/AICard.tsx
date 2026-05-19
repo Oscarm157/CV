@@ -52,8 +52,8 @@ export default function AICard() {
         </div>
 
         <p className="font-grotesk text-sm text-white/50 leading-relaxed">
-          Desde el departamento de TI orquesto agentes de IA, automatizo flujos de CRM
-          y construyo herramientas internas con Claude Code.
+          Desde TI diseño blueprints de automatización y desarrollo agentes de IA
+          para filtrado y atención rápida de leads con Claude Code y Zapier.
         </p>
 
         <motion.div
