@@ -12,10 +12,10 @@ const jobs = {
       period: "Jun 2024 – Presente",
       accentColor: "#10B981",
       bullets: [
-        "Coordinación y capacitación del equipo de ventas y 2 analistas de CRM en Zoho CRM",
+        "Coordinación y capacitación del equipo de ventas y 2 analistas de CRM en <strong>Zoho CRM</strong>",
         "Diseño de blueprints de automatización para el ciclo completo de leads",
-        "Plan de implementación de IA para +250 personas, incluyendo diseño del programa de capacitación",
-        "Dashboard ejecutivo de adopción de IA presentado al CEO: KPIs por dirección y proyección de horas ahorradas",
+        "Liderazgo de la adopción de IA en Atisa para +250 personas, incluyendo programa de capacitación",
+        "Dashboard de seguimiento construido para el CEO: KPIs por dirección y proyección de horas ahorradas",
         "Agente IA en construcción para atención rápida y filtrado de leads",
         "Campañas de SEO, paid media (Meta, Google, LinkedIn) y email marketing",
       ],
@@ -41,7 +41,7 @@ const jobs = {
         "Dirección creativa de campañas audiovisuales, branding y contenido digital",
         "Gestión de leads, SEO y estrategia en redes para marcas regionales y nacionales",
         "Clientes: Mazda, BMW, Mini Cooper, Carl Zeiss, Chef Javier Plascencia",
-        "Dirigí un equipo de hasta 15 personas: creativos, fotógrafos y community managers",
+        "Dirigí un equipo de hasta 12 personas: creativos, fotógrafos y community managers",
       ],
     },
   ],
@@ -52,10 +52,10 @@ const jobs = {
       period: "Jun 2024 – Present",
       accentColor: "#10B981",
       bullets: [
-        "Leading and training the sales team and 2 CRM analysts on Zoho CRM",
+        "Leading and training the sales team and 2 CRM analysts on <strong>Zoho CRM</strong>",
         "Designing automation blueprints for the full lead cycle",
-        "Led the AI implementation plan for 250+ people, including training program design",
-        "Built the executive AI adoption dashboard presented to the CEO: KPIs by department and projected hours saved",
+        "Leading AI adoption at Atisa for 250+ people, including training program design",
+        "Built a tracking dashboard for the CEO: KPIs by department and projected hours saved",
         "Shipping an AI agent for fast lead response and filtering",
         "SEO campaigns, paid media (Meta, Google, LinkedIn) and email marketing",
       ],
@@ -81,7 +81,7 @@ const jobs = {
         "Creative direction for video campaigns, branding, and digital content",
         "Lead management, SEO, and social strategy for regional and national brands",
         "Clients: Mazda, BMW, Mini Cooper, Carl Zeiss, Chef Javier Plascencia",
-        "Led a team of up to 15: creatives, photographers, and community managers",
+        "Led a team of up to 12: creatives, photographers, and community managers",
       ],
     },
   ],
@@ -147,7 +147,7 @@ export default function ExperienceCard() {
                 {job.bullets.map((b) => (
                   <li key={b} className="font-grotesk text-sm text-ink/80 flex gap-2 leading-snug">
                     <span className="text-amber shrink-0 text-xs mt-0.5">▸</span>
-                    {b}
+                    <span dangerouslySetInnerHTML={{ __html: b }} />
                   </li>
                 ))}
               </ul>

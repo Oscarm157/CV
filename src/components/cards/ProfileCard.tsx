@@ -9,7 +9,7 @@ const content = {
     eyebrow: "Perfil",
     headline: "Mercadólogo · Estratega Digital · Orquestador de IA",
     p1: "Me enfoco en resolver problemas de negocio complejos, con +10 años de experiencia cubriendo el customer journey completo: generación de leads, contenido audiovisual, SEO, redes sociales y CRM. Construyo confianza en cada punto de contacto y la convierto en ventas. Tomo responsabilidad de cada proyecto en el que me involucro.",
-    p2: "Fundé Kraken Mkt Studio (2016–2022), equipo de hasta 15 personas, con clientes como Mazda, BMW, Ruba y Chef Javier Plascencia. En Atisa Group diseño blueprints de automatización, lideré el dashboard de adopción de IA presentado al CEO y tengo en curso un agente de atención y filtrado de leads.",
+    p2: "Fundé Kraken Mkt Studio (2016–2022), equipo de hasta 12 personas, con clientes como Mazda, BMW, Ruba y Chef Javier Plascencia. En Atisa Group lidero la adopción de IA, diseño blueprints de automatización, construí un dashboard de seguimiento para el CEO y tengo en curso un agente de atención y filtrado de leads.",
     tags: [
       "Estrategia Digital", "Customer Journey", "Generación de Leads",
       "CRM", "Automatización", "Blueprints", "SEO / SEM", "Meta / Google / LinkedIn Ads",
@@ -20,7 +20,7 @@ const content = {
     eyebrow: "About",
     headline: "Marketer · Digital Strategist · AI Builder",
     p1: "I'm focused on solving complex business problems, with 10+ years of experience across the full customer journey: lead generation, video content, SEO, social media, and CRM. I build trust at every touchpoint and turn it into sales. I take ownership of every project I commit to.",
-    p2: "Founded Kraken Mkt Studio (2016–2022), a 15-person creative agency working with Mazda, BMW, Chef Javier Plascencia and others. At Atisa Group I design automation blueprints, led the AI adoption dashboard for the CEO, and am shipping an AI agent for lead response and filtering.",
+    p2: "Founded Kraken Mkt Studio (2016–2022), a 12-person creative agency working with Mazda, BMW, Chef Javier Plascencia and others. At Atisa Group I lead AI adoption, design automation blueprints, built a tracking dashboard for the CEO, and am shipping an AI agent for lead response and filtering.",
     tags: [
       "Digital Strategy", "Customer Journey", "Lead Generation",
       "CRM", "Automation", "Blueprints", "SEO / SEM", "Meta / Google / LinkedIn Ads",

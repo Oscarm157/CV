@@ -14,13 +14,13 @@ const content = {
     badge: "En producción",
     eyebrow: "AI Lab",
     title: "IA & Agentes",
-    body: "Diseño agentes y herramientas de IA para automatizar operaciones reales: CRM, leads, reportes, generación de contenido y flujos internos. Lideré el plan de implementación de IA en Atisa Group para +250 personas, incluyendo capacitación. En paralelo pruebo desarrollo agéntico con OpenClaw y construyo plataformas SaaS personales con Claude Code, Supabase y Vercel.",
+    body: "Diseño agentes y herramientas de IA para automatizar operaciones reales: CRM, leads, reportes, generación de contenido y flujos internos. Lidero la adopción de IA en Atisa Group para +250 personas y construí un dashboard de seguimiento para el CEO. En paralelo pruebo desarrollo agéntico con OpenClaw y construyo plataformas SaaS personales con Claude Code, Supabase y Vercel.",
   },
   en: {
     badge: "Live",
     eyebrow: "AI Lab",
     title: "AI & Agents",
-    body: "I build AI agents and tools to automate real operations: CRM, lead response, reporting, content generation, and internal workflows. Led Atisa Group's AI implementation plan for 250+ people, including training. On the side I'm testing agentic development with OpenClaw and building personal SaaS platforms with Claude Code, Supabase and Vercel.",
+    body: "I build AI agents and tools to automate real operations: CRM, lead response, reporting, content generation, and internal workflows. I lead AI adoption at Atisa Group for 250+ people and built a tracking dashboard for the CEO. On the side I'm testing agentic development with OpenClaw and building personal SaaS platforms with Claude Code, Supabase and Vercel.",
   },
 };
 
