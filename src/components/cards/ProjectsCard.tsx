@@ -50,7 +50,7 @@ const projects: Project[] = [
       en: "Audiovisual content workflows connecting image, video and text nodes.",
     },
     tools: ["Weavy.ai", "Figma Wave", "AI"],
-    images: ["/screenshots/weavy-2.png", "/screenshots/weavy-1.png"],
+    images: ["/screenshots/weavy-1.png", "/screenshots/weavy-2.png"],
   },
 ];
 
