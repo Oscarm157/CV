@@ -111,10 +111,10 @@ function Lightbox({ images, alt, startIdx, onClose }: { images: string[]; alt: s
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
         onClick={(e) => e.stopPropagation()}
-        className="relative w-full max-w-6xl cursor-default"
-        style={{ aspectRatio: "16/10" }}
+        className="relative cursor-default"
+        style={{ width: "min(96vw, 1800px)", height: "min(90vh, 1100px)" }}
       >
-        <Image src={images[idx]} alt={alt} fill className="object-contain rounded-xl" sizes="100vw" priority />
+        <Image src={images[idx]} alt={alt} fill className="object-contain rounded-xl" sizes="96vw" priority />
       </motion.div>
 
       {images.length > 1 && (
