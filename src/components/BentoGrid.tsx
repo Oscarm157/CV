@@ -24,7 +24,7 @@ export default function BentoGrid({ children }: { children: React.ReactNode }) {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.04 }}
-        className="grid grid-cols-1 md:grid-cols-12 gap-3 max-w-[1400px] mx-auto"
+        className="grid grid-cols-1 md:grid-cols-12 gap-2 sm:gap-3 max-w-[1400px] mx-auto"
       >
         {children}
       </motion.div>

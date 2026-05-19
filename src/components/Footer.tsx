@@ -34,7 +34,7 @@ export default function Footer() {
       className="max-w-[1400px] mx-auto rounded-[20px] overflow-hidden"
       style={{ background: "var(--ink)" }}
     >
-      <div className="px-8 md:px-12 py-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+      <div className="px-6 sm:px-8 md:px-12 py-8 md:py-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 md:gap-8">
 
         {/* Left */}
         <div>
@@ -93,7 +93,7 @@ export default function Footer() {
       </div>
 
       {/* Bottom strip */}
-      <div className="px-8 md:px-12 py-4 border-t border-white/6 flex items-center justify-between">
+      <div className="px-6 sm:px-8 md:px-12 py-4 border-t border-white/6 flex items-center justify-between">
         <span className="font-display font-bold text-white/60 text-sm">Oscar Arredondo</span>
         <span className="font-label text-xs uppercase tracking-widest text-white/50">© 2026</span>
       </div>

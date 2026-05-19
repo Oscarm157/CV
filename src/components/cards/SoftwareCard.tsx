@@ -122,7 +122,7 @@ export default function SoftwareCard() {
             <p className="font-label text-[12px] font-bold uppercase tracking-widest text-ink mb-2.5">
               {group.label[lang]}
             </p>
-            <div className="grid grid-cols-3 gap-2">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
               {group.items.map(({ name, Icon, Custom, color }, i) => (
                 <motion.div
                   key={typeof name === "string" ? name : name.es}

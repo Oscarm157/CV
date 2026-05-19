@@ -119,7 +119,7 @@ export default function ExperienceCard() {
         {/* Static timeline line */}
         <div className="absolute left-6 top-6 bottom-6 w-px bg-ink/8" />
 
-        <div className="pl-8 flex flex-col gap-7">
+        <div className="pl-7 md:pl-8 flex flex-col gap-5 md:gap-7">
           {jobList.map((job, i) => (
             <motion.div
               key={job.company}
@@ -138,7 +138,7 @@ export default function ExperienceCard() {
               <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5 mb-2">
                 <span className="font-display font-semibold text-ink text-base">{job.title}</span>
                 <span className="font-grotesk text-sm text-ink/80">· {job.company}</span>
-                <span className="font-label text-xs uppercase tracking-widest ml-auto" style={{ color: job.accentColor }}>
+                <span className="font-label text-xs uppercase tracking-widest md:ml-auto basis-full md:basis-auto" style={{ color: job.accentColor }}>
                   {job.period}
                 </span>
               </div>
