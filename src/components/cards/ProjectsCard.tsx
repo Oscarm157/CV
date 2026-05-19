@@ -17,12 +17,13 @@ type Project = {
 
 const projects: Project[] = [
   {
-    title: { es: "Dashboard de adopción IA", en: "AI adoption dashboard" },
+    title: { es: "Dashboard KPIs", en: "KPIs Dashboard" },
     desc: {
-      es: "KPIs por dirección y proyección de horas ahorradas. Presentado al CEO de Atisa Group.",
-      en: "KPIs by department and projected hours saved. Presented to Atisa Group CEO.",
+      es: "Panel de tickets de soporte Alfresco en ATISA: categorización, tasa de resolución y tiempos por categoría.",
+      en: "Alfresco support ticket dashboard at ATISA: categorization, resolution rate and per-category timing.",
     },
-    tools: ["Claude Code", "Next.js", "Supabase"],
+    tools: ["Claude Code", "Next.js", "Alfresco"],
+    images: ["/screenshots/alfresco-dashboard-1.png", "/screenshots/alfresco-dashboard-2.png"],
   },
   {
     title: { es: "Blueprint de leads en Zoho CRM", en: "Zoho CRM lead blueprint" },
