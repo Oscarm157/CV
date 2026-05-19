@@ -7,6 +7,7 @@ import AICard from "@/components/cards/AICard";
 import SoftwareCard from "@/components/cards/SoftwareCard";
 import FormacionCard from "@/components/cards/FormacionCard";
 import FrameworksCard from "@/components/cards/FrameworksCard";
+import ProjectsCard from "@/components/cards/ProjectsCard";
 import PortfolioCard from "@/components/cards/PortfolioCard";
 import Footer from "@/components/Footer";
 
@@ -23,6 +24,7 @@ export default function Page() {
           <SoftwareCard />
           <FormacionCard />
           <FrameworksCard />
+          <ProjectsCard />
           <PortfolioCard />
         </BentoGrid>
       </main>

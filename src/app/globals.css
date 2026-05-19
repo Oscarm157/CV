@@ -1,16 +1,20 @@
 @import "tailwindcss";
 
 :root {
-  --cream: #F8F7F4;
-  --ink: #18181B;
+  --cream: #EFEAE0;
+  --paper: #FAF7F1;
+  --ink: #1A1A1D;
+  --ink-2: #26262B;
   --amber: #F59E0B;
   --emerald: #10B981;
-  --card-bg: #ffffff;
+  --card-bg: var(--paper);
 }
 
 @theme inline {
   --color-cream: var(--cream);
+  --color-paper: var(--paper);
   --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
   --color-amber: var(--amber);
   --color-emerald: var(--emerald);
   --font-syne: var(--font-syne);

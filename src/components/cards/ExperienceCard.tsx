@@ -103,13 +103,15 @@ export default function ExperienceCard() {
       variants={cardVariants}
       whileHover={{ y: -3, boxShadow: "0 14px 36px rgba(0,0,0,0.09)" }}
       transition={{ type: "spring", stiffness: 400, damping: 17 }}
-      className="md:col-span-2 bg-white rounded-[20px]"
-      style={{ boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }}
+      className="md:col-span-2 rounded-[20px] overflow-hidden"
+      style={{ background: "var(--paper)", boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }}
     >
-      {/* Header */}
-      <div className="px-6 pt-5 pb-4 border-b border-ink/6 flex items-center justify-between">
-        <p className="font-label text-xs uppercase tracking-widest text-ink/40">{t.eyebrow}</p>
-        <span className="font-label text-xs uppercase tracking-widest text-ink/55">{t.range}</span>
+      {/* Header dark */}
+      <div className="px-6 pt-5 pb-5 flex items-center justify-between relative overflow-hidden" style={{ background: "var(--ink)" }}>
+        <div className="absolute right-0 top-0 w-56 h-56 rounded-full pointer-events-none"
+          style={{ background: "rgba(16,185,129,0.08)", transform: "translate(30%, -30%)" }} />
+        <p className="font-label text-xs uppercase tracking-widest text-white/60 relative z-10">{t.eyebrow}</p>
+        <span className="font-label text-xs uppercase tracking-widest text-white/50 relative z-10">{t.range}</span>
       </div>
 
       {/* Timeline */}

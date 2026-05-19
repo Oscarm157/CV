@@ -86,12 +86,14 @@ export default function PortfolioCard() {
     <motion.div
       id="portafolio"
       variants={cardVariants}
-      className="md:col-span-3 bg-white rounded-[20px] overflow-hidden"
-      style={{ boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }}
+      className="md:col-span-3 rounded-[20px] overflow-hidden"
+      style={{ background: "var(--paper)", boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }}
     >
-      <div className="px-6 pt-5 pb-4 border-b border-ink/6 flex items-center justify-between">
-        <p className="font-label text-xs uppercase tracking-widest text-ink/40">{t.eyebrow}</p>
-        <span className="font-label text-xs uppercase tracking-widest text-ink/40">{t.badge}</span>
+      <div className="px-6 pt-5 pb-5 flex items-center justify-between relative overflow-hidden" style={{ background: "var(--ink)" }}>
+        <div className="absolute right-0 top-0 w-56 h-56 rounded-full pointer-events-none"
+          style={{ background: "rgba(245,158,11,0.08)", transform: "translate(30%, -30%)" }} />
+        <p className="font-label text-xs uppercase tracking-widest text-white/60 relative z-10">{t.eyebrow}</p>
+        <span className="font-label text-xs uppercase tracking-widest text-white/50 relative z-10">{t.badge}</span>
       </div>
 
       <div className="p-4 grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -106,8 +108,9 @@ export default function PortfolioCard() {
             viewport={{ once: true }}
             transition={{ delay: i * 0.08, type: "spring", stiffness: 300, damping: 24 }}
             whileHover={{ y: -3, boxShadow: "0 10px 28px rgba(0,0,0,0.08)" }}
-            className="group relative rounded-2xl bg-white overflow-hidden flex flex-col"
+            className="group relative rounded-2xl overflow-hidden flex flex-col"
             style={{
+              background: "#FFFFFF",
               border: "1px solid rgba(15,23,42,0.07)",
               minHeight: 190,
             }}

@@ -18,7 +18,7 @@ export default function Nav() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
       className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 lg:px-14 py-4"
-      style={{ background: "rgba(248,247,244,0.88)", backdropFilter: "blur(16px)" }}
+      style={{ background: "rgba(239,234,224,0.85)", backdropFilter: "blur(16px)" }}
     >
       <span className="font-display font-bold text-ink text-sm tracking-tight">
         Oscar Arredondo

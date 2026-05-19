@@ -24,7 +24,7 @@ export default function Footer() {
   const t = content[lang];
 
   return (
-    <section className="px-4 sm:px-6 pb-6">
+    <section className="px-4 sm:px-6 pb-6" style={{ background: "var(--cream)" }}>
     <motion.footer
       id="contacto"
       initial={{ opacity: 0, y: 20 }}
