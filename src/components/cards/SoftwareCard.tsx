@@ -2,18 +2,20 @@
 
 import { motion } from "motion/react";
 import { cardVariants } from "../BentoGrid";
+import { SiWebflow, SiWordpress, SiSemrush, SiMake, SiMailchimp } from "react-icons/si";
+import { Video, ImageIcon, Sun, BarChart3 } from "lucide-react";
 
 const software = [
-  { name: "Webflow", emoji: "🌐" },
-  { name: "WordPress", emoji: "🔵" },
-  { name: "Semrush", emoji: "📈" },
-  { name: "Make", emoji: "⚙️" },
-  { name: "Mailchimp", emoji: "✉️" },
-  { name: "Premiere", emoji: "🎬" },
-  { name: "Photoshop", emoji: "🖼️" },
-  { name: "Lightroom", emoji: "📷" },
-  { name: "MS Clarity", emoji: "📊" },
-];
+  { name: "Webflow",    Icon: SiWebflow,   color: "#4353FF", lucide: false },
+  { name: "WordPress",  Icon: SiWordpress,  color: "#21759B", lucide: false },
+  { name: "Semrush",    Icon: SiSemrush,    color: "#FF642D", lucide: false },
+  { name: "Make",       Icon: SiMake,       color: "#6D00CC", lucide: false },
+  { name: "Mailchimp",  Icon: SiMailchimp,  color: "#FFE01B", lucide: false },
+  { name: "Premiere",   Icon: Video,        color: "#9999FF", lucide: true  },
+  { name: "Photoshop",  Icon: ImageIcon,    color: "#31A8FF", lucide: true  },
+  { name: "Lightroom",  Icon: Sun,          color: "#31A8FF", lucide: true  },
+  { name: "MS Clarity", Icon: BarChart3,    color: "#008272", lucide: true  },
+] as const;
 
 export default function SoftwareCard() {
   return (
@@ -29,20 +31,20 @@ export default function SoftwareCard() {
         <p className="font-label text-xs uppercase tracking-widest text-ink/40">Software</p>
       </div>
       <div className="p-5 grid grid-cols-3 gap-2.5">
-        {software.map((s, i) => (
+        {software.map(({ name, Icon, color }, i) => (
           <motion.div
-            key={s.name}
+            key={name}
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.045, type: "spring", stiffness: 400, damping: 22 }}
-            whileHover={{ scale: 1.06, y: -2 }}
-            className="flex flex-col items-center gap-1.5 rounded-xl p-3 cursor-default"
+            whileHover={{ scale: 1.07, y: -2 }}
+            className="flex flex-col items-center gap-2 rounded-xl p-3 cursor-default"
             style={{ background: "rgba(15,23,42,0.04)" }}
           >
-            <span className="text-xl">{s.emoji}</span>
+            <Icon size={22} color={color} />
             <span className="font-label text-xs uppercase tracking-wide text-ink/50 text-center leading-tight">
-              {s.name}
+              {name}
             </span>
           </motion.div>
         ))}
