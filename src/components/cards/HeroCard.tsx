@@ -28,7 +28,7 @@ function AnimatedName({ word }: { word: string }) {
 }
 
 /* ── Count-up stat ── */
-function HeroStat({ value, label }: { value: number; label: string }) {
+function HeroStat({ value, label, size = "lg" }: { value: number; label: string; size?: "sm" | "lg" }) {
   const ref = useRef<HTMLSpanElement>(null);
   const mv = useMotionValue(0);
   useEffect(() => {
@@ -38,10 +38,12 @@ function HeroStat({ value, label }: { value: number; label: string }) {
     });
     return c.stop;
   }, [value, mv]);
+  const valueClass = size === "sm" ? "text-2xl" : "text-4xl";
+  const labelClass = size === "sm" ? "text-[10px] mt-0.5" : "text-xs mt-1.5";
   return (
     <div className="flex flex-col items-center text-center">
-      <span ref={ref} className="font-display font-black text-white leading-none text-4xl tabular-nums">+0</span>
-      <span className="font-label text-xs uppercase tracking-widest text-white/70 mt-1.5">{label}</span>
+      <span ref={ref} className={`font-display font-black text-white leading-none tabular-nums ${valueClass}`}>+0</span>
+      <span className={`font-label uppercase tracking-widest text-white/70 ${labelClass}`}>{label}</span>
     </div>
   );
 }
@@ -88,13 +90,36 @@ export default function HeroCard() {
   return (
     <motion.div
       variants={cardVariants}
-      className="md:col-span-12 rounded-[24px] overflow-hidden flex flex-col md:flex-row"
-      style={{ background: "var(--ink)", minHeight: 320 }}
+      className="md:col-span-12 rounded-[24px] overflow-hidden flex flex-col md:flex-row md:min-h-[320px]"
+      style={{ background: "var(--ink)" }}
     >
       {/* LEFT — text */}
-      <div className="flex-1 flex flex-col justify-center px-8 md:px-12 py-10 relative overflow-hidden">
+      <div className="flex-1 flex flex-col justify-center px-6 sm:px-8 md:px-12 py-8 md:py-10 relative overflow-hidden">
         <div className="absolute -top-24 -left-24 w-72 h-72 rounded-full pointer-events-none"
           style={{ background: "rgba(245,158,11,0.07)" }} />
+
+        {/* Mobile-only: photo + available + stats */}
+        <div className="flex md:hidden flex-col gap-4 mb-6 relative z-10">
+          <div className="flex items-center gap-4">
+            <Image
+              src="/oscar.jpg"
+              alt="Oscar Arredondo"
+              width={80}
+              height={80}
+              className="rounded-full object-cover object-top w-20 h-20 shrink-0"
+              priority
+            />
+            <span className="font-label text-[10px] uppercase tracking-widest px-3 py-1.5 rounded-full font-bold"
+              style={{ background: "var(--amber)", color: "var(--ink)" }}>
+              {t.available}
+            </span>
+          </div>
+          <div className="flex items-center gap-5">
+            <HeroStat value={10} label={t.statYrs} size="sm" />
+            <div className="w-px h-8 bg-white/15" />
+            <HeroStat value={8} label={t.statInd} size="sm" />
+          </div>
+        </div>
 
         <motion.p
           initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.05 }}
@@ -106,7 +131,7 @@ export default function HeroCard() {
 
         <h1
           className="font-display font-black tracking-tighter text-white leading-[0.88] relative z-10"
-          style={{ fontSize: "clamp(2.6rem, 5.5vw, 5rem)" }}
+          style={{ fontSize: "clamp(2.6rem, 11vw, 5rem)" }}
         >
           <AnimatedName word="OSCAR" />
           <br />
@@ -115,7 +140,7 @@ export default function HeroCard() {
 
         <motion.p
           initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.65 }}
-          className="font-grotesk text-base text-white/80 mt-4 relative z-10"
+          className="font-grotesk text-sm md:text-base text-white/80 mt-4 relative z-10"
         >
           {t.subtitle}
         </motion.p>
@@ -140,13 +165,13 @@ export default function HeroCard() {
           className="mt-8 pt-6 border-t border-white/8 relative z-10"
         >
           <p className="font-label text-xs uppercase tracking-widest text-white/50 mb-2">{t.clientsLabel}</p>
-          <div className="flex flex-wrap gap-x-5 gap-y-1.5 mb-4">
+          <div className="flex flex-wrap gap-x-3 sm:gap-x-5 gap-y-1.5 mb-4">
             {clients[lang].map(c => (
               <span key={c} className="font-grotesk text-sm text-white/75">{c}</span>
             ))}
           </div>
           <p className="font-label text-xs uppercase tracking-widest text-white/50 mb-2">{t.industriesLabel}</p>
-          <div className="flex flex-wrap gap-x-4 gap-y-1.5">
+          <div className="flex flex-wrap gap-x-3 sm:gap-x-4 gap-y-1.5">
             {industries[lang].map(ind => (
               <span key={ind} className="font-grotesk text-sm text-white/75">{ind}</span>
             ))}
