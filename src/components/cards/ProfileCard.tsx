@@ -34,7 +34,8 @@ export default function ProfileCard() {
         <p className="font-grotesk text-base text-ink font-medium leading-relaxed mb-4">
           9 años cubriendo el customer journey completo: generación de leads, contenido audiovisual,
           SEO, redes sociales y CRM. Mi enfoque es estratégico: construir confianza en cada punto
-          de contacto y convertirla en ventas.
+          de contacto y convertirla en ventas. Trabajo mejor cuando el proyecto importa —
+          me incomoda entregar algo a medias.
         </p>
         <p className="font-grotesk text-sm text-ink/70 leading-relaxed mb-5">
           Fundé <span className="text-ink font-medium">Kraken Mkt Studio</span> (2016–2022), equipo de hasta
