@@ -2,7 +2,7 @@
 
 import { motion } from "motion/react";
 import { cardVariants } from "../BentoGrid";
-import { SiWebflow, SiWordpress, SiSemrush, SiZapier, SiMailchimp, SiZoho, SiGithub, SiVercel, SiSupabase, SiClaude, SiReplicate } from "react-icons/si";
+import { SiWebflow, SiSemrush, SiZapier, SiMailchimp, SiZoho, SiGithub, SiVercel, SiSupabase, SiClaude, SiReplicate } from "react-icons/si";
 import { BarChart3, Database, Webhook, Bot } from "lucide-react";
 
 /* ── Adobe badge SVGs ── */
@@ -39,10 +39,10 @@ type SoftwareItem = {
 };
 
 const software: SoftwareItem[] = [
-  { name: "Claude",     Icon: SiClaude,     color: "#CC785C" },
-  { name: "Webflow",    Icon: SiWebflow,    color: "#4353FF" },
-  { name: "WordPress",  Icon: SiWordpress,  color: "#21759B" },
-  { name: "Zapier",     Icon: SiZapier,     color: "#FF4A00" },
+  { name: "Claude",      Icon: SiClaude,    color: "#CC785C" },
+  { name: "Claude Code", Icon: SiClaude,    color: "#A0522D" },
+  { name: "Webflow",     Icon: SiWebflow,   color: "#4353FF" },
+  { name: "Zapier",      Icon: SiZapier,    color: "#FF4A00" },
   { name: "Zoho CRM",   Icon: SiZoho,       color: "#E42527" },
   { name: "Semrush",    Icon: SiSemrush,    color: "#FF642D" },
   { name: "GitHub",     Icon: SiGithub,     color: "#24292E" },
