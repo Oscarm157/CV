@@ -52,9 +52,11 @@ export default function AICard() {
         </div>
 
         <p className="font-grotesk text-sm text-white/80 leading-relaxed">
-          Diseño y despliego agentes de IA para automatizar operaciones: CRM,
-          atención a leads, reportes, integración de sistemas, generación de contenido
-          y flujos internos. Desarrollo desde TI con Claude Code y Zapier.
+          Diseño agentes y herramientas de IA para automatizar operaciones reales:
+          CRM, leads, reportes, generación de contenido y flujos internos.
+          Desarrollé el dashboard de adopción de IA de Atisa Group presentado al CEO,
+          la propuesta estratégica de implementación y múltiples plataformas SaaS
+          con Claude Code, Supabase y Vercel.
         </p>
 
         <motion.div

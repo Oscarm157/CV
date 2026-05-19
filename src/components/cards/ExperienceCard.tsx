@@ -12,9 +12,10 @@ const jobs = [
     bullets: [
       "Coordinación y capacitación del equipo de ventas y 2 analistas de CRM · Zoho CRM",
       "Diseño de blueprints de automatización para el ciclo completo de leads",
+      "Dashboard ejecutivo de adopción de IA presentado al CEO: KPIs por dirección y proyección de horas ahorradas",
+      "Propuesta estratégica de implementación de IA (governance, inversión, ruta crítica)",
       "Desarrollo de agente IA para atención rápida y filtrado de leads (en curso)",
       "Campañas de SEO, paid media y email marketing",
-      "Dashboards de KPIs y análisis de desempeño de vendedores",
     ],
   },
   {
