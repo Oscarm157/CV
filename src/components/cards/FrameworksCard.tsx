@@ -15,12 +15,12 @@ const frameworks = {
       example: "Quien compra casa por seguridad familiar necesita un mensaje distinto al inversionista que busca rentabilidad. El mismo inmueble, dos trabajos distintos. Copys genéricos no convierten a ninguno de los dos.",
     },
     {
-      name: "Design Thinking",
-      abbr: "DT",
+      name: "Customer Journey",
+      abbr: "CJ",
       color: "#059669",
-      desc: "Empatizar con el usuario antes de proponer soluciones. Definir el problema real, idear, prototipar y testear antes de ejecutar a escala.",
+      desc: "Mapear el recorrido completo del cliente, desde que ve la publicidad hasta la postventa. Cada punto de contacto suma o resta energía hacia el cierre.",
       exampleLabel: "Ejemplo",
-      example: "En vez de lanzar una campaña asumiendo qué quiere el cliente, primero lo observas, hablas con él y pruebas un mensaje pequeño antes de invertir el presupuesto completo.",
+      example: "Un anuncio claro lleva al formulario; si el formulario confunde, la energía se pierde ahí. El resto del recorrido no compensa esa fricción.",
     },
     {
       name: "Blue Ocean Strategy",
@@ -41,12 +41,12 @@ const frameworks = {
       example: "Someone buying a home for family security needs a completely different message than an investor chasing returns. Same property, two different jobs. Generic copy converts neither.",
     },
     {
-      name: "Design Thinking",
-      abbr: "DT",
+      name: "Customer Journey",
+      abbr: "CJ",
       color: "#059669",
-      desc: "Empathize before you build. Define the real problem, ideate, prototype, and test before scaling.",
+      desc: "Map the full customer path, from first ad to post-sale. Every touchpoint adds or drains energy toward the close.",
       exampleLabel: "Example",
-      example: "Instead of launching a campaign based on assumptions, you observe, talk to users, and test a small message before putting the full budget behind it.",
+      example: "A clear ad leads to the form; if the form confuses, that's where the energy dies. The rest of the journey can't make up for that friction.",
     },
     {
       name: "Blue Ocean Strategy",
