@@ -17,10 +17,10 @@ const frameworks = [
     desc: "Proceso de 5 pasos centrado en el usuario: Empatizar, Definir, Idear, Prototipar y Testear. Lo aplico para diseñar campañas y flujos de customer journey desde el problema real del cliente.",
   },
   {
-    name: "Pirate Funnel",
-    abbr: "AARRR",
-    color: "#D97706",
-    desc: "Framework de métricas de growth: Acquisition, Activation, Retention, Referral, Revenue. Útil para diagnosticar en qué etapa del funnel se cae el usuario y dónde enfocar esfuerzos.",
+    name: "Blue Ocean Strategy",
+    abbr: "BOS",
+    color: "#0284C7",
+    desc: "Crear espacios de mercado sin competencia en lugar de disputar los existentes. Busca diferenciación y bajo costo simultáneamente para hacer irrelevante a la competencia.",
   },
 ];
 
