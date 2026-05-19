@@ -50,7 +50,7 @@ const projects: Project[] = [
       en: "Audiovisual content workflows connecting image, video and text nodes.",
     },
     tools: ["Weavy.ai", "Figma Wave", "AI"],
-    images: ["/screenshots/weavy-1.png", "/screenshots/weavy-2.png"],
+    images: ["/screenshots/weavy-2.png", "/screenshots/weavy-1.png"],
   },
 ];
 
@@ -125,13 +125,13 @@ function Lightbox({ images, alt, startIdx, onClose }: { images: string[]; alt: s
       )}
 
       <div className="relative" style={{ width: "min(96vw, 1800px)", height: "min(88vh, 1100px)" }}>
-        <AnimatePresence mode="wait">
+        <AnimatePresence initial={false}>
           <motion.div
             key={images[idx]}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.18 }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
             className="absolute inset-0"
           >
             <Image src={images[idx]} alt={alt} fill className="object-contain rounded-xl" sizes="96vw" priority />
@@ -193,13 +193,13 @@ function Thumbnail({ images, alt }: { images?: string[]; alt: string }) {
         className="relative aspect-[16/10] w-full overflow-hidden cursor-zoom-in group"
         style={{ background: "var(--ink-2)" }}
       >
-        <AnimatePresence mode="wait">
+        <AnimatePresence initial={false}>
           <motion.div
             key={images[idx]}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.4 }}
+            transition={{ duration: 0.9, ease: "easeInOut" }}
             className="absolute inset-0"
           >
             <Image src={images[idx]} alt={alt} fill className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]" sizes="(max-width: 768px) 100vw, 33vw" />
