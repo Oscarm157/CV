@@ -45,7 +45,7 @@ export default function ProfileCard() {
       <div className="px-6 pt-5 pb-5 relative overflow-hidden" style={{ background: "var(--ink)" }}>
         <div className="absolute right-0 top-0 w-56 h-56 rounded-full pointer-events-none"
           style={{ background: "rgba(245,158,11,0.10)", transform: "translate(30%, -30%)" }} />
-        <p className="font-label text-xs uppercase tracking-widest text-white/60 mb-1.5 relative z-10">{t.eyebrow}</p>
+        <p className="font-label text-[15px] uppercase tracking-widest text-white mb-1.5 relative z-10">{t.eyebrow}</p>
         <p className="font-display font-bold text-white text-lg relative z-10">
           {t.headline}
         </p>

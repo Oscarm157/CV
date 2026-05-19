@@ -80,7 +80,7 @@ export default function SoftwareCard() {
       <div className="px-6 pt-5 pb-5 relative overflow-hidden" style={{ background: "var(--ink)" }}>
         <div className="absolute right-0 top-0 w-40 h-40 rounded-full pointer-events-none"
           style={{ background: "rgba(245,158,11,0.08)", transform: "translate(30%, -30%)" }} />
-        <p className="font-label text-xs uppercase tracking-widest text-white/60 relative z-10">{labels[lang]}</p>
+        <p className="font-label text-[15px] uppercase tracking-widest text-white relative z-10">{labels[lang]}</p>
       </div>
       <div className="p-5 grid grid-cols-3 gap-2.5">
         {software.map(({ name, Icon, Custom, color }, i) => (

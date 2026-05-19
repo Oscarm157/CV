@@ -110,8 +110,8 @@ export default function ExperienceCard() {
       <div className="px-6 pt-5 pb-5 flex items-center justify-between relative overflow-hidden" style={{ background: "var(--ink)" }}>
         <div className="absolute right-0 top-0 w-56 h-56 rounded-full pointer-events-none"
           style={{ background: "rgba(16,185,129,0.08)", transform: "translate(30%, -30%)" }} />
-        <p className="font-label text-xs uppercase tracking-widest text-white/60 relative z-10">{t.eyebrow}</p>
-        <span className="font-label text-xs uppercase tracking-widest text-white/50 relative z-10">{t.range}</span>
+        <p className="font-label text-[15px] uppercase tracking-widest text-white relative z-10">{t.eyebrow}</p>
+        <span className="font-label text-[15px] uppercase tracking-widest text-white relative z-10">{t.range}</span>
       </div>
 
       {/* Timeline */}

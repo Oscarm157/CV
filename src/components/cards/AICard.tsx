@@ -65,7 +65,7 @@ export default function AICard() {
         </div>
 
         <div>
-          <p className="font-label text-xs uppercase tracking-widest text-white/55 mb-1">{t.eyebrow}</p>
+          <p className="font-label text-[15px] uppercase tracking-widest text-white mb-1">{t.eyebrow}</p>
           <h3 className="font-display font-bold text-white text-xl">{t.title}</h3>
         </div>
 
