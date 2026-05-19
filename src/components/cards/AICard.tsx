@@ -5,16 +5,16 @@ import { cardVariants } from "../BentoGrid";
 
 const tags = [
   "Claude", "Claude Code", "Codificación Agéntica",
-  "Make / Automatización", "ChatGPT-4", "Midjourney",
+  "Make", "ChatGPT-4", "Midjourney",
   "Prompting Avanzado", "Agentes IA",
 ];
 
 const tagContainer = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.055, delayChildren: 0.3 } },
+  visible: { transition: { staggerChildren: 0.055, delayChildren: 0.2 } },
 };
 const tagItem = {
-  hidden: { opacity: 0, scale: 0.65 },
+  hidden: { opacity: 0, scale: 0.7 },
   visible: { opacity: 1, scale: 1, transition: { type: "spring" as const, stiffness: 500, damping: 22 } },
 };
 
@@ -23,36 +23,32 @@ export default function AICard() {
     <motion.div
       id="ia"
       variants={cardVariants}
-      whileHover={{ y: -3, boxShadow: "0 20px 50px rgba(15,23,42,0.35)" }}
+      whileHover={{ y: -3, boxShadow: "0 16px 44px rgba(15,23,42,0.28)" }}
       transition={{ type: "spring", stiffness: 400, damping: 17 }}
       className="md:col-span-1 rounded-[20px] overflow-hidden relative"
       style={{ background: "var(--ink)" }}
     >
-      {/* Decorative blobs */}
-      <div className="absolute top-[-60px] right-[-60px] w-[200px] h-[200px] rounded-full pointer-events-none"
-        style={{ background: "rgba(16,185,129,0.12)" }} />
-      <div className="absolute bottom-[-40px] left-[-40px] w-[160px] h-[160px] rounded-full pointer-events-none"
-        style={{ background: "rgba(245,158,11,0.06)" }} />
+      {/* One circle, top-right */}
+      <div className="absolute top-[-70px] right-[-70px] w-[220px] h-[220px] rounded-full pointer-events-none"
+        style={{ background: "rgba(16,185,129,0.10)" }} />
 
-      <div className="relative z-10 p-6 flex flex-col h-full gap-4">
+      <div className="relative z-10 p-6 flex flex-col gap-4 h-full">
         {/* Badge */}
         <div className="flex items-center gap-2">
           <motion.span
             animate={{ opacity: [1, 0.3, 1] }}
-            transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}
-            className="w-1.5 h-1.5 rounded-full"
+            transition={{ repeat: Infinity, duration: 2 }}
+            className="w-1.5 h-1.5 rounded-full flex-shrink-0"
             style={{ background: "var(--emerald)" }}
           />
-          <span className="font-label text-[11px] uppercase tracking-widest" style={{ color: "var(--emerald)" }}>
+          <span className="font-label text-xs uppercase tracking-widest" style={{ color: "var(--emerald)" }}>
             Habilidad emergente
           </span>
         </div>
 
         <div>
-          <p className="font-label text-[11px] uppercase tracking-widest text-white/25 mb-1">AI Lab</p>
-          <h3 className="font-display font-bold text-white text-xl">
-            IA &amp; Agentes
-          </h3>
+          <p className="font-label text-xs uppercase tracking-widest text-white/30 mb-1">AI Lab</p>
+          <h3 className="font-display font-bold text-white text-xl">IA &amp; Agentes</h3>
         </div>
 
         <p className="font-grotesk text-sm text-white/50 leading-relaxed">
@@ -65,15 +61,12 @@ export default function AICard() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.4 }}
-          className="flex flex-wrap gap-1.5 mt-auto pt-2"
+          className="flex flex-wrap gap-1.5 mt-auto"
         >
           {tags.map((tag) => (
-            <motion.span
-              key={tag}
-              variants={tagItem}
-              className="font-label text-[11px] uppercase tracking-wide px-2.5 py-1.5 rounded-lg"
-              style={{ color: "var(--emerald)", background: "rgba(16,185,129,0.12)" }}
-            >
+            <motion.span key={tag} variants={tagItem}
+              className="font-label text-xs uppercase tracking-wide px-2.5 py-1.5 rounded-lg"
+              style={{ color: "var(--emerald)", background: "rgba(16,185,129,0.12)" }}>
               {tag}
             </motion.span>
           ))}

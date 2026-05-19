@@ -13,40 +13,36 @@ export default function ProfileCard() {
   return (
     <motion.div
       variants={cardVariants}
-      whileHover={{ y: -3, boxShadow: "0 16px 40px rgba(0,0,0,0.10)" }}
+      whileHover={{ y: -3, boxShadow: "0 14px 36px rgba(0,0,0,0.09)" }}
       transition={{ type: "spring", stiffness: 400, damping: 17 }}
       className="md:col-span-2 rounded-[20px] overflow-hidden"
-      style={{ boxShadow: "0 2px 12px rgba(0,0,0,0.07)" }}
+      style={{ boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }}
     >
-      {/* Colored header strip */}
-      <div className="px-7 pt-6 pb-5 relative overflow-hidden" style={{ background: "var(--ink)" }}>
-        <div className="absolute right-0 top-0 w-48 h-48 rounded-full"
-          style={{ background: "rgba(245,158,11,0.12)", transform: "translate(30%, -30%)" }} />
-        <div className="absolute right-20 bottom-0 w-32 h-32 rounded-full"
-          style={{ background: "rgba(16,185,129,0.08)", transform: "translate(0, 50%)" }} />
-        <p className="font-label text-[11px] uppercase tracking-widest text-white/30 mb-1 relative z-10">Perfil</p>
-        <p className="font-display font-bold text-white relative z-10" style={{ fontSize: "1.1rem" }}>
+      {/* Header dark */}
+      <div className="px-6 pt-5 pb-5 relative overflow-hidden" style={{ background: "var(--ink)" }}>
+        {/* One subtle gradient blob */}
+        <div className="absolute right-0 top-0 w-56 h-56 rounded-full pointer-events-none"
+          style={{ background: "rgba(245,158,11,0.10)", transform: "translate(30%, -30%)" }} />
+        <p className="font-label text-xs uppercase tracking-widest text-white/35 mb-1.5 relative z-10">Perfil</p>
+        <p className="font-display font-bold text-white text-lg relative z-10">
           Mercadólogo · Estratega Digital · Orquestador de IA
         </p>
       </div>
 
       {/* Body */}
-      <div className="bg-white px-7 py-6">
-        <p className="font-grotesk text-ink/75 leading-relaxed text-sm mb-5">
+      <div className="bg-white px-6 py-5">
+        <p className="font-grotesk text-sm text-ink/70 leading-relaxed mb-5">
           9 años gestionando marcas, equipos y campañas en Automotriz, Inmobiliario, Médico y Gastronómico.
           Hoy orquesto agentes de IA, automatizaciones y dashboards en{" "}
           <span className="text-ink font-medium">Atisa Group</span>. Fundé{" "}
-          <span className="text-ink font-medium">Kraken Mkt Studio</span> (2016–2022) y dirigí
-          un equipo de 15 personas sirviendo a Mazda, BMW, Ruba y Chef Javier Plascencia.
+          <span className="text-ink font-medium">Kraken Mkt Studio</span> (2016–2022) dirigiendo
+          un equipo de 15 personas con clientes como Mazda, BMW, Ruba y Chef Javier Plascencia.
           Lic. UABC · Estancia en Universidad de La Coruña, España.
         </p>
 
         <div className="flex flex-wrap gap-1.5">
           {competencias.map((tag) => (
-            <span
-              key={tag}
-              className="font-label text-[11px] uppercase tracking-wide text-ink/55 bg-ink/5 px-2.5 py-1.5 rounded-lg"
-            >
+            <span key={tag} className="font-label text-xs uppercase tracking-wide text-ink/55 bg-ink/6 px-2.5 py-1.5 rounded-lg">
               {tag}
             </span>
           ))}
