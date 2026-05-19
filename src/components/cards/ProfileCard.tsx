@@ -40,9 +40,9 @@ export default function ProfileCard() {
         <p className="font-grotesk text-sm text-ink/70 leading-relaxed mb-5">
           Fundé <span className="text-ink font-medium">Kraken Mkt Studio</span> (2016–2022), equipo de hasta
           15 personas, clientes como Mazda, BMW, Ruba y Chef Javier Plascencia. En{" "}
-          <span className="text-ink font-medium">Atisa Group</span> diseño blueprints de automatización
-          y desarrollo agentes de IA para filtrado y atención rápida de leads.
-          Lic. UABC · Estancia en Universidad de La Coruña, España.
+          <span className="text-ink font-medium">Atisa Group</span> diseño blueprints de automatización,
+          desarrollé el dashboard de adopción de IA presentado al CEO y tengo en curso
+          un agente de atención y filtrado de leads.
         </p>
 
         <div className="flex flex-wrap gap-1.5">
