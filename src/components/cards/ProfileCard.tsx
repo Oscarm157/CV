@@ -32,7 +32,7 @@ export default function ProfileCard() {
       {/* Body */}
       <div className="bg-white px-6 py-5">
         <p className="font-grotesk text-base text-ink font-medium leading-relaxed mb-4">
-          9 años cubriendo el customer journey completo: generación de leads, contenido audiovisual,
+          +10 años cubriendo el customer journey completo: generación de leads, contenido audiovisual,
           SEO, redes sociales y CRM. Mi enfoque es estratégico: construir confianza en cada punto
           de contacto y convertirla en ventas. Trabajo mejor cuando el proyecto importa —
           me incomoda entregar algo a medias.

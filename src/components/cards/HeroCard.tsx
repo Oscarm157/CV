@@ -133,7 +133,7 @@ export default function HeroCard() {
           style={{ background: "linear-gradient(to top, rgba(15,23,42,0.95) 60%, transparent)" }}
         >
           <div className="flex items-end justify-center gap-8">
-            <HeroStat value={9} label="Años exp." />
+            <HeroStat value={10} label="Años exp." />
             <div className="w-px h-8 bg-white/15" />
             <HeroStat value={8} label="Industrias" />
           </div>
