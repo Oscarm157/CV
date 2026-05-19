@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
+import { useEffect, useState } from "react";
 import { ImageIcon } from "lucide-react";
 import { cardVariants } from "../BentoGrid";
 import { useLanguage } from "@/context/LanguageContext";
@@ -10,7 +11,7 @@ type Project = {
   title: { es: string; en: string };
   desc: { es: string; en: string };
   tools: string[];
-  image?: string;
+  images?: string[];
 };
 
 const projects: Project[] = [
@@ -21,7 +22,6 @@ const projects: Project[] = [
       en: "KPIs by department and projected hours saved. Presented to Atisa Group CEO.",
     },
     tools: ["Claude Code", "Next.js", "Supabase"],
-    image: undefined,
   },
   {
     title: { es: "Blueprint de leads en Zoho CRM", en: "Zoho CRM lead blueprint" },
@@ -30,7 +30,7 @@ const projects: Project[] = [
       en: "Full lead cycle automation: capture, assignment, follow-up, close.",
     },
     tools: ["Zoho CRM", "Deluge", "Email"],
-    image: undefined,
+    images: ["/screenshots/zoho-blueprint-1.png", "/screenshots/zoho-blueprint-2.png"],
   },
   {
     title: { es: "Zaps de operación interna", en: "Internal ops Zaps" },
@@ -39,7 +39,7 @@ const projects: Project[] = [
       en: "Webhooks connecting forms, CRM and Slack/email notifications.",
     },
     tools: ["Zapier", "Webhooks", "Slack"],
-    image: undefined,
+    images: ["/screenshots/zapier-list.png"],
   },
 ];
 
@@ -47,6 +47,65 @@ const labels = {
   es: { eyebrow: "Proyectos", sub: "Capturas de trabajos recientes" },
   en: { eyebrow: "Projects", sub: "Screenshots from recent work" },
 };
+
+function Thumbnail({ images, alt }: { images?: string[]; alt: string }) {
+  const [idx, setIdx] = useState(0);
+  const { lang } = useLanguage();
+
+  useEffect(() => {
+    if (!images || images.length <= 1) return;
+    const id = setInterval(() => setIdx((i) => (i + 1) % images.length), 4000);
+    return () => clearInterval(id);
+  }, [images]);
+
+  if (!images || images.length === 0) {
+    return (
+      <div className="relative aspect-[16/10] w-full" style={{ background: "var(--ink-2)" }}>
+        <div className="absolute inset-0 flex flex-col items-center justify-center gap-2">
+          <ImageIcon size={22} color="rgba(255,255,255,0.35)" strokeWidth={1.5} />
+          <span className="font-label text-[10px] uppercase tracking-widest text-white/35">
+            {lang === "es" ? "Captura pendiente" : "Screenshot pending"}
+          </span>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="relative aspect-[16/10] w-full overflow-hidden" style={{ background: "var(--ink-2)" }}>
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={images[idx]}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.4 }}
+          className="absolute inset-0"
+        >
+          <Image src={images[idx]} alt={alt} fill className="object-cover object-top" sizes="(max-width: 768px) 100vw, 33vw" />
+        </motion.div>
+      </AnimatePresence>
+
+      {images.length > 1 && (
+        <div className="absolute bottom-2.5 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
+          {images.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setIdx(i)}
+              aria-label={`Slide ${i + 1}`}
+              className="rounded-full transition-all cursor-pointer"
+              style={{
+                width: i === idx ? 18 : 6,
+                height: 6,
+                background: i === idx ? "rgba(255,255,255,0.95)" : "rgba(255,255,255,0.45)",
+              }}
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
 
 export default function ProjectsCard() {
   const { lang } = useLanguage();
@@ -78,21 +137,8 @@ export default function ProjectsCard() {
             className="rounded-2xl overflow-hidden flex flex-col"
             style={{ background: "#FFFFFF", border: "1px solid rgba(15,23,42,0.07)" }}
           >
-            {/* Thumbnail */}
-            <div className="relative aspect-[16/10] w-full" style={{ background: "var(--ink-2)" }}>
-              {p.image ? (
-                <Image src={p.image} alt={p.title[lang]} fill className="object-cover" />
-              ) : (
-                <div className="absolute inset-0 flex flex-col items-center justify-center gap-2">
-                  <ImageIcon size={22} color="rgba(255,255,255,0.35)" strokeWidth={1.5} />
-                  <span className="font-label text-[10px] uppercase tracking-widest text-white/35">
-                    {lang === "es" ? "Captura pendiente" : "Screenshot pending"}
-                  </span>
-                </div>
-              )}
-            </div>
+            <Thumbnail images={p.images} alt={p.title[lang]} />
 
-            {/* Body */}
             <div className="p-4 flex flex-col gap-2 flex-1">
               <p className="font-display font-bold text-ink text-base leading-tight">{p.title[lang]}</p>
               <p className="font-grotesk text-sm text-ink/65 leading-snug">{p.desc[lang]}</p>
