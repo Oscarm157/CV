@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+:root {
+  --cream: #F8F7F4;
+  --ink: #0F172A;
+  --amber: #F59E0B;
+  --emerald: #10B981;
+  --card-bg: #ffffff;
+}
+
+@theme inline {
+  --color-cream: var(--cream);
+  --color-ink: var(--ink);
+  --color-amber: var(--amber);
+  --color-emerald: var(--emerald);
+  --font-syne: var(--font-syne);
+  --font-grotesk: var(--font-grotesk);
+  --font-mono: var(--font-mono);
+}
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-grotesk), system-ui, sans-serif;
+}
+
+.font-display {
+  font-family: var(--font-syne), system-ui, sans-serif;
+}
+
+.font-label {
+  font-family: var(--font-mono), monospace;
+}
