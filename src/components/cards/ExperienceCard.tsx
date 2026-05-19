@@ -36,7 +36,7 @@ const jobs = [
       "Agencia creativa B.C.: Automotriz, Inmobiliario, Gastronómico, Médico",
       "Dirección creativa de campañas audiovisuales, branding y contenido digital",
       "Gestión de leads, SEO y estrategia en redes para marcas regionales y nacionales",
-      "Clientes: Mazda, BMW, Mini Cooper, Ruba, Carl Zeiss, Chef Javier Plascencia",
+      "Clientes: Mazda, BMW, Mini Cooper, Carl Zeiss, Chef Javier Plascencia",
       "Dirigí un equipo de hasta 15 personas: creativos, fotógrafos y community managers",
     ],
   },
