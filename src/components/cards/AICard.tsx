@@ -42,7 +42,7 @@ export default function AICard() {
             style={{ background: "var(--emerald)" }}
           />
           <span className="font-label text-xs uppercase tracking-widest" style={{ color: "var(--emerald)" }}>
-            Habilidad emergente
+            En producción
           </span>
         </div>
 
@@ -52,8 +52,9 @@ export default function AICard() {
         </div>
 
         <p className="font-grotesk text-sm text-white/80 leading-relaxed">
-          Desde TI diseño blueprints de automatización y desarrollo agentes de IA
-          para filtrado y atención rápida de leads con Claude Code y Zapier.
+          Diseño y despliego agentes de IA para automatizar operaciones: CRM,
+          atención a leads, reportes, integración de sistemas, generación de contenido
+          y flujos internos. Desarrollo desde TI con Claude Code y Zapier.
         </p>
 
         <motion.div
