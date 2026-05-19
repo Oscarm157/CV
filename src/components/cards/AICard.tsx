@@ -5,8 +5,8 @@ import { cardVariants } from "../BentoGrid";
 import { useLanguage } from "@/context/LanguageContext";
 
 const tags = {
-  es: ["Claude", "Claude Code", "Codificación Agéntica", "Zapier", "ChatGPT", "Midjourney", "Prompting Avanzado", "Agentes IA"],
-  en: ["Claude", "Claude Code", "Agentic Coding", "Zapier", "ChatGPT", "Midjourney", "Advanced Prompting", "AI Agents"],
+  es: ["Claude", "Claude Code", "OpenClaw", "Agentes IA", "Codificación Agéntica", "Prompting", "ChatGPT", "Capacitación"],
+  en: ["Claude", "Claude Code", "OpenClaw", "AI Agents", "Agentic Coding", "Prompting", "ChatGPT", "Training"],
 };
 
 const content = {
