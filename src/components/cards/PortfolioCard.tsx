@@ -39,7 +39,7 @@ export default function PortfolioCard() {
     <motion.div
       id="portafolio"
       variants={cardVariants}
-      className="md:col-span-2 bg-white rounded-[20px] overflow-hidden"
+      className="md:col-span-3 bg-white rounded-[20px] overflow-hidden"
       style={{ boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }}
     >
       <div className="px-6 pt-5 pb-4 border-b border-ink/6 flex items-center justify-between">
