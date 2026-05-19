@@ -24,7 +24,7 @@ export default function ProfileCard() {
           style={{ background: "rgba(245,158,11,0.12)", transform: "translate(30%, -30%)" }} />
         <div className="absolute right-20 bottom-0 w-32 h-32 rounded-full"
           style={{ background: "rgba(16,185,129,0.08)", transform: "translate(0, 50%)" }} />
-        <p className="font-label text-[10px] uppercase tracking-widest text-white/30 mb-1 relative z-10">Perfil</p>
+        <p className="font-label text-[11px] uppercase tracking-widest text-white/30 mb-1 relative z-10">Perfil</p>
         <p className="font-display font-bold text-white relative z-10" style={{ fontSize: "1.1rem" }}>
           Mercadólogo · Estratega Digital · Orquestador de IA
         </p>
@@ -32,7 +32,7 @@ export default function ProfileCard() {
 
       {/* Body */}
       <div className="bg-white px-7 py-6">
-        <p className="font-grotesk text-ink/75 leading-relaxed text-[0.925rem] mb-5">
+        <p className="font-grotesk text-ink/75 leading-relaxed text-sm mb-5">
           9 años gestionando marcas, equipos y campañas en Automotriz, Inmobiliario, Médico y Gastronómico.
           Hoy orquesto agentes de IA, automatizaciones y dashboards en{" "}
           <span className="text-ink font-medium">Atisa Group</span>. Fundé{" "}
@@ -45,7 +45,7 @@ export default function ProfileCard() {
           {competencias.map((tag) => (
             <span
               key={tag}
-              className="font-label text-[9px] uppercase tracking-wide text-ink/55 bg-ink/5 px-2.5 py-1.5 rounded-lg"
+              className="font-label text-[11px] uppercase tracking-wide text-ink/55 bg-ink/5 px-2.5 py-1.5 rounded-lg"
             >
               {tag}
             </span>

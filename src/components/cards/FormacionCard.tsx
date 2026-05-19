@@ -30,7 +30,7 @@ export default function FormacionCard() {
       style={{ boxShadow: "0 2px 12px rgba(0,0,0,0.07)" }}
     >
       <div className="px-6 pt-5 pb-4 border-b border-ink/6">
-        <p className="font-label text-[10px] uppercase tracking-widest text-ink/40">Formación</p>
+        <p className="font-label text-[11px] uppercase tracking-widest text-ink/40">Formación</p>
       </div>
       <div className="p-6 flex flex-col gap-5">
         {estudios.map((e, i) => (
@@ -47,9 +47,9 @@ export default function FormacionCard() {
               <p className="font-display font-semibold text-ink text-sm leading-snug">{e.titulo}</p>
               <p className="font-grotesk text-xs text-ink/50 mt-0.5">{e.escuela}</p>
               <div className="flex gap-2 mt-1.5">
-                <span className="font-label text-[9px] uppercase tracking-widest text-amber">{e.periodo}</span>
+                <span className="font-label text-[11px] uppercase tracking-widest text-amber">{e.periodo}</span>
                 <span className="text-ink/20">·</span>
-                <span className="font-label text-[9px] uppercase tracking-widest text-ink/30">{e.lugar}</span>
+                <span className="font-label text-[11px] uppercase tracking-widest text-ink/30">{e.lugar}</span>
               </div>
             </div>
           </motion.div>

@@ -54,8 +54,8 @@ export default function ExperienceCard() {
     >
       {/* Header */}
       <div className="px-7 pt-6 pb-4 border-b border-ink/6 flex items-center justify-between">
-        <p className="font-label text-[10px] uppercase tracking-widest text-ink/40">Experiencia</p>
-        <span className="font-label text-[9px] uppercase tracking-widest text-ink/25">2016 – Presente</span>
+        <p className="font-label text-[11px] uppercase tracking-widest text-ink/40">Experiencia</p>
+        <span className="font-label text-[11px] uppercase tracking-widest text-ink/25">2016 – Presente</span>
       </div>
 
       <div ref={ref} className="relative px-7 py-5">
@@ -86,12 +86,12 @@ export default function ExperienceCard() {
               />
 
               <div className="flex flex-wrap items-baseline gap-x-2.5 gap-y-0.5 mb-2">
-                <span className="font-display font-semibold text-ink" style={{ fontSize: "0.95rem" }}>
+                <span className="font-display font-semibold text-ink text-base">
                   {job.title}
                 </span>
                 <span className="font-grotesk text-sm text-ink/40">· {job.company}</span>
                 <span
-                  className="font-label text-[9px] uppercase tracking-widest ml-auto"
+                  className="font-label text-[11px] uppercase tracking-widest ml-auto"
                   style={{ color: job.color }}
                 >
                   {job.period}
@@ -100,7 +100,7 @@ export default function ExperienceCard() {
 
               <ul className="space-y-0.5">
                 {job.bullets.map((b) => (
-                  <li key={b} className="font-grotesk text-[0.85rem] text-ink/55 flex gap-2 leading-snug">
+                  <li key={b} className="font-grotesk text-sm text-ink/55 flex gap-2 leading-snug">
                     <span className="text-amber mt-0.5 shrink-0 text-xs">▸</span>
                     {b}
                   </li>

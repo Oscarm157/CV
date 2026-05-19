@@ -61,9 +61,9 @@ function StatBig({ value, label }: { value: number; label: string }) {
       <span
         ref={ref}
         className="font-display font-black leading-none"
-        style={{ fontSize: "clamp(2.5rem, 5vw, 4rem)", color: "var(--ink)" }}
+        style={{ fontSize: "clamp(2.2rem, 3.5vw, 3rem)", color: "var(--ink)" }}
       >0</span>
-      <span className="font-label text-[9px] uppercase tracking-widest text-ink/50">{label}</span>
+      <span className="font-label text-[11px] uppercase tracking-widest text-ink/55">{label}</span>
     </div>
   );
 }
@@ -83,14 +83,14 @@ export default function Hero() {
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0, duration: 0.4 }}
-            className="font-label text-[10px] uppercase tracking-[0.2em] text-ink/40 mb-6"
+            className="font-label text-[11px] uppercase tracking-[0.18em] text-ink/40 mb-6"
           >
             Coordinador CRM · Atisa Group · Tijuana B.C.
           </motion.p>
 
           <h1
             className="font-display font-black leading-[0.88] tracking-tighter text-ink mb-6"
-            style={{ fontSize: "clamp(3.5rem, 8.5vw, 7.5rem)" }}
+            style={{ fontSize: "clamp(3rem, 7vw, 6rem)" }}
           >
             <AnimatedName word="OSCAR" />
             <br />
@@ -103,11 +103,11 @@ export default function Hero() {
             transition={{ delay: 0.65 }}
             className="flex flex-wrap items-center gap-3 mb-8"
           >
-            <span className="font-display font-semibold text-ink/70" style={{ fontSize: "clamp(0.95rem, 1.8vw, 1.25rem)" }}>
+            <span className="font-display font-semibold text-ink/70 text-lg">
               Marketing &amp; Growth
             </span>
             <span className="inline-block w-1 h-1 rounded-full bg-amber" />
-            <span className="font-display text-ink/40" style={{ fontSize: "clamp(0.95rem, 1.8vw, 1.25rem)" }}>
+            <span className="font-display text-ink/45 text-lg">
               CRM · Agentes IA · Automatización
             </span>
           </motion.div>
@@ -143,14 +143,14 @@ export default function Hero() {
           animate={{ opacity: 1 }}
           transition={{ delay: 1.0 }}
         >
-          <p className="font-label text-[9px] uppercase tracking-widest text-ink/25 mb-3">Clientes destacados</p>
-          <div className="flex flex-wrap gap-x-4 gap-y-1.5">
+          <p className="font-label text-[11px] uppercase tracking-widest text-ink/30 mb-3">Clientes destacados</p>
+          <div className="flex flex-wrap gap-x-4 gap-y-2">
             {["Mazda", "BMW", "Mini Cooper", "Ruba", "Grupo VEQ", "Chef Javier Plascencia", "Carl Zeiss", "Finca Altozano", "Atisa Group"].map((c) => (
-              <span key={c} className="font-label text-[10px] uppercase tracking-wide text-ink/35">{c}</span>
+              <span key={c} className="font-grotesk text-sm text-ink/40">{c}</span>
             ))}
           </div>
           <div className="mt-5 pt-5 border-t border-ink/8">
-            <p className="font-label text-[10px] uppercase tracking-widest text-ink/25">
+            <p className="font-grotesk text-sm text-ink/30">
               oscar.amayoral@gmail.com · 664 731 26 95
             </p>
           </div>

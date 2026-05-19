@@ -36,7 +36,7 @@ export default function PortfolioCard() {
       style={{ boxShadow: "0 2px 12px rgba(0,0,0,0.07)" }}
     >
       <div className="px-7 pt-5 pb-4 border-b border-ink/6 flex items-center justify-between">
-        <p className="font-label text-[10px] uppercase tracking-widest text-ink/40">Portafolio</p>
+        <p className="font-label text-[11px] uppercase tracking-widest text-ink/40">Portafolio</p>
         <span className="font-label text-[9px] uppercase tracking-widest text-ink/20">Google Drive</span>
       </div>
 

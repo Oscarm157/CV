@@ -24,9 +24,9 @@ function CountUp({ to, label }: { to: number; label: string }) {
       <span
         ref={ref}
         className="font-display font-black leading-none text-ink tabular-nums"
-        style={{ fontSize: "clamp(2.8rem, 5vw, 4.5rem)" }}
+        style={{ fontSize: "clamp(2rem, 3.5vw, 3rem)" }}
       >0</span>
-      <span className="font-label text-[9px] uppercase tracking-widest text-ink/50 text-center px-2">{label}</span>
+      <span className="font-label text-[11px] uppercase tracking-widest text-ink/55 text-center px-2">{label}</span>
     </div>
   );
 }
@@ -45,7 +45,7 @@ export default function StatsCard() {
       <div className="absolute bottom-[-30px] left-[-30px] w-[120px] h-[120px] rounded-full bg-black/6 pointer-events-none" />
 
       <div className="relative z-10 px-5 pt-5">
-        <p className="font-label text-[10px] uppercase tracking-widest text-ink/50">En cifras</p>
+        <p className="font-label text-[11px] uppercase tracking-widest text-ink/55">En cifras</p>
       </div>
 
       <div className="relative z-10 flex flex-col divide-y divide-ink/10">

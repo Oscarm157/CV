@@ -43,14 +43,14 @@ export default function AICard() {
             className="w-1.5 h-1.5 rounded-full"
             style={{ background: "var(--emerald)" }}
           />
-          <span className="font-label text-[9px] uppercase tracking-widest" style={{ color: "var(--emerald)" }}>
+          <span className="font-label text-[11px] uppercase tracking-widest" style={{ color: "var(--emerald)" }}>
             Habilidad emergente
           </span>
         </div>
 
         <div>
-          <p className="font-label text-[10px] uppercase tracking-widest text-white/25 mb-1">AI Lab</p>
-          <h3 className="font-display font-bold text-white" style={{ fontSize: "1.35rem" }}>
+          <p className="font-label text-[11px] uppercase tracking-widest text-white/25 mb-1">AI Lab</p>
+          <h3 className="font-display font-bold text-white text-xl">
             IA &amp; Agentes
           </h3>
         </div>
@@ -71,7 +71,7 @@ export default function AICard() {
             <motion.span
               key={tag}
               variants={tagItem}
-              className="font-label text-[9px] uppercase tracking-wide px-2.5 py-1.5 rounded-lg"
+              className="font-label text-[11px] uppercase tracking-wide px-2.5 py-1.5 rounded-lg"
               style={{ color: "var(--emerald)", background: "rgba(16,185,129,0.12)" }}
             >
               {tag}

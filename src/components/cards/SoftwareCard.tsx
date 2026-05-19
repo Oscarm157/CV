@@ -26,7 +26,7 @@ export default function SoftwareCard() {
       style={{ boxShadow: "0 2px 12px rgba(0,0,0,0.07)" }}
     >
       <div className="px-6 pt-5 pb-4 border-b border-ink/6">
-        <p className="font-label text-[10px] uppercase tracking-widest text-ink/40">Software</p>
+        <p className="font-label text-[11px] uppercase tracking-widest text-ink/40">Software</p>
       </div>
       <div className="p-5 grid grid-cols-3 gap-2">
         {software.map((s, i) => (
@@ -41,7 +41,7 @@ export default function SoftwareCard() {
             style={{ background: "rgba(15,23,42,0.04)" }}
           >
             <span className="text-xl">{s.emoji}</span>
-            <span className="font-label text-[8px] uppercase tracking-wide text-ink/45 text-center leading-tight">
+            <span className="font-label text-[11px] uppercase tracking-wide text-ink/45 text-center leading-tight">
               {s.name}
             </span>
           </motion.div>
