@@ -1,6 +1,6 @@
 import Nav from "@/components/Nav";
-import Hero from "@/components/Hero";
 import BentoGrid from "@/components/BentoGrid";
+import HeroCard from "@/components/cards/HeroCard";
 import ProfileCard from "@/components/cards/ProfileCard";
 import StatsCard from "@/components/cards/StatsCard";
 import ExperienceCard from "@/components/cards/ExperienceCard";
@@ -15,15 +15,12 @@ export default function Page() {
     <>
       <Nav />
       <main>
-        <Hero />
         <BentoGrid>
-          {/* Row 1: Perfil (2col) + AI dark (1col) */}
+          <HeroCard />
           <ProfileCard />
           <AICard />
-          {/* Row 2: Experiencia (2col) + Stats amber (1col) */}
           <ExperienceCard />
           <StatsCard />
-          {/* Row 3: Software + Formacion + Portfolio (2col) */}
           <SoftwareCard />
           <FormacionCard />
           <PortfolioCard />

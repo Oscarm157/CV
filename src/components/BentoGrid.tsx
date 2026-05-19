@@ -18,7 +18,7 @@ export const cardVariants = {
 
 export default function BentoGrid({ children }: { children: React.ReactNode }) {
   return (
-    <section className="px-4 sm:px-6 pb-20" style={{ background: "var(--cream)" }}>
+    <section className="px-4 sm:px-6 pt-20 pb-20" style={{ background: "var(--cream)" }}>
       <motion.div
         variants={container}
         initial="hidden"

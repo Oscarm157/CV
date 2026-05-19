@@ -16,23 +16,23 @@ export default function Footer() {
       <div className="flex flex-wrap items-center gap-4 sm:gap-6">
         <a
           href="mailto:oscar.amayoral@gmail.com"
-          className="font-label text-[10px] uppercase tracking-widest text-ink/40 hover:text-amber transition-colors"
+          className="font-label text-xs uppercase tracking-widest text-ink/40 hover:text-amber transition-colors"
         >
           oscar.amayoral@gmail.com
         </a>
         <span className="text-ink/20">·</span>
         <a
           href="tel:6647312695"
-          className="font-label text-[10px] uppercase tracking-widest text-ink/40 hover:text-amber transition-colors"
+          className="font-label text-xs uppercase tracking-widest text-ink/40 hover:text-amber transition-colors"
         >
           664 731 26 95
         </a>
         <span className="text-ink/20">·</span>
-        <span className="font-label text-[10px] uppercase tracking-widest text-ink/20">
+        <span className="font-label text-xs uppercase tracking-widest text-ink/20">
           Tijuana, B.C.
         </span>
       </div>
-      <span className="font-label text-[10px] uppercase tracking-widest text-ink/20">
+      <span className="font-label text-xs uppercase tracking-widest text-ink/20">
         © 2025
       </span>
     </motion.footer>
