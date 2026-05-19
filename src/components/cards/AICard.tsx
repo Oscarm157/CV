@@ -43,7 +43,7 @@ export default function AICard() {
       variants={cardVariants}
       whileHover={{ y: -3, boxShadow: "0 16px 44px rgba(15,23,42,0.28)" }}
       transition={{ type: "spring", stiffness: 400, damping: 17 }}
-      className="md:col-span-1 rounded-[20px] overflow-hidden relative"
+      className="md:col-span-4 rounded-[20px] overflow-hidden relative"
       style={{ background: "var(--ink)" }}
     >
       {/* One circle, top-right */}

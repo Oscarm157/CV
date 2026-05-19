@@ -88,7 +88,7 @@ export default function HeroCard() {
   return (
     <motion.div
       variants={cardVariants}
-      className="md:col-span-3 rounded-[24px] overflow-hidden flex flex-col md:flex-row"
+      className="md:col-span-12 rounded-[24px] overflow-hidden flex flex-col md:flex-row"
       style={{ background: "var(--ink)", minHeight: 320 }}
     >
       {/* LEFT — text */}

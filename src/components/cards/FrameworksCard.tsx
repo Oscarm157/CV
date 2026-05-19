@@ -74,7 +74,7 @@ export default function FrameworksCard() {
       variants={cardVariants}
       whileHover={{ y: -3, boxShadow: "0 14px 36px rgba(0,0,0,0.09)" }}
       transition={{ type: "spring", stiffness: 400, damping: 17 }}
-      className="md:col-span-2 rounded-[20px] overflow-hidden"
+      className="md:col-span-9 rounded-[20px] overflow-hidden"
       style={{ background: "var(--paper)", boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }}
     >
       <div className="px-6 pt-5 pb-5 relative overflow-hidden" style={{ background: "var(--ink)" }}>
