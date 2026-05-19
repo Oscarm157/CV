@@ -23,7 +23,7 @@ const frameworks = [
     abbr: "BOS",
     color: "#0284C7",
     desc: "Crear espacios de mercado propios en lugar de pelear por los existentes. Diferenciación y valor simultáneos hacen irrelevante a la competencia directa.",
-    example: "En Kraken me enfoqué en industrias sin producción audiovisual de calidad — gastronómica y médica — donde no había con quién competir por precio.",
+    example: "Cirque du Soleil eliminó animales y estrellas del circo tradicional, redujo costos y creó un espectáculo artístico premium sin competidor directo.",
   },
 ];
 
