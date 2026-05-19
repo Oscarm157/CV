@@ -103,9 +103,15 @@ export default function HeroCard() {
           className="mt-8 pt-6 border-t border-white/8 relative z-10"
         >
           <p className="font-label text-xs uppercase tracking-widest text-white/50 mb-2">Clientes</p>
-          <div className="flex flex-wrap gap-x-5 gap-y-1.5">
+          <div className="flex flex-wrap gap-x-5 gap-y-1.5 mb-4">
             {clients.map(c => (
               <span key={c} className="font-grotesk text-sm text-white/75">{c}</span>
+            ))}
+          </div>
+          <p className="font-label text-xs uppercase tracking-widest text-white/50 mb-2">Industrias</p>
+          <div className="flex flex-wrap gap-x-4 gap-y-1.5">
+            {["Automotriz", "Inmobiliario", "Gastronómico", "Médico", "Financiero", "Tecnología / TI"].map(ind => (
+              <span key={ind} className="font-grotesk text-sm text-white/75">{ind}</span>
             ))}
           </div>
         </motion.div>
