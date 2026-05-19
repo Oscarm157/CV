@@ -45,7 +45,7 @@ function HeroStat({ value, label }: { value: number; label: string }) {
   );
 }
 
-const clients = ["Mazda", "BMW", "Mini Cooper", "Carl Zeiss", "BBVA", "Forbes", "Chef Javier Plascencia", "+70 marcas"];
+const clients = ["Mazda", "BMW", "Mini Cooper", "Carl Zeiss", "BBVA", "Forbes", "Produce Pay", "Chef Javier Plascencia", "+70 marcas"];
 
 export default function HeroCard() {
   return (
@@ -110,7 +110,7 @@ export default function HeroCard() {
           </div>
           <p className="font-label text-xs uppercase tracking-widest text-white/50 mb-2">Industrias</p>
           <div className="flex flex-wrap gap-x-4 gap-y-1.5">
-            {["Automotriz", "Inmobiliario", "Gastronómico", "Médico", "Financiero", "Tecnología / TI"].map(ind => (
+            {["Automotriz", "Inmobiliario", "Gastronómico", "Médico", "Financiero", "Agrícola", "Tecnología / TI"].map(ind => (
               <span key={ind} className="font-grotesk text-sm text-white/75">{ind}</span>
             ))}
           </div>
