@@ -24,7 +24,7 @@ export default function Footer() {
           <p className="font-display font-bold text-white text-2xl md:text-3xl leading-tight">
             ¿Hablamos?
           </p>
-          <p className="font-grotesk text-sm text-white/40 mt-2">
+          <p className="font-grotesk text-sm text-white/70 mt-2">
             Abierto a nuevas oportunidades y proyectos.
           </p>
         </div>
@@ -56,7 +56,7 @@ export default function Footer() {
               style={{ background: "rgba(245,158,11,0.12)" }}>
               <MapPin size={16} color="var(--amber)" />
             </div>
-            <span className="font-grotesk text-sm text-white/40">Tijuana, Baja California</span>
+            <span className="font-grotesk text-sm text-white/70">Tijuana, Baja California</span>
           </div>
         </div>
 
@@ -74,8 +74,8 @@ export default function Footer() {
 
       {/* Bottom strip */}
       <div className="px-8 md:px-12 py-4 border-t border-white/6 flex items-center justify-between">
-        <span className="font-display font-bold text-white/30 text-sm">Oscar Arredondo</span>
-        <span className="font-label text-xs uppercase tracking-widest text-white/20">© 2025</span>
+        <span className="font-display font-bold text-white/60 text-sm">Oscar Arredondo</span>
+        <span className="font-label text-xs uppercase tracking-widest text-white/50">© 2025</span>
       </div>
     </motion.footer>
   );

@@ -52,7 +52,7 @@ export default function ExperienceCard() {
       {/* Header */}
       <div className="px-6 pt-5 pb-4 border-b border-ink/6 flex items-center justify-between">
         <p className="font-label text-xs uppercase tracking-widest text-ink/40">Experiencia</p>
-        <span className="font-label text-xs uppercase tracking-widest text-ink/25">2016 – Presente</span>
+        <span className="font-label text-xs uppercase tracking-widest text-ink/55">2016 – Presente</span>
       </div>
 
       {/* Timeline */}
@@ -78,7 +78,7 @@ export default function ExperienceCard() {
 
               <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5 mb-2">
                 <span className="font-display font-semibold text-ink text-base">{job.title}</span>
-                <span className="font-grotesk text-sm text-ink/40">· {job.company}</span>
+                <span className="font-grotesk text-sm text-ink/65">· {job.company}</span>
                 <span className="font-label text-xs uppercase tracking-widest ml-auto" style={{ color: job.accentColor }}>
                   {job.period}
                 </span>
@@ -86,7 +86,7 @@ export default function ExperienceCard() {
 
               <ul className="space-y-1">
                 {job.bullets.map((b) => (
-                  <li key={b} className="font-grotesk text-sm text-ink/55 flex gap-2 leading-snug">
+                  <li key={b} className="font-grotesk text-sm text-ink/80 flex gap-2 leading-snug">
                     <span className="text-amber shrink-0 text-xs mt-0.5">▸</span>
                     {b}
                   </li>

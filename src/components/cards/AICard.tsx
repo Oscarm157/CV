@@ -47,11 +47,11 @@ export default function AICard() {
         </div>
 
         <div>
-          <p className="font-label text-xs uppercase tracking-widest text-white/30 mb-1">AI Lab</p>
+          <p className="font-label text-xs uppercase tracking-widest text-white/55 mb-1">AI Lab</p>
           <h3 className="font-display font-bold text-white text-xl">IA &amp; Agentes</h3>
         </div>
 
-        <p className="font-grotesk text-sm text-white/50 leading-relaxed">
+        <p className="font-grotesk text-sm text-white/80 leading-relaxed">
           Desde TI diseño blueprints de automatización y desarrollo agentes de IA
           para filtrado y atención rápida de leads con Claude Code y Zapier.
         </p>

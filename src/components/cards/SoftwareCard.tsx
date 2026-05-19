@@ -44,7 +44,7 @@ export default function SoftwareCard() {
             style={{ background: "rgba(15,23,42,0.04)" }}
           >
             <Icon size={22} color={color} />
-            <span className="font-label text-xs uppercase tracking-wide text-ink/50 text-center leading-tight">
+            <span className="font-label text-xs uppercase tracking-wide text-ink/75 text-center leading-tight">
               {name}
             </span>
           </motion.div>

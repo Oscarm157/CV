@@ -41,7 +41,7 @@ export default function PortfolioCard() {
     >
       <div className="px-6 pt-5 pb-4 border-b border-ink/6 flex items-center justify-between">
         <p className="font-label text-xs uppercase tracking-widest text-ink/40">Portafolio</p>
-        <span className="font-label text-xs uppercase tracking-widest text-ink/20">Google Drive</span>
+        <span className="font-label text-xs uppercase tracking-widest text-ink/50">Google Drive</span>
       </div>
 
       <div className="p-4 grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -65,7 +65,7 @@ export default function PortfolioCard() {
             </div>
             <div>
               <p className="font-display font-semibold text-ink text-sm leading-snug">{label}</p>
-              <p className="font-grotesk text-sm text-ink/40 mt-0.5">{desc}</p>
+              <p className="font-grotesk text-sm text-ink/70 mt-0.5">{desc}</p>
             </div>
             <span className="flex items-center gap-1 font-label text-xs opacity-40 group-hover:opacity-100 transition-opacity mt-auto"
               style={{ color }}>

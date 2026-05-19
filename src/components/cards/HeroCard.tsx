@@ -40,7 +40,7 @@ function HeroStat({ value, label }: { value: number; label: string }) {
   return (
     <div className="flex flex-col items-center text-center">
       <span ref={ref} className="font-display font-black text-white leading-none text-4xl tabular-nums">+0</span>
-      <span className="font-label text-xs uppercase tracking-widest text-white/50 mt-1.5">{label}</span>
+      <span className="font-label text-xs uppercase tracking-widest text-white/70 mt-1.5">{label}</span>
     </div>
   );
 }
@@ -78,7 +78,7 @@ export default function HeroCard() {
 
         <motion.p
           initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.65 }}
-          className="font-grotesk text-base text-white/50 mt-4 relative z-10"
+          className="font-grotesk text-base text-white/80 mt-4 relative z-10"
         >
           Estrategia Digital · Customer Journey · Leads · Automatización · Agentes IA
         </motion.p>
