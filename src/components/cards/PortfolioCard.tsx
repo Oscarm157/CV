@@ -3,38 +3,85 @@
 import { motion } from "motion/react";
 import { Film, Camera, PenTool, ArrowUpRight } from "lucide-react";
 import { cardVariants } from "../BentoGrid";
+import { useLanguage } from "@/context/LanguageContext";
 
-const links = [
-  {
-    label: "Video",
-    sublabel: "Producción",
-    desc: "Spots y contenido audiovisual para marcas internacionales",
-    href: "https://drive.google.com/drive/folders/1YdN7X_0a04WcTK3i0o9HBkBLwZ6Zmtyg?usp=sharing",
-    Icon: Film,
-    accent: "#6B5CE7",
-    num: "01",
-  },
-  {
-    label: "Fotografía",
-    sublabel: "Comercial",
-    desc: "Sesiones publicitarias para automotriz, gastronomía y moda",
-    href: "https://drive.google.com/drive/folders/1LCHCFkNIYMVhNQEqVJ70p2ewZ4S3S7U0?usp=sharing",
-    Icon: Camera,
-    accent: "#059669",
-    num: "02",
-  },
-  {
-    label: "Diseño",
-    sublabel: "Gráfico",
-    desc: "Branding, identidad visual y piezas digitales",
-    href: "https://drive.google.com/drive/folders/1EX2owUMIZdZnIS0APjwi3cPH8Q3EJHOz?usp=sharing",
-    Icon: PenTool,
-    accent: "#D97706",
-    num: "03",
-  },
-];
+const links = {
+  es: [
+    {
+      label: "Video",
+      sublabel: "Producción",
+      desc: "Spots y contenido audiovisual para marcas internacionales",
+      cta: "Ver trabajo",
+      href: "https://drive.google.com/drive/folders/1YdN7X_0a04WcTK3i0o9HBkBLwZ6Zmtyg?usp=sharing",
+      Icon: Film,
+      accent: "#6B5CE7",
+      num: "01",
+    },
+    {
+      label: "Fotografía",
+      sublabel: "Comercial",
+      desc: "Sesiones publicitarias para automotriz, gastronomía y moda",
+      cta: "Ver trabajo",
+      href: "https://drive.google.com/drive/folders/1LCHCFkNIYMVhNQEqVJ70p2ewZ4S3S7U0?usp=sharing",
+      Icon: Camera,
+      accent: "#059669",
+      num: "02",
+    },
+    {
+      label: "Diseño",
+      sublabel: "Gráfico",
+      desc: "Branding, identidad visual y piezas digitales",
+      cta: "Ver trabajo",
+      href: "https://drive.google.com/drive/folders/1EX2owUMIZdZnIS0APjwi3cPH8Q3EJHOz?usp=sharing",
+      Icon: PenTool,
+      accent: "#D97706",
+      num: "03",
+    },
+  ],
+  en: [
+    {
+      label: "Video",
+      sublabel: "Production",
+      desc: "Spots and video content for international brands",
+      cta: "View work",
+      href: "https://drive.google.com/drive/folders/1YdN7X_0a04WcTK3i0o9HBkBLwZ6Zmtyg?usp=sharing",
+      Icon: Film,
+      accent: "#6B5CE7",
+      num: "01",
+    },
+    {
+      label: "Photography",
+      sublabel: "Commercial",
+      desc: "Ad shoots for automotive, food, and fashion clients",
+      cta: "View work",
+      href: "https://drive.google.com/drive/folders/1LCHCFkNIYMVhNQEqVJ70p2ewZ4S3S7U0?usp=sharing",
+      Icon: Camera,
+      accent: "#059669",
+      num: "02",
+    },
+    {
+      label: "Design",
+      sublabel: "Graphic",
+      desc: "Branding, visual identity, and digital assets",
+      cta: "View work",
+      href: "https://drive.google.com/drive/folders/1EX2owUMIZdZnIS0APjwi3cPH8Q3EJHOz?usp=sharing",
+      Icon: PenTool,
+      accent: "#D97706",
+      num: "03",
+    },
+  ],
+};
+
+const labels = {
+  es: { eyebrow: "Portafolio Creativo", badge: "Google Drive" },
+  en: { eyebrow: "Creative Work", badge: "Google Drive" },
+};
 
 export default function PortfolioCard() {
+  const { lang } = useLanguage();
+  const t = labels[lang];
+  const list = links[lang];
+
   return (
     <motion.div
       id="portafolio"
@@ -43,14 +90,14 @@ export default function PortfolioCard() {
       style={{ boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }}
     >
       <div className="px-6 pt-5 pb-4 border-b border-ink/6 flex items-center justify-between">
-        <p className="font-label text-xs uppercase tracking-widest text-ink/40">Portafolio Creativo</p>
-        <span className="font-label text-xs uppercase tracking-widest text-ink/40">Google Drive</span>
+        <p className="font-label text-xs uppercase tracking-widest text-ink/40">{t.eyebrow}</p>
+        <span className="font-label text-xs uppercase tracking-widest text-ink/40">{t.badge}</span>
       </div>
 
       <div className="p-4 grid grid-cols-1 sm:grid-cols-3 gap-3">
-        {links.map(({ label, sublabel, desc, href, Icon, accent, num }, i) => (
+        {list.map(({ label, sublabel, desc, cta, href, Icon, accent, num }, i) => (
           <motion.a
-            key={label}
+            key={label + sublabel}
             href={href}
             target="_blank"
             rel="noopener noreferrer"
@@ -90,7 +137,7 @@ export default function PortfolioCard() {
               {/* CTA */}
               <div className="flex items-center gap-1 font-label text-xs uppercase tracking-widest font-bold opacity-40 group-hover:opacity-100 transition-opacity duration-200"
                 style={{ color: accent }}>
-                Ver trabajo <ArrowUpRight size={13} />
+                {cta} <ArrowUpRight size={13} />
               </div>
             </div>
           </motion.a>

@@ -2,8 +2,27 @@
 
 import { motion } from "motion/react";
 import { Mail, Phone, MapPin } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
+
+const content = {
+  es: {
+    eyebrow: "Contacto",
+    heading: "¿Hablamos?",
+    sub: "Abierto a nuevas oportunidades y proyectos.",
+    cta: "Enviar mensaje",
+  },
+  en: {
+    eyebrow: "Contact",
+    heading: "Let's talk.",
+    sub: "Open to new opportunities.",
+    cta: "Send a message",
+  },
+};
 
 export default function Footer() {
+  const { lang } = useLanguage();
+  const t = content[lang];
+
   return (
     <section className="px-4 sm:px-6 pb-6">
     <motion.footer
@@ -20,13 +39,13 @@ export default function Footer() {
         {/* Left */}
         <div>
           <p className="font-label text-xs uppercase tracking-widest mb-3" style={{ color: "var(--amber)" }}>
-            Contacto
+            {t.eyebrow}
           </p>
           <p className="font-display font-bold text-white text-2xl md:text-3xl leading-tight">
-            ¿Hablamos?
+            {t.heading}
           </p>
           <p className="font-grotesk text-sm text-white/70 mt-2">
-            Abierto a nuevas oportunidades y proyectos.
+            {t.sub}
           </p>
         </div>
 
@@ -69,14 +88,14 @@ export default function Footer() {
           className="font-label text-xs uppercase tracking-widest px-8 py-4 rounded-full font-bold flex-shrink-0"
           style={{ background: "var(--amber)", color: "var(--ink)" }}
         >
-          Enviar mensaje
+          {t.cta}
         </motion.a>
       </div>
 
       {/* Bottom strip */}
       <div className="px-8 md:px-12 py-4 border-t border-white/6 flex items-center justify-between">
         <span className="font-display font-bold text-white/60 text-sm">Oscar Arredondo</span>
-        <span className="font-label text-xs uppercase tracking-widest text-white/50">© 2025</span>
+        <span className="font-label text-xs uppercase tracking-widest text-white/50">© 2026</span>
       </div>
     </motion.footer>
     </section>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Syne, Space_Grotesk, Space_Mono } from "next/font/google";
 import "./globals.css";
+import { LanguageProvider } from "@/context/LanguageContext";
 
 const syne = Syne({
   variable: "--font-syne",
@@ -34,7 +35,7 @@ export default function RootLayout({
       lang="es"
       className={`${syne.variable} ${spaceGrotesk.variable} ${spaceMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full">{children}</body>
+      <body className="min-h-full"><LanguageProvider>{children}</LanguageProvider></body>
     </html>
   );
 }

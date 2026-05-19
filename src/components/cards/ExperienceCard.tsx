@@ -2,49 +2,101 @@
 
 import { motion } from "motion/react";
 import { cardVariants } from "../BentoGrid";
+import { useLanguage } from "@/context/LanguageContext";
 
-const jobs = [
-  {
-    title: "Coordinador CRM",
-    company: "Atisa Group",
-    period: "Jun 2024 – Presente",
-    accentColor: "#10B981",
-    bullets: [
-      "Coordinación y capacitación del equipo de ventas y 2 analistas de CRM · Zoho CRM",
-      "Diseño de blueprints de automatización para el ciclo completo de leads",
-      "Dashboard ejecutivo de adopción de IA presentado al CEO: KPIs por dirección y proyección de horas ahorradas",
-      "Propuesta estratégica de implementación de IA (governance, inversión, ruta crítica)",
-      "Desarrollo de agente IA para atención rápida y filtrado de leads (en curso)",
-      "Campañas de SEO, paid media y email marketing",
-    ],
-  },
-  {
-    title: "Consultor Freelance",
-    company: "Independiente",
-    period: "Ene 2023 – May 2024",
-    accentColor: "#F59E0B",
-    bullets: [
-      "Marketing digital sectores médico e industrial",
-      "Estrategia, redes sociales, publicidad y branding",
-      "Desarrollo de sitios web para clientes independientes",
-    ],
-  },
-  {
-    title: "Fundador · Director Creativo",
-    company: "Kraken Mkt Studio",
-    period: "Ene 2016 – Oct 2022",
-    accentColor: "#F59E0B",
-    bullets: [
-      "Agencia creativa B.C.: Automotriz, Inmobiliario, Gastronómico, Médico",
-      "Dirección creativa de campañas audiovisuales, branding y contenido digital",
-      "Gestión de leads, SEO y estrategia en redes para marcas regionales y nacionales",
-      "Clientes: Mazda, BMW, Mini Cooper, Carl Zeiss, Chef Javier Plascencia",
-      "Dirigí un equipo de hasta 15 personas: creativos, fotógrafos y community managers",
-    ],
-  },
-];
+const jobs = {
+  es: [
+    {
+      title: "Coordinador CRM",
+      company: "Atisa Group",
+      period: "Jun 2024 – Presente",
+      accentColor: "#10B981",
+      bullets: [
+        "Coordinación y capacitación del equipo de ventas y 2 analistas de CRM · Zoho CRM",
+        "Diseño de blueprints de automatización para el ciclo completo de leads",
+        "Dashboard ejecutivo de adopción de IA presentado al CEO: KPIs por dirección y proyección de horas ahorradas",
+        "Propuesta estratégica de implementación de IA (governance, inversión, ruta crítica)",
+        "Desarrollo de agente IA para atención rápida y filtrado de leads (en curso)",
+        "Campañas de SEO, paid media y email marketing",
+      ],
+    },
+    {
+      title: "Consultor Freelance",
+      company: "Independiente",
+      period: "Ene 2023 – May 2024",
+      accentColor: "#F59E0B",
+      bullets: [
+        "Marketing digital sectores médico e industrial",
+        "Estrategia, redes sociales, publicidad y branding",
+        "Desarrollo de sitios web para clientes independientes",
+      ],
+    },
+    {
+      title: "Fundador · Director Creativo",
+      company: "Kraken Mkt Studio",
+      period: "Ene 2016 – Oct 2022",
+      accentColor: "#F59E0B",
+      bullets: [
+        "Agencia creativa B.C.: Automotriz, Inmobiliario, Gastronómico, Médico",
+        "Dirección creativa de campañas audiovisuales, branding y contenido digital",
+        "Gestión de leads, SEO y estrategia en redes para marcas regionales y nacionales",
+        "Clientes: Mazda, BMW, Mini Cooper, Carl Zeiss, Chef Javier Plascencia",
+        "Dirigí un equipo de hasta 15 personas: creativos, fotógrafos y community managers",
+      ],
+    },
+  ],
+  en: [
+    {
+      title: "CRM Manager",
+      company: "Atisa Group",
+      period: "Jun 2024 – Present",
+      accentColor: "#10B981",
+      bullets: [
+        "Managing and training the sales team and 2 CRM analysts · Zoho CRM",
+        "Designing automation blueprints for the full lead cycle",
+        "Built executive AI adoption dashboard presented to CEO: KPIs by department and projected hours saved",
+        "Led AI implementation strategy proposal (governance, investment, critical path)",
+        "Building an AI agent for fast lead response and filtering (in progress)",
+        "SEO campaigns, paid media, and email marketing",
+      ],
+    },
+    {
+      title: "Freelance Consultant",
+      company: "Independent",
+      period: "Jan 2023 – May 2024",
+      accentColor: "#F59E0B",
+      bullets: [
+        "Digital marketing for medical and industrial sectors",
+        "Strategy, social media, advertising, and branding",
+        "Website development for independent clients",
+      ],
+    },
+    {
+      title: "Founder · Creative Director",
+      company: "Kraken Mkt Studio",
+      period: "Jan 2016 – Oct 2022",
+      accentColor: "#F59E0B",
+      bullets: [
+        "Creative agency in Baja California: Automotive, Real Estate, Food & Beverage, Medical",
+        "Creative direction for video campaigns, branding, and digital content",
+        "Lead management, SEO, and social strategy for regional and national brands",
+        "Clients: Mazda, BMW, Mini Cooper, Carl Zeiss, Chef Javier Plascencia",
+        "Led a team of up to 15: creatives, photographers, and community managers",
+      ],
+    },
+  ],
+};
+
+const labels = {
+  es: { eyebrow: "Experiencia", range: "2016 – Presente" },
+  en: { eyebrow: "Experience", range: "2016 – Present" },
+};
 
 export default function ExperienceCard() {
+  const { lang } = useLanguage();
+  const t = labels[lang];
+  const jobList = jobs[lang];
+
   return (
     <motion.div
       id="experiencia"
@@ -56,8 +108,8 @@ export default function ExperienceCard() {
     >
       {/* Header */}
       <div className="px-6 pt-5 pb-4 border-b border-ink/6 flex items-center justify-between">
-        <p className="font-label text-xs uppercase tracking-widest text-ink/40">Experiencia</p>
-        <span className="font-label text-xs uppercase tracking-widest text-ink/55">2016 – Presente</span>
+        <p className="font-label text-xs uppercase tracking-widest text-ink/40">{t.eyebrow}</p>
+        <span className="font-label text-xs uppercase tracking-widest text-ink/55">{t.range}</span>
       </div>
 
       {/* Timeline */}
@@ -66,7 +118,7 @@ export default function ExperienceCard() {
         <div className="absolute left-6 top-6 bottom-6 w-px bg-ink/8" />
 
         <div className="pl-8 flex flex-col gap-7">
-          {jobs.map((job, i) => (
+          {jobList.map((job, i) => (
             <motion.div
               key={job.company}
               initial={{ opacity: 0, x: -8 }}

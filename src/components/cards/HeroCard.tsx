@@ -5,6 +5,7 @@ import { motion } from "motion/react";
 import { useRef, useEffect } from "react";
 import { useMotionValue, animate } from "motion/react";
 import { cardVariants } from "../BentoGrid";
+import { useLanguage } from "@/context/LanguageContext";
 
 /* ── Letter animation ── */
 const letterVariants = {
@@ -45,9 +46,45 @@ function HeroStat({ value, label }: { value: number; label: string }) {
   );
 }
 
-const clients = ["Mazda", "BMW", "Mini Cooper", "Carl Zeiss", "BBVA", "Forbes", "Produce Pay", "Chef Javier Plascencia", "+70 marcas"];
+const clients = {
+  es: ["Mazda", "BMW", "Mini Cooper", "Carl Zeiss", "BBVA", "Forbes", "Produce Pay", "Chef Javier Plascencia", "+70 marcas"],
+  en: ["Mazda", "BMW", "Mini Cooper", "Carl Zeiss", "BBVA", "Forbes", "Produce Pay", "Chef Javier Plascencia", "+70 brands"],
+};
+
+const industries = {
+  es: ["Automotriz", "Inmobiliario", "Gastronómico", "Médico", "Financiero", "Agrícola", "Tecnología / TI"],
+  en: ["Automotive", "Real Estate", "Food & Beverage", "Medical", "Financial", "Agriculture", "Technology / IT"],
+};
+
+const content = {
+  es: {
+    role: "Coordinador CRM · Atisa Group · Tijuana B.C.",
+    subtitle: "Estrategia Digital · Customer Journey · Leads · Automatización · Agentes IA",
+    cta1: "Ver portafolio",
+    cta2: "Contactar",
+    clientsLabel: "Clientes",
+    industriesLabel: "Industrias",
+    statYrs: "Años exp.",
+    statInd: "Industrias",
+    available: "Disponible",
+  },
+  en: {
+    role: "CRM Manager · Atisa Group · Tijuana, Mexico",
+    subtitle: "Digital Strategy · Customer Journey · Lead Gen · Automation · AI Agents",
+    cta1: "See my work",
+    cta2: "Get in touch",
+    clientsLabel: "Clients",
+    industriesLabel: "Industries",
+    statYrs: "Yrs exp.",
+    statInd: "Industries",
+    available: "Available",
+  },
+};
 
 export default function HeroCard() {
+  const { lang } = useLanguage();
+  const t = content[lang];
+
   return (
     <motion.div
       variants={cardVariants}
@@ -64,7 +101,7 @@ export default function HeroCard() {
           className="font-label text-xs uppercase tracking-widest mb-5 relative z-10"
           style={{ color: "var(--amber)" }}
         >
-          Coordinador CRM · Atisa Group · Tijuana B.C.
+          {t.role}
         </motion.p>
 
         <h1
@@ -80,7 +117,7 @@ export default function HeroCard() {
           initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.65 }}
           className="font-grotesk text-base text-white/80 mt-4 relative z-10"
         >
-          Estrategia Digital · Customer Journey · Leads · Automatización · Agentes IA
+          {t.subtitle}
         </motion.p>
 
         <motion.div
@@ -90,11 +127,11 @@ export default function HeroCard() {
           <motion.a href="#portafolio" whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}
             className="font-label text-xs uppercase tracking-widest px-6 py-3 rounded-full font-bold"
             style={{ background: "var(--amber)", color: "var(--ink)" }}>
-            Ver portafolio
+            {t.cta1}
           </motion.a>
           <motion.a href="mailto:oscar.amayoral@gmail.com" whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}
             className="font-label text-xs uppercase tracking-widest px-6 py-3 rounded-full font-bold text-white/60 border border-white/15 hover:border-white/30 transition-colors">
-            Contactar
+            {t.cta2}
           </motion.a>
         </motion.div>
 
@@ -102,15 +139,15 @@ export default function HeroCard() {
           initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.1 }}
           className="mt-8 pt-6 border-t border-white/8 relative z-10"
         >
-          <p className="font-label text-xs uppercase tracking-widest text-white/50 mb-2">Clientes</p>
+          <p className="font-label text-xs uppercase tracking-widest text-white/50 mb-2">{t.clientsLabel}</p>
           <div className="flex flex-wrap gap-x-5 gap-y-1.5 mb-4">
-            {clients.map(c => (
+            {clients[lang].map(c => (
               <span key={c} className="font-grotesk text-sm text-white/75">{c}</span>
             ))}
           </div>
-          <p className="font-label text-xs uppercase tracking-widest text-white/50 mb-2">Industrias</p>
+          <p className="font-label text-xs uppercase tracking-widest text-white/50 mb-2">{t.industriesLabel}</p>
           <div className="flex flex-wrap gap-x-4 gap-y-1.5">
-            {["Automotriz", "Inmobiliario", "Gastronómico", "Médico", "Financiero", "Agrícola", "Tecnología / TI"].map(ind => (
+            {industries[lang].map(ind => (
               <span key={ind} className="font-grotesk text-sm text-white/75">{ind}</span>
             ))}
           </div>
@@ -136,12 +173,12 @@ export default function HeroCard() {
         {/* Gradient overlay bottom — stats */}
         <div
           className="absolute inset-x-0 bottom-0 flex flex-col gap-4 px-6 pb-6 pt-16"
-          style={{ background: "linear-gradient(to top, rgba(15,23,42,0.95) 60%, transparent)" }}
+          style={{ background: "linear-gradient(to top, rgba(24,24,27,0.95) 60%, transparent)" }}
         >
           <div className="flex items-end justify-center gap-8">
-            <HeroStat value={10} label="Años exp." />
+            <HeroStat value={10} label={t.statYrs} />
             <div className="w-px h-8 bg-white/15" />
-            <HeroStat value={8} label="Industrias" />
+            <HeroStat value={8} label={t.statInd} />
           </div>
         </div>
 
@@ -152,7 +189,7 @@ export default function HeroCard() {
         >
           <span className="font-label text-xs uppercase tracking-widest px-3 py-1.5 rounded-full font-bold"
             style={{ background: "var(--amber)", color: "var(--ink)" }}>
-            Disponible
+            {t.available}
           </span>
         </motion.div>
       </motion.div>

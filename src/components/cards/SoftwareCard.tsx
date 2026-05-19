@@ -3,7 +3,8 @@
 import { motion } from "motion/react";
 import { cardVariants } from "../BentoGrid";
 import { SiWebflow, SiSemrush, SiZapier, SiMailchimp, SiZoho, SiGithub, SiVercel, SiSupabase, SiClaude, SiReplicate } from "react-icons/si";
-import { BarChart3, Database, Webhook, Bot } from "lucide-react";
+import { BarChart3, Database, Webhook, Bot, Terminal } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 /* ── Adobe badge SVGs ── */
 function AdobePr() {
@@ -32,7 +33,7 @@ function AdobeLr() {
 }
 
 type SoftwareItem = {
-  name: string;
+  name: { es: string; en: string } | string;
   color: string;
   Icon?: React.ComponentType<{ size?: number; color?: string }>;
   Custom?: React.ComponentType;
@@ -40,7 +41,7 @@ type SoftwareItem = {
 
 const software: SoftwareItem[] = [
   { name: "Claude",      Icon: SiClaude,    color: "#CC785C" },
-  { name: "Claude Code", Icon: SiClaude,    color: "#A0522D" },
+  { name: "Claude Code", Icon: Terminal,    color: "#A0522D" },
   { name: "Webflow",     Icon: SiWebflow,   color: "#4353FF" },
   { name: "Zapier",      Icon: SiZapier,    color: "#FF4A00" },
   { name: "Zoho CRM",   Icon: SiZoho,       color: "#E42527" },
@@ -59,7 +60,14 @@ const software: SoftwareItem[] = [
   { name: "Lightroom",  Custom: AdobeLr,    color: "#74B8F5" },
 ];
 
+const labels = {
+  es: "Software",
+  en: "Tools",
+};
+
 export default function SoftwareCard() {
+  const { lang } = useLanguage();
+
   return (
     <motion.div
       id="skills"
@@ -70,12 +78,12 @@ export default function SoftwareCard() {
       style={{ boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }}
     >
       <div className="px-6 pt-5 pb-4 border-b border-ink/6">
-        <p className="font-label text-xs uppercase tracking-widest text-ink/40">Software</p>
+        <p className="font-label text-xs uppercase tracking-widest text-ink/40">{labels[lang]}</p>
       </div>
       <div className="p-5 grid grid-cols-3 gap-2.5">
         {software.map(({ name, Icon, Custom, color }, i) => (
           <motion.div
-            key={name}
+            key={typeof name === "string" ? name : name.es}
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -86,7 +94,7 @@ export default function SoftwareCard() {
           >
             {Custom ? <Custom /> : Icon ? <Icon size={22} color={color} /> : null}
             <span className="font-label text-xs uppercase tracking-wide text-ink/75 text-center leading-tight">
-              {name}
+              {typeof name === "string" ? name : name[lang]}
             </span>
           </motion.div>
         ))}

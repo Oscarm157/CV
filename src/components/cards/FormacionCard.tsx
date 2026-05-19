@@ -2,25 +2,52 @@
 
 import { motion } from "motion/react";
 import { cardVariants } from "../BentoGrid";
+import { useLanguage } from "@/context/LanguageContext";
 
-const estudios = [
-  {
-    titulo: "Lic. en Mercadotecnia",
-    escuela: "Universidad Autónoma de Baja California",
-    periodo: "2013 – 2017",
-    lugar: "Tijuana, México",
-    flag: "🇲🇽",
-  },
-  {
-    titulo: "Estancia Académica",
-    escuela: "Universidad de La Coruña",
-    periodo: "2015 – 2016",
-    lugar: "A Coruña, España",
-    flag: "🇪🇸",
-  },
-];
+const estudios = {
+  es: [
+    {
+      titulo: "Lic. en Mercadotecnia",
+      escuela: "Universidad Autónoma de Baja California",
+      periodo: "2013 – 2017",
+      lugar: "Tijuana, México",
+      flag: "🇲🇽",
+    },
+    {
+      titulo: "Estancia Académica",
+      escuela: "Universidad de La Coruña",
+      periodo: "2015 – 2016",
+      lugar: "A Coruña, España",
+      flag: "🇪🇸",
+    },
+  ],
+  en: [
+    {
+      titulo: "B.S. in Marketing",
+      escuela: "Universidad Autónoma de Baja California",
+      periodo: "2013 – 2017",
+      lugar: "Tijuana, Mexico",
+      flag: "🇲🇽",
+    },
+    {
+      titulo: "Academic Exchange",
+      escuela: "Universidad de La Coruña",
+      periodo: "2015 – 2016",
+      lugar: "A Coruña, Spain",
+      flag: "🇪🇸",
+    },
+  ],
+};
+
+const labels = {
+  es: "Formación",
+  en: "Education",
+};
 
 export default function FormacionCard() {
+  const { lang } = useLanguage();
+  const list = estudios[lang];
+
   return (
     <motion.div
       variants={cardVariants}
@@ -30,10 +57,10 @@ export default function FormacionCard() {
       style={{ boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }}
     >
       <div className="px-6 pt-5 pb-4 border-b border-ink/6">
-        <p className="font-label text-xs uppercase tracking-widest text-ink/40">Formación</p>
+        <p className="font-label text-xs uppercase tracking-widest text-ink/40">{labels[lang]}</p>
       </div>
       <div className="p-6 flex flex-col gap-5">
-        {estudios.map((e, i) => (
+        {list.map((e, i) => (
           <motion.div
             key={e.escuela}
             initial={{ opacity: 0, y: 8 }}
