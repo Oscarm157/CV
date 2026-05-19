@@ -1,17 +1,15 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "motion/react";
 import { useRef, useEffect } from "react";
 import { useMotionValue, animate } from "motion/react";
 import { cardVariants } from "../BentoGrid";
 
-/* ── Letter animation ─────────────────────────────── */
+/* ── Letter animation ── */
 const letterVariants = {
   hidden: { opacity: 0, y: 40 },
-  visible: {
-    opacity: 1, y: 0,
-    transition: { type: "spring" as const, stiffness: 340, damping: 22 },
-  },
+  visible: { opacity: 1, y: 0, transition: { type: "spring" as const, stiffness: 340, damping: 22 } },
 };
 const nameContainer = {
   hidden: {},
@@ -28,15 +26,13 @@ function AnimatedName({ word }: { word: string }) {
   );
 }
 
-/* ── Count-up stat (mounts immediately, no scroll trigger) ── */
+/* ── Count-up stat ── */
 function HeroStat({ value, label }: { value: number; label: string }) {
   const ref = useRef<HTMLSpanElement>(null);
   const mv = useMotionValue(0);
   useEffect(() => {
     const c = animate(mv, value, {
-      duration: 1.4,
-      ease: "easeOut",
-      delay: 0.5,
+      duration: 1.4, ease: "easeOut", delay: 0.6,
       onUpdate: (v) => { if (ref.current) ref.current.textContent = Math.round(v).toString(); },
     });
     return c.stop;
@@ -44,7 +40,7 @@ function HeroStat({ value, label }: { value: number; label: string }) {
   return (
     <div className="flex flex-col items-center text-center">
       <span ref={ref} className="font-display font-black text-white leading-none text-4xl tabular-nums">0</span>
-      <span className="font-label text-xs uppercase tracking-widest text-white/45 mt-2">{label}</span>
+      <span className="font-label text-xs uppercase tracking-widest text-white/50 mt-1.5">{label}</span>
     </div>
   );
 }
@@ -56,13 +52,12 @@ export default function HeroCard() {
     <motion.div
       variants={cardVariants}
       className="md:col-span-3 rounded-[24px] overflow-hidden flex flex-col md:flex-row"
-      style={{ background: "var(--ink)", minHeight: 300 }}
+      style={{ background: "var(--ink)", minHeight: 320 }}
     >
-      {/* LEFT — name, subtitle, CTAs, clients */}
+      {/* LEFT — text */}
       <div className="flex-1 flex flex-col justify-center px-8 md:px-12 py-10 relative overflow-hidden">
-        {/* Amber glow top-left */}
         <div className="absolute -top-24 -left-24 w-72 h-72 rounded-full pointer-events-none"
-          style={{ background: "rgba(245,158,11,0.08)" }} />
+          style={{ background: "rgba(245,158,11,0.07)" }} />
 
         <motion.p
           initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.05 }}
@@ -83,7 +78,7 @@ export default function HeroCard() {
 
         <motion.p
           initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.65 }}
-          className="font-grotesk text-base text-white/55 mt-4 relative z-10"
+          className="font-grotesk text-base text-white/50 mt-4 relative z-10"
         >
           Marketing &amp; Growth · CRM · Agentes IA · Automatización
         </motion.p>
@@ -98,7 +93,7 @@ export default function HeroCard() {
             Ver portafolio
           </motion.a>
           <motion.a href="mailto:oscar.amayoral@gmail.com" whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}
-            className="font-label text-xs uppercase tracking-widest px-6 py-3 rounded-full font-bold text-white/70 border border-white/15 hover:border-white/30 transition-colors">
+            className="font-label text-xs uppercase tracking-widest px-6 py-3 rounded-full font-bold text-white/60 border border-white/15 hover:border-white/30 transition-colors">
             Contactar
           </motion.a>
         </motion.div>
@@ -107,32 +102,56 @@ export default function HeroCard() {
           initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.1 }}
           className="mt-8 pt-6 border-t border-white/8 relative z-10"
         >
-          <p className="font-label text-xs uppercase tracking-widest text-white/25 mb-2">Clientes destacados</p>
+          <p className="font-label text-xs uppercase tracking-widest text-white/25 mb-2">Clientes</p>
           <div className="flex flex-wrap gap-x-5 gap-y-1.5">
             {clients.map(c => (
-              <span key={c} className="font-grotesk text-sm text-white/35">{c}</span>
+              <span key={c} className="font-grotesk text-sm text-white/30">{c}</span>
             ))}
           </div>
         </motion.div>
       </div>
 
-      {/* RIGHT — stats panel */}
-      <div className="md:w-64 flex flex-col items-center justify-evenly py-10 px-8 border-t md:border-t-0 md:border-l border-white/8 gap-6">
-        <p className="font-label text-xs uppercase tracking-widest text-white/30 self-start">En cifras</p>
-        <HeroStat value={9} label="Años de experiencia" />
-        <div className="w-10 h-px bg-white/10" />
-        <HeroStat value={15} label="Personas dirigidas" />
-        <div className="w-10 h-px bg-white/10" />
-        <HeroStat value={8} label="Industrias" />
-        <div className="flex flex-wrap gap-1.5 self-start mt-2">
-          {["Automotriz", "Inmobiliario", "Médico", "IA"].map(s => (
-            <span key={s} className="font-label text-xs uppercase tracking-wide px-2.5 py-1 rounded-full"
-              style={{ background: "rgba(245,158,11,0.12)", color: "var(--amber)" }}>
-              {s}
-            </span>
-          ))}
+      {/* RIGHT — photo + stats overlay */}
+      <motion.div
+        initial={{ opacity: 0, x: 40 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
+        className="hidden md:block relative md:w-72 lg:w-80 shrink-0"
+      >
+        {/* Photo */}
+        <Image
+          src="/oscar.jpg"
+          alt="Oscar Arredondo"
+          fill
+          className="object-cover object-top"
+          priority
+        />
+
+        {/* Gradient overlay bottom — stats */}
+        <div
+          className="absolute inset-x-0 bottom-0 flex flex-col gap-4 px-6 pb-6 pt-16"
+          style={{ background: "linear-gradient(to top, rgba(15,23,42,0.95) 60%, transparent)" }}
+        >
+          <div className="flex items-end justify-between gap-4">
+            <HeroStat value={9} label="Años exp." />
+            <div className="w-px h-8 bg-white/15" />
+            <HeroStat value={15} label="Personas" />
+            <div className="w-px h-8 bg-white/15" />
+            <HeroStat value={8} label="Industrias" />
+          </div>
         </div>
-      </div>
+
+        {/* Amber tag top-right */}
+        <motion.div
+          initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.9 }}
+          className="absolute top-4 right-4"
+        >
+          <span className="font-label text-xs uppercase tracking-widest px-3 py-1.5 rounded-full font-bold"
+            style={{ background: "var(--amber)", color: "var(--ink)" }}>
+            Disponible
+          </span>
+        </motion.div>
+      </motion.div>
     </motion.div>
   );
 }
