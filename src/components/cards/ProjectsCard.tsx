@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "motion/react";
 import { useEffect, useState } from "react";
 import { ImageIcon, X, ChevronLeft, ChevronRight } from "lucide-react";
@@ -50,8 +51,10 @@ const labels = {
 
 function Lightbox({ images, alt, startIdx, onClose }: { images: string[]; alt: string; startIdx: number; onClose: () => void }) {
   const [idx, setIdx] = useState(startIdx);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
       if (e.key === "ArrowRight") setIdx((i) => (i + 1) % images.length);
@@ -65,20 +68,26 @@ function Lightbox({ images, alt, startIdx, onClose }: { images: string[]; alt: s
     };
   }, [images.length, onClose]);
 
-  return (
+  if (!mounted) return null;
+
+  const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (e.target === e.currentTarget) onClose();
+  };
+
+  const content = (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.2 }}
-      onClick={onClose}
-      className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-8 cursor-zoom-out"
+      onClick={handleBackdropClick}
+      className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-8"
       style={{ background: "rgba(10,10,12,0.92)", backdropFilter: "blur(8px)" }}
     >
       <button
-        onClick={(e) => { e.stopPropagation(); onClose(); }}
+        onClick={onClose}
         aria-label="Close"
-        className="absolute top-5 right-5 w-10 h-10 rounded-full flex items-center justify-center cursor-pointer"
+        className="absolute top-5 right-5 w-10 h-10 rounded-full flex items-center justify-center cursor-pointer z-10"
         style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.12)" }}
       >
         <X size={18} color="white" />
@@ -87,17 +96,17 @@ function Lightbox({ images, alt, startIdx, onClose }: { images: string[]; alt: s
       {images.length > 1 && (
         <>
           <button
-            onClick={(e) => { e.stopPropagation(); setIdx((i) => (i - 1 + images.length) % images.length); }}
+            onClick={() => setIdx((i) => (i - 1 + images.length) % images.length)}
             aria-label="Previous"
-            className="absolute left-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full flex items-center justify-center cursor-pointer"
+            className="absolute left-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full flex items-center justify-center cursor-pointer z-10"
             style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.12)" }}
           >
             <ChevronLeft size={20} color="white" />
           </button>
           <button
-            onClick={(e) => { e.stopPropagation(); setIdx((i) => (i + 1) % images.length); }}
+            onClick={() => setIdx((i) => (i + 1) % images.length)}
             aria-label="Next"
-            className="absolute right-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full flex items-center justify-center cursor-pointer"
+            className="absolute right-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full flex items-center justify-center cursor-pointer z-10"
             style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.12)" }}
           >
             <ChevronRight size={20} color="white" />
@@ -105,24 +114,27 @@ function Lightbox({ images, alt, startIdx, onClose }: { images: string[]; alt: s
         </>
       )}
 
-      <motion.div
-        key={images[idx]}
-        initial={{ opacity: 0, scale: 0.96 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
-        onClick={(e) => e.stopPropagation()}
-        className="relative cursor-default"
-        style={{ width: "min(96vw, 1800px)", height: "min(90vh, 1100px)" }}
-      >
-        <Image src={images[idx]} alt={alt} fill className="object-contain rounded-xl" sizes="96vw" priority />
-      </motion.div>
+      <div className="relative" style={{ width: "min(96vw, 1800px)", height: "min(88vh, 1100px)" }}>
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={images[idx]}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.18 }}
+            className="absolute inset-0"
+          >
+            <Image src={images[idx]} alt={alt} fill className="object-contain rounded-xl" sizes="96vw" priority />
+          </motion.div>
+        </AnimatePresence>
+      </div>
 
       {images.length > 1 && (
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-10">
           {images.map((_, i) => (
             <button
               key={i}
-              onClick={(e) => { e.stopPropagation(); setIdx(i); }}
+              onClick={() => setIdx(i)}
               aria-label={`Slide ${i + 1}`}
               className="rounded-full transition-all cursor-pointer"
               style={{
@@ -136,6 +148,8 @@ function Lightbox({ images, alt, startIdx, onClose }: { images: string[]; alt: s
       )}
     </motion.div>
   );
+
+  return createPortal(content, document.body);
 }
 
 function Thumbnail({ images, alt }: { images?: string[]; alt: string }) {
