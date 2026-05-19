@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
 import { useEffect, useState } from "react";
-import { ImageIcon } from "lucide-react";
+import { ImageIcon, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { cardVariants } from "../BentoGrid";
 import { useLanguage } from "@/context/LanguageContext";
 
@@ -48,15 +48,106 @@ const labels = {
   en: { eyebrow: "Projects", sub: "Screenshots from recent work" },
 };
 
+function Lightbox({ images, alt, startIdx, onClose }: { images: string[]; alt: string; startIdx: number; onClose: () => void }) {
+  const [idx, setIdx] = useState(startIdx);
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+      if (e.key === "ArrowRight") setIdx((i) => (i + 1) % images.length);
+      if (e.key === "ArrowLeft") setIdx((i) => (i - 1 + images.length) % images.length);
+    };
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", onKey);
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", onKey);
+    };
+  }, [images.length, onClose]);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.2 }}
+      onClick={onClose}
+      className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-8 cursor-zoom-out"
+      style={{ background: "rgba(10,10,12,0.92)", backdropFilter: "blur(8px)" }}
+    >
+      <button
+        onClick={(e) => { e.stopPropagation(); onClose(); }}
+        aria-label="Close"
+        className="absolute top-5 right-5 w-10 h-10 rounded-full flex items-center justify-center cursor-pointer"
+        style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.12)" }}
+      >
+        <X size={18} color="white" />
+      </button>
+
+      {images.length > 1 && (
+        <>
+          <button
+            onClick={(e) => { e.stopPropagation(); setIdx((i) => (i - 1 + images.length) % images.length); }}
+            aria-label="Previous"
+            className="absolute left-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full flex items-center justify-center cursor-pointer"
+            style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.12)" }}
+          >
+            <ChevronLeft size={20} color="white" />
+          </button>
+          <button
+            onClick={(e) => { e.stopPropagation(); setIdx((i) => (i + 1) % images.length); }}
+            aria-label="Next"
+            className="absolute right-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full flex items-center justify-center cursor-pointer"
+            style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.12)" }}
+          >
+            <ChevronRight size={20} color="white" />
+          </button>
+        </>
+      )}
+
+      <motion.div
+        key={images[idx]}
+        initial={{ opacity: 0, scale: 0.96 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+        onClick={(e) => e.stopPropagation()}
+        className="relative w-full max-w-6xl cursor-default"
+        style={{ aspectRatio: "16/10" }}
+      >
+        <Image src={images[idx]} alt={alt} fill className="object-contain rounded-xl" sizes="100vw" priority />
+      </motion.div>
+
+      {images.length > 1 && (
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
+          {images.map((_, i) => (
+            <button
+              key={i}
+              onClick={(e) => { e.stopPropagation(); setIdx(i); }}
+              aria-label={`Slide ${i + 1}`}
+              className="rounded-full transition-all cursor-pointer"
+              style={{
+                width: i === idx ? 22 : 8,
+                height: 8,
+                background: i === idx ? "rgba(255,255,255,0.95)" : "rgba(255,255,255,0.4)",
+              }}
+            />
+          ))}
+        </div>
+      )}
+    </motion.div>
+  );
+}
+
 function Thumbnail({ images, alt }: { images?: string[]; alt: string }) {
   const [idx, setIdx] = useState(0);
+  const [open, setOpen] = useState(false);
   const { lang } = useLanguage();
 
   useEffect(() => {
-    if (!images || images.length <= 1) return;
+    if (!images || images.length <= 1 || open) return;
     const id = setInterval(() => setIdx((i) => (i + 1) % images.length), 4000);
     return () => clearInterval(id);
-  }, [images]);
+  }, [images, open]);
 
   if (!images || images.length === 0) {
     return (
@@ -72,38 +163,48 @@ function Thumbnail({ images, alt }: { images?: string[]; alt: string }) {
   }
 
   return (
-    <div className="relative aspect-[16/10] w-full overflow-hidden" style={{ background: "var(--ink-2)" }}>
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={images[idx]}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.4 }}
-          className="absolute inset-0"
-        >
-          <Image src={images[idx]} alt={alt} fill className="object-cover object-top" sizes="(max-width: 768px) 100vw, 33vw" />
-        </motion.div>
-      </AnimatePresence>
+    <>
+      <div
+        onClick={() => setOpen(true)}
+        className="relative aspect-[16/10] w-full overflow-hidden cursor-zoom-in group"
+        style={{ background: "var(--ink-2)" }}
+      >
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={images[idx]}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.4 }}
+            className="absolute inset-0"
+          >
+            <Image src={images[idx]} alt={alt} fill className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]" sizes="(max-width: 768px) 100vw, 33vw" />
+          </motion.div>
+        </AnimatePresence>
 
-      {images.length > 1 && (
-        <div className="absolute bottom-2.5 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
-          {images.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setIdx(i)}
-              aria-label={`Slide ${i + 1}`}
-              className="rounded-full transition-all cursor-pointer"
-              style={{
-                width: i === idx ? 18 : 6,
-                height: 6,
-                background: i === idx ? "rgba(255,255,255,0.95)" : "rgba(255,255,255,0.45)",
-              }}
-            />
-          ))}
-        </div>
-      )}
-    </div>
+        {images.length > 1 && (
+          <div className="absolute bottom-2.5 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
+            {images.map((_, i) => (
+              <button
+                key={i}
+                onClick={(e) => { e.stopPropagation(); setIdx(i); }}
+                aria-label={`Slide ${i + 1}`}
+                className="rounded-full transition-all cursor-pointer"
+                style={{
+                  width: i === idx ? 18 : 6,
+                  height: 6,
+                  background: i === idx ? "rgba(255,255,255,0.95)" : "rgba(255,255,255,0.45)",
+                }}
+              />
+            ))}
+          </div>
+        )}
+      </div>
+
+      <AnimatePresence>
+        {open && <Lightbox images={images} alt={alt} startIdx={idx} onClose={() => setOpen(false)} />}
+      </AnimatePresence>
+    </>
   );
 }
 
