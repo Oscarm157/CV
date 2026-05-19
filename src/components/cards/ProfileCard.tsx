@@ -8,7 +8,7 @@ const content = {
   es: {
     eyebrow: "Perfil",
     headline: "Mercadólogo · Estratega Digital · Orquestador de IA",
-    p1: "Me gusta resolver problemas complejos. +10 años cubriendo el customer journey completo: generación de leads, contenido audiovisual, SEO, redes sociales y CRM. Construyo confianza en cada punto de contacto y la convierto en ventas. Trabajo mejor cuando el proyecto importa.",
+    p1: "Me enfoco en resolver problemas de negocio complejos, con +10 años de experiencia cubriendo el customer journey completo: generación de leads, contenido audiovisual, SEO, redes sociales y CRM. Construyo confianza en cada punto de contacto y la convierto en ventas. Trabajo mejor cuando el proyecto importa.",
     p2: "Fundé Kraken Mkt Studio (2016–2022), equipo de hasta 15 personas, con clientes como Mazda, BMW, Ruba y Chef Javier Plascencia. En Atisa Group diseño blueprints de automatización, lideré el dashboard de adopción de IA presentado al CEO y tengo en curso un agente de atención y filtrado de leads.",
     tags: [
       "Estrategia Digital", "Customer Journey", "Generación de Leads",
@@ -19,7 +19,7 @@ const content = {
   en: {
     eyebrow: "About",
     headline: "Marketer · Digital Strategist · AI Builder",
-    p1: "Built to solve complex problems. 10+ years across the full customer journey: lead generation, video content, SEO, social media, and CRM. I build trust at every touchpoint and turn it into sales. My best work comes when the project actually matters.",
+    p1: "I'm focused on solving complex business problems, with 10+ years of experience across the full customer journey: lead generation, video content, SEO, social media, and CRM. I build trust at every touchpoint and turn it into sales. My best work comes when the project actually matters.",
     p2: "Founded Kraken Mkt Studio (2016–2022), a 15-person creative agency working with Mazda, BMW, Chef Javier Plascencia and others. At Atisa Group I design automation blueprints, led the AI adoption dashboard for the CEO, and am shipping an AI agent for lead response and filtering.",
     tags: [
       "Digital Strategy", "Customer Journey", "Lead Generation",
