@@ -48,9 +48,8 @@ export default function StatsCard() {
       </div>
 
       <div className="relative z-10 flex flex-col divide-y divide-ink/10">
-        <CountUp to={9} label="Años de experiencia" />
-        <CountUp to={15} label="Personas en equipo" />
-        <CountUp to={8} label="Industrias atendidas" />
+        <CountUp to={9} label="+9 Años de experiencia" />
+        <CountUp to={8} label="+8 Industrias atendidas" />
       </div>
     </motion.div>
   );

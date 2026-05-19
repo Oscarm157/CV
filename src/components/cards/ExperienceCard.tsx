@@ -25,6 +25,7 @@ const jobs = [
     bullets: [
       "Marketing digital sectores médico e industrial",
       "Estrategia, redes sociales, publicidad y branding",
+      "Desarrollo de sitios web para clientes independientes",
     ],
   },
   {
