@@ -102,10 +102,10 @@ export default function HeroCard() {
           initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.1 }}
           className="mt-8 pt-6 border-t border-white/8 relative z-10"
         >
-          <p className="font-label text-xs uppercase tracking-widest text-white/25 mb-2">Clientes</p>
+          <p className="font-label text-xs uppercase tracking-widest text-white/50 mb-2">Clientes</p>
           <div className="flex flex-wrap gap-x-5 gap-y-1.5">
             {clients.map(c => (
-              <span key={c} className="font-grotesk text-sm text-white/30">{c}</span>
+              <span key={c} className="font-grotesk text-sm text-white/75">{c}</span>
             ))}
           </div>
         </motion.div>
