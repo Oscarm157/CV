@@ -43,6 +43,15 @@ const projects: Project[] = [
     tools: ["Zapier", "Webhooks", "Slack"],
     images: ["/screenshots/zapier-list.png"],
   },
+  {
+    title: { es: "Weavy.ai / Figma Wave", en: "Weavy.ai / Figma Wave" },
+    desc: {
+      es: "Flujos de creación de contenido audiovisual conectando nodos de imagen, video y texto.",
+      en: "Audiovisual content workflows connecting image, video and text nodes.",
+    },
+    tools: ["Weavy.ai", "Figma Wave", "AI"],
+    images: ["/screenshots/weavy-1.png", "/screenshots/weavy-2.png"],
+  },
 ];
 
 const labels = {
@@ -241,7 +250,7 @@ export default function ProjectsCard() {
         <span className="font-label text-xs uppercase tracking-widest text-white/50 relative z-10">{t.sub}</span>
       </div>
 
-      <div className="p-4 grid grid-cols-1 sm:grid-cols-3 gap-3">
+      <div className="p-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
         {projects.map((p, i) => (
           <motion.div
             key={p.title.es}
