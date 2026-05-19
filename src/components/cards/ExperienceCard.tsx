@@ -10,9 +10,10 @@ const jobs = [
     period: "Jun 2024 – Presente",
     accentColor: "#10B981",
     bullets: [
-      "Gestión y optimización del flujo de leads en CRM",
-      "Automatizaciones y dashboards para visibilidad de KPIs",
-      "Análisis de datos de mercado y desempeño de vendedores",
+      "Coordinación de 2 analistas de CRM en Zoho CRM",
+      "Automatizaciones con Zapier y agentes IA para flujos de leads",
+      "Dashboards de KPIs, análisis de mercado y desempeño de vendedores",
+      "Desarrollo de herramientas internas desde el área de TI",
     ],
   },
   {
