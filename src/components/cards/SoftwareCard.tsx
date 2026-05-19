@@ -2,8 +2,9 @@
 
 import { motion } from "motion/react";
 import { cardVariants } from "../BentoGrid";
-import { SiWebflow, SiSemrush, SiZapier, SiMailchimp, SiZoho, SiGithub, SiVercel, SiSupabase, SiClaude, SiReplicate } from "react-icons/si";
-import { BarChart3, Database, Webhook, Bot, Terminal } from "lucide-react";
+import { SiWebflow, SiSemrush, SiZapier, SiMailchimp, SiZoho, SiGithub, SiVercel, SiSupabase, SiClaude, SiReplicate, SiMeta, SiGoogleads } from "react-icons/si";
+import { FaLinkedin } from "react-icons/fa";
+import { BarChart3, Webhook, Bot, Terminal } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 /* ── Adobe badge SVGs ── */
@@ -40,24 +41,26 @@ type SoftwareItem = {
 };
 
 const software: SoftwareItem[] = [
-  { name: "Claude",      Icon: SiClaude,    color: "#CC785C" },
-  { name: "Claude Code", Icon: Terminal,    color: "#A0522D" },
-  { name: "Webflow",     Icon: SiWebflow,   color: "#4353FF" },
-  { name: "Zapier",      Icon: SiZapier,    color: "#FF4A00" },
-  { name: "Zoho CRM",   Icon: SiZoho,       color: "#E42527" },
-  { name: "Semrush",    Icon: SiSemrush,    color: "#FF642D" },
-  { name: "GitHub",     Icon: SiGithub,     color: "#24292E" },
-  { name: "Vercel",     Icon: SiVercel,     color: "#18181B" },
-  { name: "Supabase",   Icon: SiSupabase,   color: "#3ECF8E" },
-  { name: "Replicate",  Icon: SiReplicate,  color: "#000000" },
-  { name: "SQL",        Icon: Database,     color: "#F59E0B" },
-  { name: "APIs",       Icon: Webhook,      color: "#9999FF" },
-  { name: "Weavy.ai",   Icon: Bot,          color: "#6D00CC" },
-  { name: "Mailchimp",  Icon: SiMailchimp,  color: "#FFE01B" },
-  { name: "MS Clarity", Icon: BarChart3,    color: "#008272" },
-  { name: "Premiere",   Custom: AdobePr,    color: "#9999FF" },
-  { name: "Photoshop",  Custom: AdobePs,    color: "#31A8FF" },
-  { name: "Lightroom",  Custom: AdobeLr,    color: "#74B8F5" },
+  { name: "Claude",         Icon: SiClaude,    color: "#CC785C" },
+  { name: "Claude Code",    Icon: Terminal,    color: "#A0522D" },
+  { name: "Webflow",        Icon: SiWebflow,   color: "#4353FF" },
+  { name: "Zapier",         Icon: SiZapier,    color: "#FF4A00" },
+  { name: "Zoho CRM",       Icon: SiZoho,      color: "#E42527" },
+  { name: "Semrush",        Icon: SiSemrush,   color: "#FF642D" },
+  { name: "Meta Ads",       Icon: SiMeta,      color: "#0866FF" },
+  { name: "Google Ads",     Icon: SiGoogleads, color: "#4285F4" },
+  { name: "LinkedIn Ads",   Icon: FaLinkedin,  color: "#0A66C2" },
+  { name: "GitHub",         Icon: SiGithub,    color: "#24292E" },
+  { name: "Vercel",         Icon: SiVercel,    color: "#18181B" },
+  { name: "Supabase (SQL)", Icon: SiSupabase,  color: "#3ECF8E" },
+  { name: "Replicate",      Icon: SiReplicate, color: "#000000" },
+  { name: "APIs",           Icon: Webhook,     color: "#9999FF" },
+  { name: "Weavy.ai",       Icon: Bot,         color: "#6D00CC" },
+  { name: "Mailchimp",      Icon: SiMailchimp, color: "#FFE01B" },
+  { name: "MS Clarity",     Icon: BarChart3,   color: "#008272" },
+  { name: "Premiere",       Custom: AdobePr,   color: "#9999FF" },
+  { name: "Photoshop",      Custom: AdobePs,   color: "#31A8FF" },
+  { name: "Lightroom",      Custom: AdobeLr,   color: "#74B8F5" },
 ];
 
 const labels = {
