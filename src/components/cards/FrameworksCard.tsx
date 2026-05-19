@@ -23,7 +23,7 @@ const frameworks = [
     abbr: "BOS",
     color: "#0284C7",
     desc: "Crear espacios de mercado propios en lugar de pelear por los existentes. Diferenciación y valor simultáneos hacen irrelevante a la competencia directa.",
-    example: "Cirque du Soleil eliminó animales y estrellas del circo tradicional, redujo costos y creó un espectáculo artístico premium sin competidor directo.",
+    example: "Netflix no compitió con los videoclubs: creó un modelo de suscripción online que hizo irrelevante ir a rentar un DVD.",
   },
 ];
 
