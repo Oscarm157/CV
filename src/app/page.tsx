@@ -2,7 +2,7 @@ import Nav from "@/components/Nav";
 import BentoGrid from "@/components/BentoGrid";
 import HeroCard from "@/components/cards/HeroCard";
 import ProfileCard from "@/components/cards/ProfileCard";
-import StatsCard from "@/components/cards/StatsCard";
+
 import ExperienceCard from "@/components/cards/ExperienceCard";
 import AICard from "@/components/cards/AICard";
 import SoftwareCard from "@/components/cards/SoftwareCard";
@@ -20,8 +20,7 @@ export default function Page() {
           <ProfileCard />
           <AICard />
           <ExperienceCard />
-          <StatsCard />
-          <SoftwareCard />
+<SoftwareCard />
           <FormacionCard />
           <PortfolioCard />
         </BentoGrid>
