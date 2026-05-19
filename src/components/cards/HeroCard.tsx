@@ -131,7 +131,7 @@ export default function HeroCard() {
 
         <h1
           className="font-display font-black tracking-tighter text-white leading-[0.88] relative z-10"
-          style={{ fontSize: "clamp(2.6rem, 11vw, 5rem)" }}
+          style={{ fontSize: "clamp(2.2rem, 9.5vw, 5rem)" }}
         >
           <AnimatedName word="OSCAR" />
           <br />
