@@ -7,24 +7,24 @@ import { useLanguage } from "@/context/LanguageContext";
 const content = {
   es: {
     eyebrow: "Perfil",
-    headline: "Mercadólogo · Estratega Digital · Orquestador de IA",
-    p1: "Me enfoco en resolver problemas de negocio complejos, con +10 años de experiencia cubriendo el customer journey completo: generación de leads, contenido audiovisual, SEO, redes sociales y CRM. Construyo confianza en cada punto de contacto y la convierto en ventas. Tomo responsabilidad de cada proyecto en el que me involucro.",
-    p2: "Fundé Kraken Mkt Studio (2016–2022), equipo de hasta 12 personas, con clientes como Mazda, BMW, Ruba y Chef Javier Plascencia. En Atisa Group lidero la adopción de IA, diseño blueprints de automatización, construí un dashboard de seguimiento para el CEO y tengo en curso un agente de atención y filtrado de leads.",
+    headline: "Estratega Digital · Consultor de IA · Traductor de Negocio",
+    p1: "Trabajo en la frontera entre negocio y tecnología: traduzco IA y automatización a decisiones que las direcciones entienden y adoptan. +10 años resolviendo problemas de negocio a lo largo del customer journey completo: generación de leads, contenido audiovisual, SEO, redes sociales y CRM. Tomo responsabilidad de cada proyecto en el que me involucro.",
+    p2: "Fundé Kraken Mkt Studio (2016–2022), equipo de hasta 12 personas, con clientes como Mazda, BMW, Ruba y Chef Javier Plascencia. En Atisa Group lidero la gestión del cambio en la adopción de IA para +250 personas: identifico casos de uso con las direcciones, diseño blueprints de automatización, construí un dashboard de seguimiento para el CEO y tengo en curso un agente de atención y filtrado de leads.",
     tags: [
-      "Estrategia Digital", "Customer Journey", "Generación de Leads",
-      "CRM", "Automatización", "Blueprints", "SEO / SEM", "Meta / Google / LinkedIn Ads",
-      "Contenido Audiovisual", "Email Marketing", "Branding", "Gestión de Equipos",
+      "Consultor de IA", "Gestión del Cambio", "Acompañamiento Ejecutivo", "Desarrollo de Agentes",
+      "Estrategia Digital", "Customer Journey", "CRM", "Automatización", "Blueprints",
+      "SQL", "SEO / SEM", "Meta / Google / LinkedIn Ads", "Email Marketing", "Branding",
     ],
   },
   en: {
     eyebrow: "About",
-    headline: "Marketer · Digital Strategist · AI Builder",
-    p1: "I'm focused on solving complex business problems, with 10+ years of experience across the full customer journey: lead generation, video content, SEO, social media, and CRM. I build trust at every touchpoint and turn it into sales. I take ownership of every project I commit to.",
-    p2: "Founded Kraken Mkt Studio (2016–2022), a 12-person creative agency working with Mazda, BMW, Chef Javier Plascencia and others. At Atisa Group I lead AI adoption, design automation blueprints, built a tracking dashboard for the CEO, and am shipping an AI agent for lead response and filtering.",
+    headline: "Digital Strategist · AI Consultant · Business Translator",
+    p1: "I work at the border between business and technology: I translate AI and automation into decisions that leadership actually understands and adopts. 10+ years solving business problems across the full customer journey: lead generation, video content, SEO, social media, and CRM. I take ownership of every project I commit to.",
+    p2: "Founded Kraken Mkt Studio (2016–2022), a 12-person creative agency working with Mazda, BMW, Chef Javier Plascencia and others. At Atisa Group I lead change management for AI adoption across 250+ people: I identify use cases with leadership, design automation blueprints, built a tracking dashboard for the CEO, and am shipping an AI agent for lead response and filtering.",
     tags: [
-      "Digital Strategy", "Customer Journey", "Lead Generation",
-      "CRM", "Automation", "Blueprints", "SEO / SEM", "Meta / Google / LinkedIn Ads",
-      "Video Content", "Email Marketing", "Branding", "Team Leadership",
+      "AI Consultant", "Change Management", "Executive Advisory", "Agent Development",
+      "Digital Strategy", "Customer Journey", "CRM", "Automation", "Blueprints",
+      "SQL", "SEO / SEM", "Meta / Google / LinkedIn Ads", "Email Marketing", "Branding",
     ],
   },
 };

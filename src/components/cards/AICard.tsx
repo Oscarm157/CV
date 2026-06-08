@@ -5,8 +5,8 @@ import { cardVariants } from "../BentoGrid";
 import { useLanguage } from "@/context/LanguageContext";
 
 const tags = {
-  es: ["Claude", "Claude Code", "OpenClaw", "Agentes IA", "Codificación Agéntica", "Prompting", "ChatGPT", "Capacitación"],
-  en: ["Claude", "Claude Code", "OpenClaw", "AI Agents", "Agentic Coding", "Prompting", "ChatGPT", "Training"],
+  es: ["Claude", "Claude Code", "OpenClaw", "Agentes IA", "Harnesses", "Desarrollo desde cero", "Prompting", "APIs", "Gestión del Cambio"],
+  en: ["Claude", "Claude Code", "OpenClaw", "AI Agents", "Harnesses", "Built from scratch", "Prompting", "APIs", "Change Management"],
 };
 
 const content = {
@@ -14,13 +14,13 @@ const content = {
     badge: "En producción",
     eyebrow: "AI Lab",
     title: "IA & Agentes",
-    body: "Diseño agentes y herramientas de IA para automatizar operaciones reales: CRM, leads, reportes, generación de contenido y flujos internos. Lidero la adopción de IA en Atisa Group para +250 personas y construí un dashboard de seguimiento para el CEO. En paralelo pruebo desarrollo agéntico con OpenClaw y construyo plataformas SaaS personales con Claude Code, Supabase y Vercel.",
+    body: "Diseño y desarrollo agentes de IA y harnesses propios desde cero para automatizar operaciones reales: CRM, leads, reportes, generación de contenido y flujos internos, integrando APIs y SQL. Lidero la gestión del cambio en la adopción de IA en Atisa Group para +250 personas y construí un dashboard de seguimiento para el CEO. En paralelo desarrollo agentes con OpenClaw y plataformas SaaS con Claude Code, Supabase y Vercel.",
   },
   en: {
     badge: "Live",
     eyebrow: "AI Lab",
     title: "AI & Agents",
-    body: "I build AI agents and tools to automate real operations: CRM, lead response, reporting, content generation, and internal workflows. I lead AI adoption at Atisa Group for 250+ people and built a tracking dashboard for the CEO. On the side I'm testing agentic development with OpenClaw and building personal SaaS platforms with Claude Code, Supabase and Vercel.",
+    body: "I design and build AI agents and custom harnesses from scratch to automate real operations: CRM, lead response, reporting, content generation, and internal workflows, integrating APIs and SQL. I lead change management for AI adoption at Atisa Group across 250+ people and built a tracking dashboard for the CEO. On the side I build agents with OpenClaw and SaaS platforms with Claude Code, Supabase and Vercel.",
   },
 };
 
