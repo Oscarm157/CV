@@ -12,7 +12,7 @@ const jobs = {
       period: "Jun 2024 – Presente",
       accentColor: "#10B981",
       bullets: [
-        "Liderazgo de la <strong>gestión del cambio</strong> en la adopción de IA para +250 personas: capacitación, acompañamiento e impulso a la nueva forma de trabajar",
+        "<strong>Diagnóstico y adopción de IA</strong> para +250 personas: identificación de casos de uso, capacitación y acompañamiento",
         "Acompañamiento a las direcciones para identificar casos de uso de IA con impacto real en sus áreas",
         "Desarrollo de agentes y automatizaciones para atención y filtrado de leads, integrando <strong>APIs y SQL</strong>",
         "Dashboard de seguimiento construido para el CEO: KPIs por dirección y proyección de horas ahorradas",
@@ -52,7 +52,7 @@ const jobs = {
       period: "Jun 2024 – Present",
       accentColor: "#10B981",
       bullets: [
-        "Leading <strong>change management</strong> for AI adoption across 250+ people: training, support, and driving the new way of working",
+        "<strong>AI diagnosis and adoption</strong> across 250+ people: use-case identification, training and support",
         "Advising leadership on identifying AI use cases with real impact in their departments",
         "Building agents and automations for lead response and filtering, integrating <strong>APIs and SQL</strong>",
         "Built a tracking dashboard for the CEO: KPIs by department and projected hours saved",
