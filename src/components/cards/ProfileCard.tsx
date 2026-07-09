@@ -7,24 +7,24 @@ import { useLanguage } from "@/context/LanguageContext";
 const content = {
   es: {
     eyebrow: "Perfil",
-    headline: "Estratega Digital · Consultor de IA · Traductor de Negocio",
-    p1: "Trabajo en la frontera entre negocio y tecnología: traduzco IA y automatización a decisiones que las direcciones entienden y adoptan. +10 años resolviendo problemas de negocio a lo largo del customer journey completo: generación de leads, contenido audiovisual, SEO, redes sociales y CRM. Tomo responsabilidad de cada proyecto en el que me involucro.",
-    p2: "Fundé Kraken Mkt Studio (2016–2022), equipo de hasta 12 personas, con clientes como Mazda, BMW, Ruba y Chef Javier Plascencia. En Atisa Group lidero la gestión del cambio en la adopción de IA para +250 personas: identifico casos de uso con las direcciones, diseño blueprints de automatización, construí un dashboard de seguimiento para el CEO y tengo en curso un agente de atención y filtrado de leads.",
+    headline: "Automatización & IA · Generación de Leads · Estratega Digital",
+    p1: "Construyo sistemas de IA y automatización para resultados de negocio reales: sourcing y calificación de leads, extracción, limpieza y estructuración de datos, e integración de APIs y SQL. +10 años resolviendo problemas a lo largo del customer journey completo, ahora del lado técnico y de ejecución. Tomo responsabilidad de cada proyecto en el que me involucro.",
+    p2: "Por mi cuenta construí un bot de generación de leads que scrapea negocios de Google Maps (Outscraper), enriquece cada uno (sitio web, rating, reseñas, correo), los califica y los mete a un CRM propio, corriendo solo cada día. También un agente de voz inbound (Gemini Live + Twilio) que atiende llamadas, resuelve dudas y registra leads en Zoho CRM. En Atisa Group lidero la adopción de IA para +250 personas: identifico casos de uso, diseño blueprints de automatización de leads y construí un dashboard de KPIs para el CEO.",
     tags: [
-      "Consultor de IA", "Gestión del Cambio", "Acompañamiento Ejecutivo", "Desarrollo de Agentes",
-      "Estrategia Digital", "Customer Journey", "CRM", "Automatización", "Blueprints",
-      "SQL", "SEO / SEM", "Meta / Google / LinkedIn Ads", "Email Marketing", "Branding",
+      "Lead Generation", "Web Scraping", "Extracción de Datos", "Enriquecimiento", "Agentes de IA",
+      "Automatización", "APIs", "SQL", "CRM", "Blueprints",
+      "Calificación de Leads", "Estrategia Digital", "Meta / Google / LinkedIn Ads", "SEO / SEM",
     ],
   },
   en: {
     eyebrow: "About",
-    headline: "Digital Strategist · AI Consultant · Business Translator",
-    p1: "I work at the border between business and technology: I translate AI and automation into decisions that leadership actually understands and adopts. 10+ years solving business problems across the full customer journey: lead generation, video content, SEO, social media, and CRM. I take ownership of every project I commit to.",
-    p2: "Founded Kraken Mkt Studio (2016–2022), a 12-person creative agency working with Mazda, BMW, Chef Javier Plascencia and others. At Atisa Group I lead change management for AI adoption across 250+ people: I identify use cases with leadership, design automation blueprints, built a tracking dashboard for the CEO, and am shipping an AI agent for lead response and filtering.",
+    headline: "AI & Automation · Lead Generation · Digital Strategist",
+    p1: "I build AI and automation systems for real business outcomes: lead sourcing and qualification, data extraction, cleaning and structuring, and API + SQL integration. 10+ years solving problems across the full customer journey, now on the technical, execution side. I take ownership of every project I commit to.",
+    p2: "On my own I built a lead-generation bot that scrapes businesses from Google Maps (Outscraper), enriches each one (website, rating, reviews, email), qualifies them and pushes them into a CRM I built, running on a daily schedule. Also an inbound voice agent (Gemini Live + Twilio) that takes calls, answers questions, and logs leads into Zoho CRM. At Atisa Group I lead AI adoption across 250+ people: I identify use cases, design lead-automation blueprints, and built a KPI dashboard for the CEO.",
     tags: [
-      "AI Consultant", "Change Management", "Executive Advisory", "Agent Development",
-      "Digital Strategy", "Customer Journey", "CRM", "Automation", "Blueprints",
-      "SQL", "SEO / SEM", "Meta / Google / LinkedIn Ads", "Email Marketing", "Branding",
+      "Lead Generation", "Web Scraping", "Data Extraction", "Enrichment", "AI Agents",
+      "Automation", "APIs", "SQL", "CRM", "Blueprints",
+      "Lead Qualification", "Digital Strategy", "Meta / Google / LinkedIn Ads", "SEO / SEM",
     ],
   },
 };

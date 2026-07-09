@@ -11,7 +11,7 @@ const labels = {
 };
 
 export default function Nav() {
-  const { lang, toggle } = useLanguage();
+  const { lang } = useLanguage();
   const t = labels[lang];
   const [open, setOpen] = useState(false);
 
@@ -57,16 +57,6 @@ export default function Nav() {
             </a>
           ))}
 
-          <button
-            onClick={toggle}
-            className="font-label text-xs uppercase tracking-widest flex items-center gap-1 cursor-pointer"
-            aria-label="Toggle language"
-          >
-            <span className={lang === "es" ? "text-ink" : "text-ink/55"}>ES</span>
-            <span className="text-ink/25">/</span>
-            <span className={lang === "en" ? "text-ink" : "text-ink/55"}>EN</span>
-          </button>
-
           <motion.a
             href="mailto:oscar.amayoral@gmail.com"
             whileHover={{ scale: 1.03 }}
@@ -79,16 +69,6 @@ export default function Nav() {
 
         {/* Mobile nav */}
         <div className="flex md:hidden items-center gap-2">
-          <button
-            onClick={toggle}
-            className="font-label text-[11px] uppercase tracking-widest flex items-center gap-1 cursor-pointer px-2 py-1"
-            aria-label="Toggle language"
-          >
-            <span className={lang === "es" ? "text-ink" : "text-ink/55"}>ES</span>
-            <span className="text-ink/25">/</span>
-            <span className={lang === "en" ? "text-ink" : "text-ink/55"}>EN</span>
-          </button>
-
           <motion.a
             href="mailto:oscar.amayoral@gmail.com"
             whileTap={{ scale: 0.96 }}
