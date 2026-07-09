@@ -10,7 +10,7 @@ const content = {
     es: {
       eyebrow: "Perfil",
       headline: "Marketing + IA · Estrategia Digital · Generación de Leads",
-      p1: "Mercadólogo con +10 años en estrategia digital, generación de leads y CRM a lo largo del customer journey completo. Sumo IA y automatización para ejecutar más rápido: sourcing y calificación de leads, extracción y estructuración de datos, APIs y SQL. Tomo responsabilidad de cada proyecto en el que me involucro.",
+      p1: "Mercadólogo con +10 años en estrategia digital, generación de leads y CRM a lo largo del customer journey completo. Sumo IA y automatización para ejecutar más rápido: sourcing y calificación de leads, extracción y estructuración de datos, APIs y SQL.",
       p2: "Por mi cuenta construí un bot de generación de leads que scrapea negocios de Google Maps, enriquece cada uno (sitio web, rating, reseñas, correo), los califica y los mete a un CRM propio, corriendo solo cada día. También un agente de voz inbound (Gemini Live + Twilio) que atiende llamadas, resuelve dudas y registra leads en Zoho CRM. En Atisa Group trabajo en el diagnóstico y adopción de IA: identifico casos de uso, diseño blueprints de automatización de leads y construí un dashboard de KPIs para el CEO.",
       tags: [
         "Estrategia Digital", "Marketing de contenidos", "Lead Generation", "Calificación de Leads", "CRM",
@@ -21,7 +21,7 @@ const content = {
     en: {
       eyebrow: "About",
       headline: "Marketing + AI · Digital Strategy · Lead Generation",
-      p1: "Marketer with 10+ years in digital strategy, lead generation and CRM across the full customer journey. I add AI and automation to execute faster: lead sourcing and qualification, data extraction and structuring, APIs and SQL. I take ownership of every project I commit to.",
+      p1: "Marketer with 10+ years in digital strategy, lead generation and CRM across the full customer journey. I add AI and automation to execute faster: lead sourcing and qualification, data extraction and structuring, APIs and SQL.",
       p2: "On my own I built a lead-generation bot that scrapes businesses from Google Maps, enriches each one (website, rating, reviews, email), qualifies them and pushes them into a CRM I built, running on a daily schedule. Also an inbound voice agent (Gemini Live + Twilio) that takes calls, answers questions, and logs leads into Zoho CRM. At Atisa Group I work on AI diagnosis and adoption: I identify use cases, design lead-automation blueprints, and built a KPI dashboard for the CEO.",
       tags: [
         "Digital Strategy", "Content Marketing", "Lead Generation", "Lead Qualification", "CRM",

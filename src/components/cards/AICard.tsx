@@ -14,13 +14,13 @@ const content = {
     badge: "En producción",
     eyebrow: "AI Lab",
     title: "IA & Agentes",
-    body: "Diseño y desarrollo agentes de IA y harnesses propios desde cero para automatizar operaciones reales: sourcing y calificación de leads, extracción, limpieza y estructuración de datos (scraping), reportes y flujos internos, integrando APIs y SQL. En Atisa Group trabajo en el diagnóstico y adopción de IA y construí un dashboard de seguimiento para el CEO. En paralelo construyo plataformas SaaS con Claude Code, Supabase y Vercel.",
+    body: "Diseño y desarrollo agentes de IA y automatizaciones para tareas concretas: sourcing y calificación de leads, extracción, limpieza y estructuración de datos (scraping), reportes y flujos internos, integrando APIs y SQL. En Atisa Group trabajo en el diagnóstico y adopción de IA y construí un dashboard de seguimiento para el CEO. En paralelo construyo plataformas SaaS con Claude Code, Supabase y Vercel.",
   },
   en: {
     badge: "Live",
     eyebrow: "AI Lab",
     title: "AI & Agents",
-    body: "I design and build AI agents and custom harnesses from scratch to automate real operations: lead sourcing and qualification, data extraction, cleaning and structuring (scraping), reporting, and internal workflows, integrating APIs and SQL. At Atisa Group I work on AI diagnosis and adoption, and built a tracking dashboard for the CEO. On the side I build SaaS platforms with Claude Code, Supabase and Vercel.",
+    body: "I design and build AI agents and automations for concrete tasks: lead sourcing and qualification, data extraction, cleaning and structuring (scraping), reporting, and internal workflows, integrating APIs and SQL. At Atisa Group I work on AI diagnosis and adoption, and built a tracking dashboard for the CEO. On the side I build SaaS platforms with Claude Code, Supabase and Vercel.",
   },
 };
 

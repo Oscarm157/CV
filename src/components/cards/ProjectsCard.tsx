@@ -24,7 +24,7 @@ const pBotLeads: Project = {
     en: "Scrapes businesses from Google Maps, detects and scores their website, enriches with rating, reviews, city and email, qualifies them by score and drops them into a CRM. Runs on a daily schedule.",
   },
   tools: ["Google Maps", "Next.js", "Neon", "Cron"],
-  images: ["/screenshots/leads-factory.png"],
+  images: ["/screenshots/leads-factory.webp"],
 };
 
 const pVoicebot: Project = {
@@ -34,7 +34,7 @@ const pVoicebot: Project = {
     en: "Answers and qualifies calls with AI (Gemini Live + Twilio), resolves inventory questions and logs every lead into Zoho CRM. Metrics dashboard: CRM conversion, calls and hot leads.",
   },
   tools: ["Gemini Live", "Twilio", "Zoho CRM", "Neon"],
-  images: ["/screenshots/voicebot-consola.png", "/screenshots/voicebot-metrics.png"],
+  images: ["/screenshots/voicebot-consola.webp", "/screenshots/voicebot-metrics.webp"],
 };
 
 const pNarrativa: Project = {
@@ -44,7 +44,7 @@ const pNarrativa: Project = {
     en: "Platform that automates from capture to close: a site that personalizes per lead, a voice agent and a CRM. My own product, in production.",
   },
   tools: ["Next.js", "Supabase", "IA", "CRM"],
-  images: ["/screenshots/narrativa-arqmkt.png", "/screenshots/narrativa-producto.png"],
+  images: ["/screenshots/narrativa-arqmkt.webp", "/screenshots/narrativa-producto.webp"],
 };
 
 const pDashboardKPIs: Project = {
@@ -54,7 +54,7 @@ const pDashboardKPIs: Project = {
     en: "Executive dashboard with operational KPIs: volume, resolution rate, timing and trends.",
   },
   tools: ["Claude Code", "Next.js", "Supabase"],
-  images: ["/screenshots/alfresco-dashboard-1.png", "/screenshots/alfresco-dashboard-2.png"],
+  images: ["/screenshots/alfresco-dashboard-1.webp", "/screenshots/alfresco-dashboard-2.webp"],
 };
 
 const pZohoZapier: Project = {
@@ -64,7 +64,7 @@ const pZohoZapier: Project = {
     en: "Full lead cycle in Zoho CRM (capture, assignment, follow-up, close) plus Zapier webhooks connecting forms, CRM and Slack/email notifications.",
   },
   tools: ["Zoho CRM", "Zapier", "Webhooks", "Deluge"],
-  images: ["/screenshots/zoho-blueprint-1.png", "/screenshots/zoho-blueprint-2.png", "/screenshots/zapier-list.png"],
+  images: ["/screenshots/zoho-blueprint-1.webp", "/screenshots/zoho-blueprint-2.webp", "/screenshots/zapier-list.webp"],
 };
 
 const pWeavy: Project = {
@@ -74,7 +74,7 @@ const pWeavy: Project = {
     en: "Audiovisual content workflows connecting image, video and text nodes.",
   },
   tools: ["Weavy.ai", "Figma Wave", "AI"],
-  images: ["/screenshots/weavy-1.png", "/screenshots/weavy-2.png"],
+  images: ["/screenshots/weavy-1.webp", "/screenshots/weavy-2.webp"],
 };
 
 const pVertice: Project = {
@@ -84,7 +84,7 @@ const pVertice: Project = {
     en: "Site and CRM for a commercial and industrial real estate firm (Grupo Rentasa): warehouse catalog with filters, ROI investment calculator, Mexico map, lead capture and a follow-up panel.",
   },
   tools: ["Next.js", "Neon", "CRM", "ROI"],
-  images: ["/screenshots/vertice-1.png", "/screenshots/vertice-2.png"],
+  images: ["/screenshots/vertice-1.webp", "/screenshots/vertice-2.webp"],
 };
 
 const pInmobiq: Project = {
@@ -94,7 +94,7 @@ const pInmobiq: Project = {
     en: "Zone-level real estate intelligence for Tijuana: crosses price per m² with the INEGI Census for an opportunity score, risk and cap rate, with a zone comparator and map.",
   },
   tools: ["Next.js", "Supabase", "INEGI", "Mapbox"],
-  images: ["/screenshots/inmobiq-1.png", "/screenshots/inmobiq-2.png"],
+  images: ["/screenshots/inmobiq-1.webp", "/screenshots/inmobiq-2.webp"],
 };
 
 const projectsByVariant: Record<Variant, Project[]> = {

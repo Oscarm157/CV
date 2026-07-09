@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
+import { GraduationCap } from "lucide-react";
 import { cardVariants } from "../BentoGrid";
 import { useLanguage } from "@/context/LanguageContext";
 
@@ -61,7 +62,7 @@ export default function FormacionCard() {
           style={{ background: "rgba(245,158,11,0.08)", transform: "translate(30%, -30%)" }} />
         <p className="font-label text-[15px] uppercase tracking-widest text-white relative z-10">{labels[lang]}</p>
       </div>
-      <div className="p-6 grid grid-cols-1 sm:grid-cols-2 gap-5">
+      <div className="p-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
         {list.map((e, i) => (
           <motion.div
             key={e.escuela}
@@ -69,17 +70,23 @@ export default function FormacionCard() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.1, duration: 0.35 }}
-            className="flex gap-3"
+            className="relative rounded-2xl p-5 flex flex-col gap-3 h-full"
+            style={{ background: "rgba(245,158,11,0.05)", border: "1px solid rgba(245,158,11,0.14)" }}
           >
-            <span className="text-2xl mt-0.5">{e.flag}</span>
+            <div className="flex items-center justify-between">
+              <span className="flex items-center justify-center w-10 h-10 rounded-xl" style={{ background: "rgba(245,158,11,0.12)" }}>
+                <GraduationCap size={20} className="text-amber" />
+              </span>
+              <span className="text-2xl">{e.flag}</span>
+            </div>
             <div>
-              <p className="font-display font-semibold text-ink text-sm leading-snug">{e.titulo}</p>
-              <p className="font-grotesk text-sm text-ink/70 mt-0.5">{e.escuela}</p>
-              <div className="flex flex-wrap gap-x-2 gap-y-0.5 mt-1.5">
-                <span className="font-label text-xs uppercase tracking-widest text-amber">{e.periodo}</span>
-                <span className="text-ink/55">·</span>
-                <span className="font-label text-xs uppercase tracking-widest text-ink/80">{e.lugar}</span>
-              </div>
+              <p className="font-display font-bold text-ink text-base leading-snug">{e.titulo}</p>
+              <p className="font-grotesk text-sm text-ink/70 mt-1">{e.escuela}</p>
+            </div>
+            <div className="flex flex-wrap items-center gap-x-2 gap-y-1 mt-auto pt-1">
+              <span className="font-label text-xs uppercase tracking-widest text-amber">{e.periodo}</span>
+              <span className="text-ink/40">·</span>
+              <span className="font-label text-xs uppercase tracking-widest text-ink/70">{e.lugar}</span>
             </div>
           </motion.div>
         ))}
