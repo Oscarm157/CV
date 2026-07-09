@@ -9,7 +9,7 @@ const content = {
     eyebrow: "Perfil",
     headline: "Automatización & IA · Generación de Leads · Estratega Digital",
     p1: "Construyo sistemas de IA y automatización para resultados de negocio reales: sourcing y calificación de leads, extracción, limpieza y estructuración de datos, e integración de APIs y SQL. +10 años resolviendo problemas a lo largo del customer journey completo, ahora del lado técnico y de ejecución. Tomo responsabilidad de cada proyecto en el que me involucro.",
-    p2: "Por mi cuenta construí un bot de generación de leads que scrapea negocios de Google Maps (Outscraper), enriquece cada uno (sitio web, rating, reseñas, correo), los califica y los mete a un CRM propio, corriendo solo cada día. También un agente de voz inbound (Gemini Live + Twilio) que atiende llamadas, resuelve dudas y registra leads en Zoho CRM. En Atisa Group trabajo en el diagnóstico y adopción de IA (+250 personas): identifico casos de uso, diseño blueprints de automatización de leads y construí un dashboard de KPIs para el CEO.",
+    p2: "Por mi cuenta construí un bot de generación de leads que scrapea negocios de Google Maps (Outscraper), enriquece cada uno (sitio web, rating, reseñas, correo), los califica y los mete a un CRM propio, corriendo solo cada día. También un agente de voz inbound (Gemini Live + Twilio) que atiende llamadas, resuelve dudas y registra leads en Zoho CRM. En Atisa Group trabajo en el diagnóstico y adopción de IA: identifico casos de uso, diseño blueprints de automatización de leads y construí un dashboard de KPIs para el CEO.",
     tags: [
       "Lead Generation", "Web Scraping", "Extracción de Datos", "Enriquecimiento", "Agentes de IA",
       "Automatización", "APIs", "SQL", "CRM", "Blueprints",
@@ -20,7 +20,7 @@ const content = {
     eyebrow: "About",
     headline: "AI & Automation · Lead Generation · Digital Strategist",
     p1: "I build AI and automation systems for real business outcomes: lead sourcing and qualification, data extraction, cleaning and structuring, and API + SQL integration. 10+ years solving problems across the full customer journey, now on the technical, execution side. I take ownership of every project I commit to.",
-    p2: "On my own I built a lead-generation bot that scrapes businesses from Google Maps (Outscraper), enriches each one (website, rating, reviews, email), qualifies them and pushes them into a CRM I built, running on a daily schedule. Also an inbound voice agent (Gemini Live + Twilio) that takes calls, answers questions, and logs leads into Zoho CRM. At Atisa Group I work on AI diagnosis and adoption (250+ people): I identify use cases, design lead-automation blueprints, and built a KPI dashboard for the CEO.",
+    p2: "On my own I built a lead-generation bot that scrapes businesses from Google Maps (Outscraper), enriches each one (website, rating, reviews, email), qualifies them and pushes them into a CRM I built, running on a daily schedule. Also an inbound voice agent (Gemini Live + Twilio) that takes calls, answers questions, and logs leads into Zoho CRM. At Atisa Group I work on AI diagnosis and adoption: I identify use cases, design lead-automation blueprints, and built a KPI dashboard for the CEO.",
     tags: [
       "Lead Generation", "Web Scraping", "Data Extraction", "Enrichment", "AI Agents",
       "Automation", "APIs", "SQL", "CRM", "Blueprints",
