@@ -4,9 +4,11 @@ import Image from "next/image";
 import { motion } from "motion/react";
 import { useRef, useEffect } from "react";
 import { useMotionValue, animate } from "motion/react";
+import { Sparkles } from "lucide-react";
 import { cardVariants } from "../BentoGrid";
 import { useLanguage } from "@/context/LanguageContext";
 import { useVariant } from "@/context/VariantContext";
+import { useChat } from "@/context/ChatContext";
 
 /* ── Letter animation ── */
 const letterVariants = {
@@ -81,6 +83,7 @@ const content = {
     role: "Coordinador CRM · Atisa Group · Tijuana B.C.",
     cta1: "Ver portafolio",
     cta2: "Contactar",
+    cta3: "Pregúntale a mi CV",
     clientsLabel: "Clientes",
     industriesLabel: "Industrias",
     statYrs: "Años exp.",
@@ -91,6 +94,7 @@ const content = {
     role: "CRM Manager · Atisa Group · Tijuana, Mexico",
     cta1: "See my work",
     cta2: "Get in touch",
+    cta3: "Ask my CV",
     clientsLabel: "Clients",
     industriesLabel: "Industries",
     statYrs: "Yrs exp.",
@@ -102,6 +106,7 @@ const content = {
 export default function HeroCard() {
   const { lang } = useLanguage();
   const variant = useVariant();
+  const { setOpen } = useChat();
   const t = content[lang];
   const heroSubtitle = subtitle[variant][lang];
   const industryList = industries[variant][lang];
@@ -168,6 +173,12 @@ export default function HeroCard() {
           initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8 }}
           className="flex flex-wrap gap-3 mt-7 relative z-10"
         >
+          <motion.button type="button" onClick={() => setOpen(true)} whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}
+            className="font-label text-xs uppercase tracking-widest px-6 py-3 rounded-full font-bold flex items-center gap-2"
+            style={{ background: "var(--emerald)", color: "var(--ink)", boxShadow: "0 6px 20px rgba(16,185,129,0.35)" }}>
+            <Sparkles size={15} />
+            {t.cta3}
+          </motion.button>
           <motion.a href="#portafolio" whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}
             className="font-label text-xs uppercase tracking-widest px-6 py-3 rounded-full font-bold"
             style={{ background: "var(--amber)", color: "var(--ink)" }}>
