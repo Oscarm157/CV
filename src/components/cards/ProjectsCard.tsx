@@ -7,6 +7,8 @@ import { useEffect, useState } from "react";
 import { ImageIcon, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { cardVariants } from "../BentoGrid";
 import { useLanguage } from "@/context/LanguageContext";
+import { useVariant } from "@/context/VariantContext";
+import type { Variant } from "@/content/variant";
 
 type Project = {
   title: { es: string; en: string };
@@ -15,62 +17,90 @@ type Project = {
   images?: string[];
 };
 
-const projects: Project[] = [
-  {
-    title: { es: "Bot de generación de leads", en: "Lead-generation bot" },
-    desc: {
-      es: "Scrapea negocios de Google Maps, detecta y evalúa su sitio web, enriquece con rating, reseñas, ciudad y correo, los califica por score y los deja listos en un CRM. Corre solo cada día.",
-      en: "Scrapes businesses from Google Maps, detects and scores their website, enriches with rating, reviews, city and email, qualifies them by score and drops them into a CRM. Runs on a daily schedule.",
-    },
-    tools: ["Google Maps", "Next.js", "Neon", "Cron"],
-    images: ["/screenshots/leads-factory.png"],
+const pBotLeads: Project = {
+  title: { es: "Bot de generación de leads", en: "Lead-generation bot" },
+  desc: {
+    es: "Scrapea negocios de Google Maps, detecta y evalúa su sitio web, enriquece con rating, reseñas, ciudad y correo, los califica por score y los deja listos en un CRM. Corre solo cada día.",
+    en: "Scrapes businesses from Google Maps, detects and scores their website, enriches with rating, reviews, city and email, qualifies them by score and drops them into a CRM. Runs on a daily schedule.",
   },
-  {
-    title: { es: "Agente de ventas con IA + Zoho CRM", en: "AI sales agent + Zoho CRM" },
-    desc: {
-      es: "Atiende y califica llamadas con IA (Gemini Live + Twilio), resuelve dudas del inventario y registra cada lead en Zoho CRM. Dashboard de métricas: conversión a CRM, llamadas y leads calientes.",
-      en: "Answers and qualifies calls with AI (Gemini Live + Twilio), resolves inventory questions and logs every lead into Zoho CRM. Metrics dashboard: CRM conversion, calls and hot leads.",
-    },
-    tools: ["Gemini Live", "Twilio", "Zoho CRM", "Neon"],
-    images: ["/screenshots/voicebot-consola.png", "/screenshots/voicebot-metrics.png"],
+  tools: ["Google Maps", "Next.js", "Neon", "Cron"],
+  images: ["/screenshots/leads-factory.png"],
+};
+
+const pVoicebot: Project = {
+  title: { es: "Agente de ventas con IA + Zoho CRM", en: "AI sales agent + Zoho CRM" },
+  desc: {
+    es: "Atiende y califica llamadas con IA (Gemini Live + Twilio), resuelve dudas del inventario y registra cada lead en Zoho CRM. Dashboard de métricas: conversión a CRM, llamadas y leads calientes.",
+    en: "Answers and qualifies calls with AI (Gemini Live + Twilio), resolves inventory questions and logs every lead into Zoho CRM. Metrics dashboard: CRM conversion, calls and hot leads.",
   },
-  {
-    title: { es: "Narrativa (SaaS propio)", en: "Narrativa (my SaaS)" },
-    desc: {
-      es: "Plataforma que automatiza de la captación al cierre: un sitio que se personaliza por lead, agente de voz y CRM. Proyecto propio en producción.",
-      en: "Platform that automates from capture to close: a site that personalizes per lead, a voice agent and a CRM. My own product, in production.",
-    },
-    tools: ["Next.js", "Supabase", "IA", "CRM"],
-    images: ["/screenshots/narrativa-arqmkt.png", "/screenshots/narrativa-producto.png"],
+  tools: ["Gemini Live", "Twilio", "Zoho CRM", "Neon"],
+  images: ["/screenshots/voicebot-consola.png", "/screenshots/voicebot-metrics.png"],
+};
+
+const pNarrativa: Project = {
+  title: { es: "Narrativa (SaaS propio)", en: "Narrativa (my SaaS)" },
+  desc: {
+    es: "Plataforma que automatiza de la captación al cierre: un sitio que se personaliza por lead, agente de voz y CRM. Proyecto propio en producción.",
+    en: "Platform that automates from capture to close: a site that personalizes per lead, a voice agent and a CRM. My own product, in production.",
   },
-  {
-    title: { es: "Dashboard KPIs", en: "KPIs Dashboard" },
-    desc: {
-      es: "Panel ejecutivo con KPIs operativos: volumen, tasa de resolución, tiempos y tendencias.",
-      en: "Executive dashboard with operational KPIs: volume, resolution rate, timing and trends.",
-    },
-    tools: ["Claude Code", "Next.js", "Supabase"],
-    images: ["/screenshots/alfresco-dashboard-1.png", "/screenshots/alfresco-dashboard-2.png"],
+  tools: ["Next.js", "Supabase", "IA", "CRM"],
+  images: ["/screenshots/narrativa-arqmkt.png", "/screenshots/narrativa-producto.png"],
+};
+
+const pDashboardKPIs: Project = {
+  title: { es: "Dashboard KPIs", en: "KPIs Dashboard" },
+  desc: {
+    es: "Panel ejecutivo con KPIs operativos: volumen, tasa de resolución, tiempos y tendencias.",
+    en: "Executive dashboard with operational KPIs: volume, resolution rate, timing and trends.",
   },
-  {
-    title: { es: "Automatización de leads (Zoho + Zapier)", en: "Lead automation (Zoho + Zapier)" },
-    desc: {
-      es: "Ciclo completo de leads en Zoho CRM (captura, asignación, seguimiento, cierre) y webhooks en Zapier que conectan formularios, CRM y notificaciones a Slack y correo.",
-      en: "Full lead cycle in Zoho CRM (capture, assignment, follow-up, close) plus Zapier webhooks connecting forms, CRM and Slack/email notifications.",
-    },
-    tools: ["Zoho CRM", "Zapier", "Webhooks", "Deluge"],
-    images: ["/screenshots/zoho-blueprint-1.png", "/screenshots/zoho-blueprint-2.png", "/screenshots/zapier-list.png"],
+  tools: ["Claude Code", "Next.js", "Supabase"],
+  images: ["/screenshots/alfresco-dashboard-1.png", "/screenshots/alfresco-dashboard-2.png"],
+};
+
+const pZohoZapier: Project = {
+  title: { es: "Automatización de leads (Zoho + Zapier)", en: "Lead automation (Zoho + Zapier)" },
+  desc: {
+    es: "Ciclo completo de leads en Zoho CRM (captura, asignación, seguimiento, cierre) y webhooks en Zapier que conectan formularios, CRM y notificaciones a Slack y correo.",
+    en: "Full lead cycle in Zoho CRM (capture, assignment, follow-up, close) plus Zapier webhooks connecting forms, CRM and Slack/email notifications.",
   },
-  {
-    title: { es: "Weavy.ai / Figma Wave", en: "Weavy.ai / Figma Wave" },
-    desc: {
-      es: "Flujos de creación de contenido audiovisual conectando nodos de imagen, video y texto.",
-      en: "Audiovisual content workflows connecting image, video and text nodes.",
-    },
-    tools: ["Weavy.ai", "Figma Wave", "AI"],
-    images: ["/screenshots/weavy-1.png", "/screenshots/weavy-2.png"],
+  tools: ["Zoho CRM", "Zapier", "Webhooks", "Deluge"],
+  images: ["/screenshots/zoho-blueprint-1.png", "/screenshots/zoho-blueprint-2.png", "/screenshots/zapier-list.png"],
+};
+
+const pWeavy: Project = {
+  title: { es: "Weavy.ai / Figma Wave", en: "Weavy.ai / Figma Wave" },
+  desc: {
+    es: "Flujos de creación de contenido audiovisual conectando nodos de imagen, video y texto.",
+    en: "Audiovisual content workflows connecting image, video and text nodes.",
   },
-];
+  tools: ["Weavy.ai", "Figma Wave", "AI"],
+  images: ["/screenshots/weavy-1.png", "/screenshots/weavy-2.png"],
+};
+
+const pVertice: Project = {
+  title: { es: "Vértice (comercial e industrial)", en: "Vértice (commercial & industrial)" },
+  desc: {
+    es: "Sitio y CRM para inmobiliaria comercial e industrial (Grupo Rentasa): catálogo de naves y bodegas con filtros, cotizador de inversión (ROI), mapa de México, captura de leads y panel de seguimiento.",
+    en: "Site and CRM for a commercial and industrial real estate firm (Grupo Rentasa): warehouse catalog with filters, ROI investment calculator, Mexico map, lead capture and a follow-up panel.",
+  },
+  tools: ["Next.js", "Neon", "CRM", "ROI"],
+  images: ["/screenshots/vertice-1.png", "/screenshots/vertice-2.png"],
+};
+
+const pInmobiq: Project = {
+  title: { es: "inmobiq (inteligencia de mercado)", en: "inmobiq (market intelligence)" },
+  desc: {
+    es: "Inteligencia inmobiliaria por zona en Tijuana: cruza precios por m² con el Censo INEGI para dar score de oportunidad, riesgo y cap rate, con comparador de zonas y mapa.",
+    en: "Zone-level real estate intelligence for Tijuana: crosses price per m² with the INEGI Census for an opportunity score, risk and cap rate, with a zone comparator and map.",
+  },
+  tools: ["Next.js", "Supabase", "INEGI", "Mapbox"],
+  images: ["/screenshots/inmobiq-1.png", "/screenshots/inmobiq-2.png"],
+};
+
+const projectsByVariant: Record<Variant, Project[]> = {
+  automatizacion: [pBotLeads, pVoicebot, pNarrativa, pDashboardKPIs, pZohoZapier, pWeavy],
+  inmobiliario: [pVertice, pInmobiq, pNarrativa, pVoicebot, pZohoZapier, pWeavy],
+};
 
 const labels = {
   es: { eyebrow: "Proyectos", sub: "Capturas de trabajos recientes" },
@@ -252,7 +282,9 @@ function Thumbnail({ images, alt }: { images?: string[]; alt: string }) {
 
 export default function ProjectsCard() {
   const { lang } = useLanguage();
+  const variant = useVariant();
   const t = labels[lang];
+  const projects = projectsByVariant[variant];
 
   return (
     <motion.div

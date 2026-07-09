@@ -3,6 +3,22 @@
 import { motion } from "motion/react";
 import { cardVariants } from "../BentoGrid";
 import { useLanguage } from "@/context/LanguageContext";
+import { useVariant } from "@/context/VariantContext";
+
+// Overrides para la versión inmobiliaria: mismo objeto de trabajos, solo se
+// reemplazan bullets puntuales (líder de sector + clientes desarrolladoras).
+const inmoOverrides: Record<"es" | "en", Record<string, string>> = {
+  es: {
+    "Agencia creativa B.C.: Automotriz, Inmobiliario, Gastronómico, Médico": "Agencia creativa B.C.: Inmobiliario, Automotriz, Gastronómico, Médico",
+    "Clientes: Mazda, BMW, Mini Cooper, Carl Zeiss, Chef Javier Plascencia": "Desarrolladoras: Ruba, Grupo VEQ, Grupo 360, Vía Capital, Urban Capital",
+    "Marketing digital sectores médico e industrial": "Marketing digital sectores inmobiliario, médico e industrial",
+  },
+  en: {
+    "Creative agency in Baja California: Automotive, Real Estate, Food & Beverage, Medical": "Creative agency in Baja California: Real Estate, Automotive, Food & Beverage, Medical",
+    "Clients: Mazda, BMW, Mini Cooper, Carl Zeiss, Chef Javier Plascencia": "Developers: Ruba, Grupo VEQ, Grupo 360, Vía Capital, Urban Capital",
+    "Digital marketing for medical and industrial sectors": "Digital marketing for real estate, medical and industrial sectors",
+  },
+};
 
 const jobs = {
   es: [
@@ -94,8 +110,12 @@ const labels = {
 
 export default function ExperienceCard() {
   const { lang } = useLanguage();
+  const variant = useVariant();
   const t = labels[lang];
-  const jobList = jobs[lang];
+  const ov = variant === "inmobiliario" ? inmoOverrides[lang] : null;
+  const jobList = ov
+    ? jobs[lang].map((j) => ({ ...j, bullets: j.bullets.map((b) => ov[b] ?? b) }))
+    : jobs[lang];
 
   return (
     <motion.div

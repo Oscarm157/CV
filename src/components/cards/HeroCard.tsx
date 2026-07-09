@@ -6,6 +6,7 @@ import { useRef, useEffect } from "react";
 import { useMotionValue, animate } from "motion/react";
 import { cardVariants } from "../BentoGrid";
 import { useLanguage } from "@/context/LanguageContext";
+import { useVariant } from "@/context/VariantContext";
 
 /* ── Letter animation ── */
 const letterVariants = {
@@ -54,14 +55,30 @@ const clients = {
 };
 
 const industries = {
-  es: ["Automotriz", "Inmobiliario", "Gastronómico", "Médico", "Financiero", "Agrícola", "Tecnología / TI"],
-  en: ["Automotive", "Real Estate", "Food & Beverage", "Medical", "Financial", "Agriculture", "Technology / IT"],
+  automatizacion: {
+    es: ["Automotriz", "Inmobiliario", "Gastronómico", "Médico", "Financiero", "Agrícola", "Tecnología / TI"],
+    en: ["Automotive", "Real Estate", "Food & Beverage", "Medical", "Financial", "Agriculture", "Technology / IT"],
+  },
+  inmobiliario: {
+    es: ["Inmobiliario", "Comercial / Industrial", "Automotriz", "Financiero", "Gastronómico", "Médico", "Tecnología / TI"],
+    en: ["Real Estate", "Commercial / Industrial", "Automotive", "Financial", "Food & Beverage", "Medical", "Technology / IT"],
+  },
+};
+
+const subtitle = {
+  automatizacion: {
+    es: "Marketing & IA · Estrategia Digital · Automatización · Generación de Leads",
+    en: "Marketing & AI · Digital Strategy · Automation · Lead Generation",
+  },
+  inmobiliario: {
+    es: "Marketing Inmobiliario · Estrategia Digital · Ventas & Prospección · IA aplicada",
+    en: "Real Estate Marketing · Digital Strategy · Sales & Prospecting · Applied AI",
+  },
 };
 
 const content = {
   es: {
     role: "Coordinador CRM · Atisa Group · Tijuana B.C.",
-    subtitle: "Marketing & IA · Estrategia Digital · Automatización · Generación de Leads",
     cta1: "Ver portafolio",
     cta2: "Contactar",
     clientsLabel: "Clientes",
@@ -72,7 +89,6 @@ const content = {
   },
   en: {
     role: "CRM Manager · Atisa Group · Tijuana, Mexico",
-    subtitle: "Marketing & AI · Digital Strategy · Automation · Lead Generation",
     cta1: "See my work",
     cta2: "Get in touch",
     clientsLabel: "Clients",
@@ -85,7 +101,10 @@ const content = {
 
 export default function HeroCard() {
   const { lang } = useLanguage();
+  const variant = useVariant();
   const t = content[lang];
+  const heroSubtitle = subtitle[variant][lang];
+  const industryList = industries[variant][lang];
 
   return (
     <motion.div
@@ -142,7 +161,7 @@ export default function HeroCard() {
           initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.65 }}
           className="font-grotesk text-sm md:text-base text-white/80 mt-4 relative z-10"
         >
-          {t.subtitle}
+          {heroSubtitle}
         </motion.p>
 
         <motion.div
@@ -172,7 +191,7 @@ export default function HeroCard() {
           </div>
           <p className="font-label text-xs uppercase tracking-widest text-white/50 mb-2">{t.industriesLabel}</p>
           <div className="flex flex-wrap gap-x-3 sm:gap-x-4 gap-y-1.5">
-            {industries[lang].map(ind => (
+            {industryList.map(ind => (
               <span key={ind} className="font-grotesk text-sm text-white/75">{ind}</span>
             ))}
           </div>
