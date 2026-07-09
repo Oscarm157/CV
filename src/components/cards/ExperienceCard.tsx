@@ -9,7 +9,7 @@ const jobs = {
     {
       title: "Coordinador CRM",
       company: "Atisa Group",
-      period: "Jun 2024 – Presente",
+      period: "Jun 2024 – Presente · 2 años",
       accentColor: "#10B981",
       bullets: [
         "<strong>Diagnóstico y adopción de IA</strong>: identificación de casos de uso, capacitación y acompañamiento",
@@ -23,7 +23,7 @@ const jobs = {
     {
       title: "Consultor Freelance",
       company: "Independiente",
-      period: "Ene 2023 – May 2024",
+      period: "Ene 2023 – May 2024 · 1 año 3 meses",
       accentColor: "#F59E0B",
       bullets: [
         "Marketing digital sectores médico e industrial",
@@ -34,7 +34,7 @@ const jobs = {
     {
       title: "Fundador · Director Creativo",
       company: "Kraken Mkt Studio",
-      period: "Ene 2016 – Oct 2022",
+      period: "Ene 2016 – Oct 2022 · 7 años",
       accentColor: "#F59E0B",
       bullets: [
         "Agencia creativa B.C.: Automotriz, Inmobiliario, Gastronómico, Médico",
@@ -49,7 +49,7 @@ const jobs = {
     {
       title: "CRM Manager",
       company: "Atisa Group",
-      period: "Jun 2024 – Present",
+      period: "Jun 2024 – Present · 2 yrs",
       accentColor: "#10B981",
       bullets: [
         "<strong>AI diagnosis and adoption</strong>: use-case identification, training and support",
@@ -63,7 +63,7 @@ const jobs = {
     {
       title: "Freelance Consultant",
       company: "Independent",
-      period: "Jan 2023 – May 2024",
+      period: "Jan 2023 – May 2024 · 1 yr 3 mo",
       accentColor: "#F59E0B",
       bullets: [
         "Digital marketing for medical and industrial sectors",
@@ -74,7 +74,7 @@ const jobs = {
     {
       title: "Founder · Creative Director",
       company: "Kraken Mkt Studio",
-      period: "Jan 2016 – Oct 2022",
+      period: "Jan 2016 – Oct 2022 · 7 yrs",
       accentColor: "#F59E0B",
       bullets: [
         "Creative agency in Baja California: Automotive, Real Estate, Food & Beverage, Medical",

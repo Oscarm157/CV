@@ -61,7 +61,7 @@ const industries = {
 const content = {
   es: {
     role: "Coordinador CRM · Atisa Group · Tijuana B.C.",
-    subtitle: "Consultor de IA · Estrategia Digital · Automatización · Agentes · Gestión del Cambio",
+    subtitle: "Marketing & IA · Estrategia Digital · Automatización · Generación de Leads",
     cta1: "Ver portafolio",
     cta2: "Contactar",
     clientsLabel: "Clientes",
@@ -72,7 +72,7 @@ const content = {
   },
   en: {
     role: "CRM Manager · Atisa Group · Tijuana, Mexico",
-    subtitle: "AI Consultant · Digital Strategy · Automation · Agents · Change Management",
+    subtitle: "Marketing & AI · Digital Strategy · Automation · Lead Generation",
     cta1: "See my work",
     cta2: "Get in touch",
     clientsLabel: "Clients",

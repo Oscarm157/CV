@@ -22,7 +22,7 @@ const projects: Project[] = [
       es: "Scrapea negocios de Google Maps, detecta y evalúa su sitio web, enriquece con rating, reseñas, ciudad y correo, los califica por score y los deja listos en un CRM. Corre solo cada día.",
       en: "Scrapes businesses from Google Maps, detects and scores their website, enriches with rating, reviews, city and email, qualifies them by score and drops them into a CRM. Runs on a daily schedule.",
     },
-    tools: ["Outscraper", "Next.js", "Neon", "Cron"],
+    tools: ["Google Maps", "Next.js", "Neon", "Cron"],
     images: ["/screenshots/leads-factory.png"],
   },
   {

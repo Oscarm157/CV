@@ -60,8 +60,8 @@ const groups: Group[] = [
     label: { es: "Datos & Scraping", en: "Data & Scraping" },
     items: [
       { name: "Apify",      Icon: Bot,      color: "#FF9012" },
-      { name: "Outscraper", Icon: Search,   color: "#2563EB" },
-      { name: { es: "Web scraping", en: "Web scraping" }, Icon: Database, color: "#10B981" },
+      { name: { es: "Web scraping", en: "Web scraping" }, Icon: Search,   color: "#2563EB" },
+      { name: { es: "Google Maps", en: "Google Maps" },   Icon: Database, color: "#10B981" },
     ],
   },
   {
