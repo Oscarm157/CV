@@ -17,6 +17,33 @@ type Project = {
 
 const projects: Project[] = [
   {
+    title: { es: "Bot de generación de leads", en: "Lead-generation bot" },
+    desc: {
+      es: "Scrapea negocios de Google Maps, detecta y evalúa su sitio web, enriquece con rating, reseñas, ciudad y correo, los califica por score y los deja listos en un CRM. Corre solo cada día.",
+      en: "Scrapes businesses from Google Maps, detects and scores their website, enriches with rating, reviews, city and email, qualifies them by score and drops them into a CRM. Runs on a daily schedule.",
+    },
+    tools: ["Outscraper", "Next.js", "Neon", "Cron"],
+    images: ["/screenshots/leads-factory.png"],
+  },
+  {
+    title: { es: "Agente de voz inbound", en: "Inbound voice agent" },
+    desc: {
+      es: "Atiende llamadas con IA (Gemini Live + Twilio), resuelve dudas del inventario y registra cada lead en Zoho CRM. Dashboard de métricas: conversión a CRM, llamadas y leads calientes.",
+      en: "Answers calls with AI (Gemini Live + Twilio), resolves inventory questions and logs every lead into Zoho CRM. Metrics dashboard: CRM conversion, calls and hot leads.",
+    },
+    tools: ["Gemini Live", "Twilio", "Zoho CRM", "Neon"],
+    images: ["/screenshots/voicebot-metrics.png"],
+  },
+  {
+    title: { es: "Narrativa (SaaS propio)", en: "Narrativa (my SaaS)" },
+    desc: {
+      es: "Plataforma que automatiza de la captación al cierre: un sitio que se personaliza por lead, agente de voz y CRM. Proyecto propio en producción.",
+      en: "Platform that automates from capture to close: a site that personalizes per lead, a voice agent and a CRM. My own product, in production.",
+    },
+    tools: ["Next.js", "Supabase", "IA", "CRM"],
+    images: ["/screenshots/narrativa-arqmkt.png", "/screenshots/narrativa-producto.png"],
+  },
+  {
     title: { es: "Dashboard KPIs", en: "KPIs Dashboard" },
     desc: {
       es: "Panel ejecutivo con KPIs operativos: volumen, tasa de resolución, tiempos y tendencias.",
@@ -26,22 +53,13 @@ const projects: Project[] = [
     images: ["/screenshots/alfresco-dashboard-1.png", "/screenshots/alfresco-dashboard-2.png"],
   },
   {
-    title: { es: "Blueprint de leads en Zoho CRM", en: "Zoho CRM lead blueprint" },
+    title: { es: "Automatización de leads (Zoho + Zapier)", en: "Lead automation (Zoho + Zapier)" },
     desc: {
-      es: "Automatización del ciclo completo: captura, asignación, seguimiento y cierre.",
-      en: "Full lead cycle automation: capture, assignment, follow-up, close.",
+      es: "Ciclo completo de leads en Zoho CRM (captura, asignación, seguimiento, cierre) y webhooks en Zapier que conectan formularios, CRM y notificaciones a Slack y correo.",
+      en: "Full lead cycle in Zoho CRM (capture, assignment, follow-up, close) plus Zapier webhooks connecting forms, CRM and Slack/email notifications.",
     },
-    tools: ["Zoho CRM", "Deluge", "Email"],
-    images: ["/screenshots/zoho-blueprint-1.png", "/screenshots/zoho-blueprint-2.png"],
-  },
-  {
-    title: { es: "Zaps de operación interna", en: "Internal ops Zaps" },
-    desc: {
-      es: "Webhooks que conectan formularios, CRM y notificaciones a Slack y correo.",
-      en: "Webhooks connecting forms, CRM and Slack/email notifications.",
-    },
-    tools: ["Zapier", "Webhooks", "Slack"],
-    images: ["/screenshots/zapier-list.png"],
+    tools: ["Zoho CRM", "Zapier", "Webhooks", "Deluge"],
+    images: ["/screenshots/zoho-blueprint-1.png", "/screenshots/zoho-blueprint-2.png", "/screenshots/zapier-list.png"],
   },
   {
     title: { es: "Weavy.ai / Figma Wave", en: "Weavy.ai / Figma Wave" },
@@ -250,7 +268,7 @@ export default function ProjectsCard() {
         <span className="font-label text-[15px] uppercase tracking-widest text-white relative z-10">{t.sub}</span>
       </div>
 
-      <div className="p-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+      <div className="p-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
         {projects.map((p, i) => (
           <motion.div
             key={p.title.es}
