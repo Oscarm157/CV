@@ -26,13 +26,13 @@ const projects: Project[] = [
     images: ["/screenshots/leads-factory.png"],
   },
   {
-    title: { es: "Agente de voz inbound", en: "Inbound voice agent" },
+    title: { es: "Agente de ventas con IA + Zoho CRM", en: "AI sales agent + Zoho CRM" },
     desc: {
-      es: "Atiende llamadas con IA (Gemini Live + Twilio), resuelve dudas del inventario y registra cada lead en Zoho CRM. Dashboard de métricas: conversión a CRM, llamadas y leads calientes.",
-      en: "Answers calls with AI (Gemini Live + Twilio), resolves inventory questions and logs every lead into Zoho CRM. Metrics dashboard: CRM conversion, calls and hot leads.",
+      es: "Atiende y califica llamadas con IA (Gemini Live + Twilio), resuelve dudas del inventario y registra cada lead en Zoho CRM. Dashboard de métricas: conversión a CRM, llamadas y leads calientes.",
+      en: "Answers and qualifies calls with AI (Gemini Live + Twilio), resolves inventory questions and logs every lead into Zoho CRM. Metrics dashboard: CRM conversion, calls and hot leads.",
     },
     tools: ["Gemini Live", "Twilio", "Zoho CRM", "Neon"],
-    images: ["/screenshots/voicebot-metrics.png"],
+    images: ["/screenshots/voicebot-consola.png", "/screenshots/voicebot-metrics.png"],
   },
   {
     title: { es: "Narrativa (SaaS propio)", en: "Narrativa (my SaaS)" },
