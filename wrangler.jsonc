@@ -1,5 +1,5 @@
 {
-  "name": "cv-oscar-arredondo",
+  "name": "cv",
   "compatibility_date": "2026-05-29",
   "main": "worker/index.ts",
   "assets": { "directory": "./out", "binding": "ASSETS" }
