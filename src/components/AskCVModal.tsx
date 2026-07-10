@@ -10,12 +10,56 @@ import { useLanguage } from "@/context/LanguageContext";
 
 type Msg = { role: "user" | "assistant"; content: string };
 
+/* Render mínimo de markdown del asistente: **negrita** + listas con "- " */
+function renderInline(text: string, keyBase: string) {
+  return text.split(/(\*\*[^*]+\*\*)/g).map((part, i) =>
+    part.startsWith("**") && part.endsWith("**") ? (
+      <strong key={`${keyBase}-${i}`} className="font-semibold" style={{ color: "var(--emerald)" }}>
+        {part.slice(2, -2)}
+      </strong>
+    ) : (
+      <span key={`${keyBase}-${i}`}>{part}</span>
+    )
+  );
+}
+
+function AssistantText({ text }: { text: string }) {
+  const blocks: React.ReactNode[] = [];
+  let list: string[] = [];
+  let key = 0;
+  const flushList = () => {
+    if (!list.length) return;
+    const items = [...list];
+    blocks.push(
+      <ul key={`ul-${key++}`} className="flex flex-col gap-1.5">
+        {items.map((it, idx) => (
+          <li key={idx} className="flex gap-2">
+            <span className="shrink-0 mt-[3px] text-xs" style={{ color: "var(--emerald)" }}>▸</span>
+            <span>{renderInline(it, `li-${idx}`)}</span>
+          </li>
+        ))}
+      </ul>
+    );
+    list = [];
+  };
+  text.split("\n").forEach((raw) => {
+    const line = raw.trim();
+    if (!line) return flushList();
+    const m = line.match(/^[-*•]\s+(.*)/);
+    if (m) return void list.push(m[1]);
+    flushList();
+    blocks.push(<p key={`p-${key++}`}>{renderInline(line, `p-${key}`)}</p>);
+  });
+  flushList();
+  return <div className="flex flex-col gap-2">{blocks}</div>;
+}
+
 const copy = {
   es: {
     title: "Pregúntale a mi CV",
-    sub: "Chat con IA sobre la experiencia de Oscar",
+    sub: "IA que responde como yo, con base en mi CV",
     placeholder: "Escribe tu pregunta…",
-    examples: ["¿Tiene experiencia con web scraping?", "¿Qué automatizaciones ha construido?", "¿Cómo aplica IA en marketing?"],
+    examples: ["¿Tienes experiencia con web scraping?", "¿Qué automatizaciones has construido?", "¿Cómo aplicas IA en marketing?"],
     note: "Respuestas generadas con IA (Claude) a partir del CV. Puede equivocarse.",
     errGeneric: "Algo falló. Intenta de nuevo en un momento.",
     errRate: "Llegaste al límite de preguntas por hoy. Escríbele a oscar.amayoral@gmail.com.",
@@ -23,9 +67,9 @@ const copy = {
   },
   en: {
     title: "Ask my CV",
-    sub: "AI chat about Oscar's experience",
+    sub: "AI that answers as me, based on my CV",
     placeholder: "Type your question…",
-    examples: ["Does he have web scraping experience?", "What automations has he built?", "How does he apply AI to marketing?"],
+    examples: ["Do you have web scraping experience?", "What automations have you built?", "How do you apply AI to marketing?"],
     note: "Answers are AI-generated (Claude) from the CV. It can be wrong.",
     errGeneric: "Something failed. Try again in a moment.",
     errRate: "You hit today's question limit. Email oscar.amayoral@gmail.com.",
@@ -111,7 +155,7 @@ export default function AskCVModal() {
             exit={{ y: 40, opacity: 0, scale: 0.98 }}
             transition={{ type: "spring", stiffness: 320, damping: 30 }}
             onClick={(e) => e.stopPropagation()}
-            className="w-full sm:max-w-[560px] h-[85vh] sm:h-[600px] flex flex-col rounded-t-[24px] sm:rounded-[24px] overflow-hidden"
+            className="w-full sm:max-w-[644px] h-[85vh] sm:h-[600px] flex flex-col rounded-t-[24px] sm:rounded-[24px] overflow-hidden"
             style={{ background: "var(--ink)" }}
           >
             {/* Header */}
@@ -157,7 +201,7 @@ export default function AskCVModal() {
                     style={m.role === "user"
                       ? { background: "var(--amber)", color: "var(--ink)" }
                       : { background: "rgba(255,255,255,0.06)", color: "rgba(255,255,255,0.9)" }}>
-                    {m.content}
+                    {m.role === "assistant" ? <AssistantText text={m.content} /> : m.content}
                   </div>
                 </div>
               ))}

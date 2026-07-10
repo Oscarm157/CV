@@ -92,6 +92,7 @@ const content = {
     cta1: "Ver portafolio",
     cta2: "Contactar",
     cta3: "Pregúntale a mi CV",
+    ctaProy: "Proyectos",
     clientsLabel: "Clientes",
     industriesLabel: "Industrias",
     statYrs: "Años exp.",
@@ -103,6 +104,7 @@ const content = {
     cta1: "See my work",
     cta2: "Get in touch",
     cta3: "Ask my CV",
+    ctaProy: "Projects",
     clientsLabel: "Clients",
     industriesLabel: "Industries",
     statYrs: "Yrs exp.",
@@ -182,14 +184,26 @@ export default function HeroCard() {
           className="flex flex-wrap gap-3 mt-7 relative z-10"
         >
           <motion.button type="button" onClick={() => setOpen(true)} whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}
+            animate={{ scale: [1, 1.06, 0.99, 1], boxShadow: ["0 6px 20px rgba(16,185,129,0.35)", "0 8px 28px rgba(16,185,129,0.6)", "0 6px 20px rgba(16,185,129,0.35)", "0 6px 20px rgba(16,185,129,0.35)"] }}
+            transition={{ duration: 0.8, repeat: Infinity, repeatDelay: 4.2, ease: "easeInOut" }}
             className="font-label text-xs uppercase tracking-widest px-6 py-3 rounded-full font-bold flex items-center gap-2"
             style={{ background: "var(--emerald)", color: "var(--ink)", boxShadow: "0 6px 20px rgba(16,185,129,0.35)" }}>
-            <Sparkles size={15} />
+            <motion.span
+              animate={{ rotate: [0, 18, -12, 0], scale: [1, 1.15, 1, 1] }}
+              transition={{ duration: 0.8, repeat: Infinity, repeatDelay: 4.2, ease: "easeInOut" }}
+              className="inline-flex"
+            >
+              <Sparkles size={15} />
+            </motion.span>
             {t.cta3}
           </motion.button>
-          <motion.a href="#portafolio" whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}
+          <motion.a href="#proyectos" whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}
             className="font-label text-xs uppercase tracking-widest px-6 py-3 rounded-full font-bold"
             style={{ background: "var(--amber)", color: "var(--ink)" }}>
+            {t.ctaProy}
+          </motion.a>
+          <motion.a href="#portafolio" whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}
+            className="font-label text-xs uppercase tracking-widest px-6 py-3 rounded-full font-bold text-white/70 border border-white/15 hover:border-white/30 transition-colors">
             {t.cta1}
           </motion.a>
           <motion.a href="mailto:oscar.amayoral@gmail.com" whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}
