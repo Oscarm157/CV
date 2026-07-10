@@ -1,10 +1,10 @@
 /**
- * POST /api/chat — chat "pregúntale a mi CV" (Anthropic Haiku) con Turnstile.
+ * POST /api/chat — chat "pregúntale a mi CV" (Anthropic Haiku).
  * Corre como Serverless Function en Vercel. La key vive solo en env del server.
- *
- * Env vars (Vercel): ANTHROPIC_API_KEY, TURNSTILE_SECRET_KEY.
- * Cliente: NEXT_PUBLIC_TURNSTILE_SITE_KEY (site key pública, va en el build).
+ * Anti-abuso: Vercel BotID (checkBotId). Única env var: ANTHROPIC_API_KEY.
  */
+
+import { checkBotId } from "botid/server";
 
 const MODEL = "claude-haiku-4-5-20251001";
 const MAX_TOKENS = 500;
@@ -55,35 +55,23 @@ Reglas:
 ${CV_CONTEXT}`;
 }
 
-async function verifyTurnstile(token: string, secret: string, ip: string): Promise<boolean> {
-  if (!token) return false;
-  const body = new URLSearchParams();
-  body.append("secret", secret);
-  body.append("response", token);
-  if (ip) body.append("remoteip", ip);
-  const res = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", { method: "POST", body });
-  const data = (await res.json()) as { success: boolean };
-  return data.success === true;
-}
-
 export async function POST(request: Request) {
   const apiKey = process.env.ANTHROPIC_API_KEY;
-  const turnstileSecret = process.env.TURNSTILE_SECRET_KEY;
-  if (!apiKey || !turnstileSecret) {
+  if (!apiKey) {
     return Response.json({ error: "not_configured" }, { status: 503 });
   }
 
-  let payload: { messages?: { role: string; content: string }[]; turnstileToken?: string; variant?: string };
+  const verification = await checkBotId();
+  if (verification.isBot) {
+    return Response.json({ error: "verification_failed" }, { status: 403 });
+  }
+
+  let payload: { messages?: { role: string; content: string }[]; variant?: string };
   try {
     payload = await request.json();
   } catch {
     return Response.json({ error: "bad_request" }, { status: 400 });
   }
-
-  const ip = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "";
-
-  const ok = await verifyTurnstile(payload.turnstileToken ?? "", turnstileSecret, ip);
-  if (!ok) return Response.json({ error: "verification_failed" }, { status: 403 });
 
   const messages = Array.isArray(payload.messages) ? payload.messages : [];
   if (messages.length === 0 || messages.length > MAX_TURNS) {

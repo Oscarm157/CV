@@ -8,17 +8,6 @@ import { useChat } from "@/context/ChatContext";
 import { useVariant } from "@/context/VariantContext";
 import { useLanguage } from "@/context/LanguageContext";
 
-const SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
-
-interface TurnstileApi {
-  render: (el: HTMLElement, opts: { sitekey: string; callback: (t: string) => void; "expired-callback"?: () => void; size?: string; theme?: string }) => string;
-  reset: (id: string) => void;
-  remove: (id: string) => void;
-}
-declare global {
-  interface Window { turnstile?: TurnstileApi }
-}
-
 type Msg = { role: "user" | "assistant"; content: string };
 
 const copy = {
@@ -58,9 +47,6 @@ export default function AskCVModal() {
 
   useEffect(() => setMounted(true), []);
 
-  const tokenRef = useRef<string | null>(null);
-  const widgetRef = useRef<string | null>(null);
-  const turnstileHost = useRef<HTMLDivElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -73,40 +59,6 @@ export default function AskCVModal() {
     setTimeout(() => inputRef.current?.focus(), 100);
     return () => { document.removeEventListener("keydown", onKey); document.body.style.overflow = ""; };
   }, [open, setOpen]);
-
-  // Cargar y montar Turnstile mientras el modal está abierto
-  useEffect(() => {
-    if (!open || !SITE_KEY) return;
-    let cancelled = false;
-    const mount = () => {
-      if (cancelled || !window.turnstile || !turnstileHost.current || widgetRef.current) return;
-      widgetRef.current = window.turnstile.render(turnstileHost.current, {
-        sitekey: SITE_KEY,
-        size: "flexible",
-        theme: "dark",
-        callback: (tok: string) => { tokenRef.current = tok; },
-        "expired-callback": () => { tokenRef.current = null; },
-      });
-    };
-    if (window.turnstile) {
-      mount();
-    } else if (!document.getElementById("cf-turnstile-script")) {
-      const s = document.createElement("script");
-      s.id = "cf-turnstile-script";
-      s.src = "https://challenges.cloudflare.com/turnstile/v0/api.js";
-      s.async = true;
-      s.onload = mount;
-      document.head.appendChild(s);
-    } else {
-      const iv = setInterval(() => { if (window.turnstile) { clearInterval(iv); mount(); } }, 200);
-      return () => clearInterval(iv);
-    }
-    return () => {
-      cancelled = true;
-      if (widgetRef.current && window.turnstile) { window.turnstile.remove(widgetRef.current); widgetRef.current = null; }
-      tokenRef.current = null;
-    };
-  }, [open]);
 
   useEffect(() => {
     scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: "smooth" });
@@ -124,7 +76,7 @@ export default function AskCVModal() {
       const res = await fetch("/api/chat", {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({ messages: next, turnstileToken: tokenRef.current, variant }),
+        body: JSON.stringify({ messages: next, variant }),
       });
       if (!res.ok) {
         const code = res.status;
@@ -134,7 +86,6 @@ export default function AskCVModal() {
       }
       const data = (await res.json()) as { reply?: string };
       setMessages([...next, { role: "assistant", content: data.reply || t.errGeneric }]);
-      if (widgetRef.current && window.turnstile) window.turnstile.reset(widgetRef.current); // token nuevo para el siguiente
     } catch {
       setError(t.errGeneric);
       setMessages(messages);
@@ -243,7 +194,6 @@ export default function AskCVModal() {
                   <Send size={18} />
                 </button>
               </form>
-              <div ref={turnstileHost} className="mt-2 empty:hidden" />
               <p className="font-grotesk text-[11px] text-white/35 mt-2 leading-snug">{t.note}</p>
             </div>
           </motion.div>
