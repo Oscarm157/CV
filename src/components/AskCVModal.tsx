@@ -3,7 +3,7 @@
 import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "motion/react";
 import { useEffect, useRef, useState } from "react";
-import { Send, X, Sparkles, RefreshCw } from "lucide-react";
+import { Send, X, Sparkles, ArrowRight } from "lucide-react";
 import { useChat } from "@/context/ChatContext";
 import { useVariant } from "@/context/VariantContext";
 import { useLanguage } from "@/context/LanguageContext";
@@ -70,7 +70,7 @@ const copy = {
       "¿Qué proyectos has hecho por tu cuenta?",
       "¿Estás disponible para proyectos remotos?",
     ],
-    more: "Otras preguntas",
+    more: "Más preguntas",
     note: "Respuestas generadas con IA (Claude) a partir del CV. Puede equivocarse.",
     errGeneric: "Algo falló. Intenta de nuevo en un momento.",
     errRate: "Llegaste al límite de preguntas por hoy. Escríbele a oscar.amayoral@gmail.com.",
@@ -234,9 +234,9 @@ export default function AskCVModal() {
                   </AnimatePresence>
                   {pages > 1 && (
                     <button onClick={() => setExPage((p) => (p + 1) % pages)}
-                      className="self-start flex items-center gap-1.5 font-label text-[11px] uppercase tracking-widest text-white/50 hover:text-white/80 transition-colors px-1 py-1">
-                      <RefreshCw size={13} style={{ color: "var(--emerald)" }} />
+                      className="group self-start flex items-center gap-1.5 font-label text-[11px] uppercase tracking-widest text-white/50 hover:text-white/80 transition-colors px-1 py-1">
                       {t.more}
+                      <ArrowRight size={13} style={{ color: "var(--emerald)" }} className="transition-transform group-hover:translate-x-0.5" />
                     </button>
                   )}
                 </div>
