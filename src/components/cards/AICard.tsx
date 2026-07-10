@@ -13,8 +13,8 @@ const tags = {
     en: ["Claude", "Claude Code", "AI Agents", "Lead Gen", "Web Scraping", "Data Extraction", "Harnesses", "APIs", "SQL", "Prompting"],
   },
   generativa: {
-    es: ["Dirección de Arte", "Imagen IA", "Video IA", "Prompt Eng.", "Consistencia Visual", "Nano Banana Pro", "Kling", "Weavy.ai", "Replicate", "ffmpeg"],
-    en: ["Art Direction", "AI Image", "AI Video", "Prompt Eng.", "Visual Consistency", "Nano Banana Pro", "Kling", "Weavy.ai", "Replicate", "ffmpeg"],
+    es: ["Marketing", "Imagen IA", "Video IA", "Datos & Predicción", "Lead Scoring", "Inteligencia de Mercado", "Prompt Eng.", "Nano Banana Pro", "Kling", "Replicate"],
+    en: ["Marketing", "AI Image", "AI Video", "Data & Prediction", "Lead Scoring", "Market Intelligence", "Prompt Eng.", "Nano Banana Pro", "Kling", "Replicate"],
   },
 };
 
@@ -41,14 +41,14 @@ const content = {
       eyebrow: "AI Lab",
       title: "IA Generativa",
       cta: "Pregúntale a mi CV",
-      body: "Produzco imagen y video con IA generativa de punta a punta: dirección de arte, generación con Nano Banana Pro (2K/4K) y video image-to-video con Kling, iterando prompts hasta la consistencia visual y controlando artefactos y calidad. Orquesto los flujos en Replicate y Weavy.ai, con post en ffmpeg. También diseño casos prácticos y capacito equipos en la adopción de estas herramientas.",
+      body: "Uso la IA generativa dentro del marketing: produzco imagen y video (Nano Banana Pro, Kling vía Replicate, Weavy.ai) y construyo análisis y predicción a partir de datos: scoring de leads, inteligencia de mercado (inmobiq) y proyecciones en dashboards. Itero prompts, valido resultados y automatizo el flujo. En Atisa Group también capacito a los equipos en su adopción.",
     },
     en: {
       badge: "Live",
       eyebrow: "AI Lab",
       title: "Generative AI",
       cta: "Ask my CV",
-      body: "I produce image and video with generative AI end to end: art direction, generation with Nano Banana Pro (2K/4K) and image-to-video with Kling, iterating prompts until visual consistency and controlling artifacts and quality. I orchestrate the flows in Replicate and Weavy.ai, with post in ffmpeg. I also design hands-on cases and train teams on adopting these tools.",
+      body: "I use generative AI within marketing: I produce image and video (Nano Banana Pro, Kling via Replicate, Weavy.ai) and build analysis and prediction from data: lead scoring, market intelligence (inmobiq) and dashboard projections. I iterate prompts, validate results and automate the flow. At Atisa Group I also train teams on adoption.",
     },
   },
 };

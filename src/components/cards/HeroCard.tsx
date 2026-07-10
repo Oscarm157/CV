@@ -81,8 +81,8 @@ const subtitle = {
     en: "Real Estate Marketing · Digital Strategy · Sales & Prospecting · Applied AI",
   },
   generativa: {
-    es: "Dirección de Arte · IA Generativa · Contenido Audiovisual · Marketing",
-    en: "Art Direction · Generative AI · Audiovisual Content · Marketing",
+    es: "Marketing Estratégico · IA Generativa · Contenido Audiovisual · Datos & Predicción",
+    en: "Strategic Marketing · Generative AI · Audiovisual Content · Data & Prediction",
   },
 };
 

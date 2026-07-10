@@ -100,20 +100,20 @@ const pInmobiq: Project = {
 const pNarrativaGen: Project = {
   title: { es: "Narrativa (SaaS propio)", en: "Narrativa (my SaaS)" },
   desc: {
-    es: "Mi SaaS: dirección de arte e identidad visual de landings que se personalizan por lead. Heroes y piezas generadas con IA, sistema visual consistente de punta a punta.",
-    en: "My SaaS: art direction and visual identity for landings that personalize per lead. AI-generated heroes and pieces, a consistent visual system end to end.",
+    es: "Mi SaaS en producción: landings que se personalizan por lead, con piezas visuales generadas con IA. Marketing y producto de punta a punta.",
+    en: "My SaaS in production: landings that personalize per lead, with AI-generated visual pieces. Marketing and product end to end.",
   },
-  tools: ["Dirección de arte", "IA generativa", "Branding", "Next.js"],
+  tools: ["IA generativa", "Marketing", "Branding", "Next.js"],
   images: ["/screenshots/narrativa-arqmkt.webp", "/screenshots/narrativa-producto.webp"],
 };
 
 const pVerticeGen: Project = {
-  title: { es: "Vértice (dirección de arte + IA)", en: "Vértice (art direction + AI)" },
+  title: { es: "Vértice (imagen IA + marketing)", en: "Vértice (AI image + marketing)" },
   desc: {
-    es: "Sitio inmobiliario comercial e industrial. Dirigí el arte y generé los heroes en 2K con Nano Banana Pro, cuidando composición e iluminación para un look editorial coherente.",
-    en: "Commercial and industrial real estate site. I directed the art and generated the 2K heroes with Nano Banana Pro, controlling composition and lighting for a coherent editorial look.",
+    es: "Sitio y CRM inmobiliario comercial e industrial. Generé los heroes en 2K con Nano Banana Pro como parte de la estrategia de marketing del proyecto.",
+    en: "Commercial and industrial real estate site and CRM. I generated the 2K heroes with Nano Banana Pro as part of the project's marketing strategy.",
   },
-  tools: ["Nano Banana Pro", "2K", "Dirección de arte", "Next.js"],
+  tools: ["Nano Banana Pro", "2K", "Marketing", "Next.js"],
   images: ["/screenshots/vertice-1.webp", "/screenshots/vertice-2.webp"],
 };
 
