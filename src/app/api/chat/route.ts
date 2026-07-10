@@ -1,26 +1,16 @@
 /**
- * Cloudflare Worker que envuelve el static export del CV.
- * - POST /api/chat  -> chat "pregúntale a mi CV" (Anthropic Haiku), con Turnstile + rate-limit.
- * - cualquier otra ruta -> se sirve el sitio estático (binding ASSETS).
+ * POST /api/chat — chat "pregúntale a mi CV" (Anthropic Haiku) con Turnstile.
+ * Corre como Serverless Function en Vercel. La key vive solo en env del server.
  *
- * Secrets (wrangler secret put): ANTHROPIC_API_KEY, TURNSTILE_SECRET_KEY.
- * KV opcional (binding RL) para tope de uso por IP/día; si no existe, solo gatea Turnstile.
+ * Env vars (Vercel): ANTHROPIC_API_KEY, TURNSTILE_SECRET_KEY.
+ * Cliente: NEXT_PUBLIC_TURNSTILE_SITE_KEY (site key pública, va en el build).
  */
-
-interface Env {
-  ASSETS: { fetch: (req: Request) => Promise<Response> };
-  ANTHROPIC_API_KEY: string;
-  TURNSTILE_SECRET_KEY: string;
-  RL?: KVNamespace;
-}
 
 const MODEL = "claude-haiku-4-5-20251001";
 const MAX_TOKENS = 500;
-const MAX_TURNS = 12; // mensajes totales en la conversación
-const MAX_CHARS = 700; // por mensaje del usuario
-const DAILY_LIMIT = 30; // mensajes por IP por día (si hay KV)
+const MAX_TURNS = 12;
+const MAX_CHARS = 700;
 
-// Contexto del CV. Datos reales de Oscar, sin cifras inventadas.
 const CV_CONTEXT = `
 Oscar Arredondo. Mercadólogo con +10 años en estrategia digital, generación de leads y CRM a lo largo del customer journey completo. Base en Tijuana, B.C., México. Correo: oscar.amayoral@gmail.com. Trabaja de forma remota.
 
@@ -67,7 +57,7 @@ ${CV_CONTEXT}`;
 
 async function verifyTurnstile(token: string, secret: string, ip: string): Promise<boolean> {
   if (!token) return false;
-  const body = new FormData();
+  const body = new URLSearchParams();
   body.append("secret", secret);
   body.append("response", token);
   if (ip) body.append("remoteip", ip);
@@ -76,70 +66,51 @@ async function verifyTurnstile(token: string, secret: string, ip: string): Promi
   return data.success === true;
 }
 
-async function checkRateLimit(kv: KVNamespace | undefined, ip: string): Promise<boolean> {
-  if (!kv || !ip) return true; // sin KV, Turnstile es la única barrera
-  const day = new Date().toISOString().slice(0, 10);
-  const key = `rl:${ip}:${day}`;
-  const current = parseInt((await kv.get(key)) ?? "0", 10);
-  if (current >= DAILY_LIMIT) return false;
-  await kv.put(key, String(current + 1), { expirationTtl: 60 * 60 * 24 });
-  return true;
+export async function POST(request: Request) {
+  const apiKey = process.env.ANTHROPIC_API_KEY;
+  const turnstileSecret = process.env.TURNSTILE_SECRET_KEY;
+  if (!apiKey || !turnstileSecret) {
+    return Response.json({ error: "not_configured" }, { status: 503 });
+  }
+
+  let payload: { messages?: { role: string; content: string }[]; turnstileToken?: string; variant?: string };
+  try {
+    payload = await request.json();
+  } catch {
+    return Response.json({ error: "bad_request" }, { status: 400 });
+  }
+
+  const ip = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "";
+
+  const ok = await verifyTurnstile(payload.turnstileToken ?? "", turnstileSecret, ip);
+  if (!ok) return Response.json({ error: "verification_failed" }, { status: 403 });
+
+  const messages = Array.isArray(payload.messages) ? payload.messages : [];
+  if (messages.length === 0 || messages.length > MAX_TURNS) {
+    return Response.json({ error: "bad_request" }, { status: 400 });
+  }
+
+  const clean = messages
+    .filter((m) => m.role === "user" || m.role === "assistant")
+    .map((m) => ({ role: m.role, content: String(m.content).slice(0, MAX_CHARS) }));
+
+  const res = await fetch("https://api.anthropic.com/v1/messages", {
+    method: "POST",
+    headers: {
+      "content-type": "application/json",
+      "x-api-key": apiKey,
+      "anthropic-version": "2023-06-01",
+    },
+    body: JSON.stringify({
+      model: MODEL,
+      max_tokens: MAX_TOKENS,
+      system: systemPrompt(payload.variant ?? "automatizacion"),
+      messages: clean,
+    }),
+  });
+
+  if (!res.ok) return Response.json({ error: "upstream_error" }, { status: 502 });
+  const data = (await res.json()) as { content?: { text?: string }[] };
+  const reply = data.content?.map((c) => c.text ?? "").join("").trim() ?? "";
+  return Response.json({ reply });
 }
-
-function json(data: unknown, status = 200): Response {
-  return new Response(JSON.stringify(data), { status, headers: { "content-type": "application/json" } });
-}
-
-export default {
-  async fetch(request: Request, env: Env): Promise<Response> {
-    const url = new URL(request.url);
-
-    if (url.pathname === "/api/chat") {
-      if (request.method !== "POST") return json({ error: "method_not_allowed" }, 405);
-
-      let payload: { messages?: { role: string; content: string }[]; turnstileToken?: string; variant?: string };
-      try {
-        payload = await request.json();
-      } catch {
-        return json({ error: "bad_request" }, 400);
-      }
-
-      const ip = request.headers.get("cf-connecting-ip") ?? "";
-
-      const ok = await verifyTurnstile(payload.turnstileToken ?? "", env.TURNSTILE_SECRET_KEY, ip);
-      if (!ok) return json({ error: "verification_failed" }, 403);
-
-      const allowed = await checkRateLimit(env.RL, ip);
-      if (!allowed) return json({ error: "rate_limited" }, 429);
-
-      const messages = Array.isArray(payload.messages) ? payload.messages : [];
-      if (messages.length === 0 || messages.length > MAX_TURNS) return json({ error: "bad_request" }, 400);
-
-      const clean = messages
-        .filter((m) => m.role === "user" || m.role === "assistant")
-        .map((m) => ({ role: m.role, content: String(m.content).slice(0, MAX_CHARS) }));
-
-      const res = await fetch("https://api.anthropic.com/v1/messages", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-          "x-api-key": env.ANTHROPIC_API_KEY,
-          "anthropic-version": "2023-06-01",
-        },
-        body: JSON.stringify({
-          model: MODEL,
-          max_tokens: MAX_TOKENS,
-          system: systemPrompt(payload.variant ?? "automatizacion"),
-          messages: clean,
-        }),
-      });
-
-      if (!res.ok) return json({ error: "upstream_error" }, 502);
-      const data = (await res.json()) as { content?: { text?: string }[] };
-      const reply = data.content?.map((c) => c.text ?? "").join("").trim() ?? "";
-      return json({ reply });
-    }
-
-    return env.ASSETS.fetch(request);
-  },
-};
