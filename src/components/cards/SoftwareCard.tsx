@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 import { cardVariants } from "../BentoGrid";
 import { SiWebflow, SiSemrush, SiZapier, SiMailchimp, SiZoho, SiGithub, SiVercel, SiSupabase, SiClaude, SiReplicate, SiMeta, SiGoogleads, SiAsana } from "react-icons/si";
 import { FaLinkedin } from "react-icons/fa";
-import { BarChart3, Webhook, Bot, Terminal, Sparkles, Database, Search, Workflow, ImageIcon, Film, Clapperboard } from "lucide-react";
+import { BarChart3, Webhook, Bot, Terminal, Sparkles, Database, Search, ImageIcon, Film, Clapperboard } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 /* ── Adobe badge SVGs ── */
@@ -77,7 +77,6 @@ const groups: Group[] = [
     items: [
       { name: "Zoho CRM", Icon: SiZoho,     color: "#E42527" },
       { name: "Zapier",   Icon: SiZapier,   color: "#FF4A00" },
-      { name: "Make",     Icon: Workflow,   color: "#6D00CC" },
       { name: "Asana",    Icon: SiAsana,    color: "#F06A6A" },
     ],
   },
@@ -95,12 +94,12 @@ const groups: Group[] = [
   {
     label: { es: "Web & Dev", en: "Web & Dev" },
     items: [
-      { name: "Webflow",        Icon: SiWebflow,  color: "#4353FF" },
       { name: "GitHub",         Icon: SiGithub,   color: "#24292E" },
       { name: "Vercel",         Icon: SiVercel,   color: "#18181B" },
       { name: "Supabase (SQL)", Icon: SiSupabase, color: "#3ECF8E" },
       { name: "Neon",           Icon: Database,   color: "#00E599" },
       { name: "APIs",           Icon: Webhook,    color: "#9999FF" },
+      { name: "Webflow",        Icon: SiWebflow,  color: "#4353FF" },
     ],
   },
   {
