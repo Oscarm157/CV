@@ -57,7 +57,7 @@ function AssistantText({ text }: { text: string }) {
 const copy = {
   es: {
     title: "Pregúntale a mi CV",
-    sub: "IA que responde como yo, con base en mi CV",
+    sub: "Pregunta sobre mi experiencia y trayectoria",
     placeholder: "Escribe tu pregunta…",
     examples: ["¿Tienes experiencia con web scraping?", "¿Qué automatizaciones has construido?", "¿Cómo aplicas IA en marketing?"],
     note: "Respuestas generadas con IA (Claude) a partir del CV. Puede equivocarse.",
@@ -67,7 +67,7 @@ const copy = {
   },
   en: {
     title: "Ask my CV",
-    sub: "AI that answers as me, based on my CV",
+    sub: "Ask about my experience and background",
     placeholder: "Type your question…",
     examples: ["Do you have web scraping experience?", "What automations have you built?", "How do you apply AI to marketing?"],
     note: "Answers are AI-generated (Claude) from the CV. It can be wrong.",
@@ -84,6 +84,7 @@ export default function AskCVModal() {
   const t = copy[lang];
 
   const [messages, setMessages] = useState<Msg[]>([]);
+  const lastUserIdx = messages.map((m) => m.role).lastIndexOf("user");
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -104,8 +105,18 @@ export default function AskCVModal() {
     return () => { document.removeEventListener("keydown", onKey); document.body.style.overflow = ""; };
   }, [open, setOpen]);
 
+  // Ancla la última pregunta del usuario arriba: la respuesta aparece debajo y se
+  // lee de arriba a abajo, sin brincar al final ni obligar a scrollear hacia arriba.
   useEffect(() => {
-    scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: "smooth" });
+    const c = scrollRef.current;
+    if (!c) return;
+    const lastUser = c.querySelector<HTMLElement>("[data-last-user='true']");
+    if (lastUser) {
+      const top = lastUser.getBoundingClientRect().top - c.getBoundingClientRect().top + c.scrollTop - 12;
+      c.scrollTo({ top, behavior: "smooth" });
+    } else {
+      c.scrollTo({ top: c.scrollHeight, behavior: "smooth" });
+    }
   }, [messages, loading]);
 
   async function send(text: string) {
@@ -196,7 +207,9 @@ export default function AskCVModal() {
               )}
 
               {messages.map((m, i) => (
-                <div key={i} className={m.role === "user" ? "self-end max-w-[85%]" : "self-start max-w-[90%]"}>
+                <div key={i}
+                  data-last-user={m.role === "user" && i === lastUserIdx ? "true" : undefined}
+                  className={m.role === "user" ? "self-end max-w-[85%]" : "self-start max-w-[90%]"}>
                   <div className="font-grotesk text-sm leading-relaxed px-4 py-3 rounded-2xl"
                     style={m.role === "user"
                       ? { background: "var(--amber)", color: "var(--ink)" }
