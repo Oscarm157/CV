@@ -54,6 +54,30 @@ const content = {
       ],
     },
   },
+  generativa: {
+    es: {
+      eyebrow: "Perfil",
+      headline: "Dirección de Arte + IA Generativa · Contenido Audiovisual · Marketing",
+      p1: "Director creativo con +10 años, 7 al frente de campañas audiovisuales, branding y fotografía para marcas como Mazda, BMW y Mini. Dirijo lo que la IA no resuelve sola: composición, iluminación, estilo y consistencia visual. Hoy produzco imagen y video con IA generativa con ese mismo criterio de dirección de arte.",
+      p2: "Genero imagen con Nano Banana Pro (2K/4K) y video image-to-video con Kling, orquestados en Replicate y en flujos nodales de Weavy.ai / Figma Wave; post en ffmpeg. Trabajo por referencias y moodboards, itero prompts hasta la consistencia visual y controlo artefactos y calidad. En Atisa Group acompaño la adopción de IA en las direcciones: identifico casos de uso y capacito equipos.",
+      tags: [
+        "Dirección de Arte", "IA Generativa", "Imagen con IA", "Video image-to-video", "Prompt Engineering",
+        "Consistencia Visual", "Composición / Iluminación", "Contenido Audiovisual", "Branding", "Moodboards / Referencias",
+        "Nano Banana Pro", "Kling", "Weavy.ai", "Replicate", "ffmpeg", "Marketing",
+      ],
+    },
+    en: {
+      eyebrow: "About",
+      headline: "Art Direction + Generative AI · Audiovisual Content · Marketing",
+      p1: "Creative director with 10+ years, 7 leading video campaigns, branding and photography for brands like Mazda, BMW and Mini. I direct what AI can't solve on its own: composition, lighting, style and visual consistency. Today I produce image and video with generative AI holding that same art-direction standard.",
+      p2: "I generate images with Nano Banana Pro (2K/4K) and image-to-video with Kling, orchestrated in Replicate and in node-based flows on Weavy.ai / Figma Wave; post in ffmpeg. I work from references and moodboards, iterate prompts until visual consistency, and control artifacts and quality. At Atisa Group I support AI adoption across departments: I identify use cases and train teams.",
+      tags: [
+        "Art Direction", "Generative AI", "AI Image", "Image-to-video", "Prompt Engineering",
+        "Visual Consistency", "Composition / Lighting", "Audiovisual Content", "Branding", "Moodboards / References",
+        "Nano Banana Pro", "Kling", "Weavy.ai", "Replicate", "ffmpeg", "Marketing",
+      ],
+    },
+  },
 };
 
 export default function ProfileCard() {

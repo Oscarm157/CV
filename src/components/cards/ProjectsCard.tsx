@@ -97,9 +97,30 @@ const pInmobiq: Project = {
   images: ["/screenshots/inmobiq-1.webp", "/screenshots/inmobiq-2.webp"],
 };
 
+const pNarrativaGen: Project = {
+  title: { es: "Narrativa (SaaS propio)", en: "Narrativa (my SaaS)" },
+  desc: {
+    es: "Mi SaaS: dirección de arte e identidad visual de landings que se personalizan por lead. Heroes y piezas generadas con IA, sistema visual consistente de punta a punta.",
+    en: "My SaaS: art direction and visual identity for landings that personalize per lead. AI-generated heroes and pieces, a consistent visual system end to end.",
+  },
+  tools: ["Dirección de arte", "IA generativa", "Branding", "Next.js"],
+  images: ["/screenshots/narrativa-arqmkt.webp", "/screenshots/narrativa-producto.webp"],
+};
+
+const pVerticeGen: Project = {
+  title: { es: "Vértice (dirección de arte + IA)", en: "Vértice (art direction + AI)" },
+  desc: {
+    es: "Sitio inmobiliario comercial e industrial. Dirigí el arte y generé los heroes en 2K con Nano Banana Pro, cuidando composición e iluminación para un look editorial coherente.",
+    en: "Commercial and industrial real estate site. I directed the art and generated the 2K heroes with Nano Banana Pro, controlling composition and lighting for a coherent editorial look.",
+  },
+  tools: ["Nano Banana Pro", "2K", "Dirección de arte", "Next.js"],
+  images: ["/screenshots/vertice-1.webp", "/screenshots/vertice-2.webp"],
+};
+
 const projectsByVariant: Record<Variant, Project[]> = {
   automatizacion: [pBotLeads, pVoicebot, pNarrativa, pDashboardKPIs, pZohoZapier, pWeavy],
   inmobiliario: [pVertice, pInmobiq, pNarrativa, pVoicebot, pZohoZapier, pWeavy],
+  generativa: [pNarrativaGen, pWeavy, pVerticeGen, pBotLeads, pVoicebot, pZohoZapier],
 };
 
 const labels = {

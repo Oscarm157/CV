@@ -1,4 +1,4 @@
-export type Variant = "automatizacion" | "inmobiliario";
+export type Variant = "automatizacion" | "inmobiliario" | "generativa";
 
 // Interruptor de la versión activa que se sirve en la raíz "/".
 // Cambiar a "inmobiliario" para poner esa versión como principal.

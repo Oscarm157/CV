@@ -4,27 +4,52 @@ import { motion } from "motion/react";
 import { Sparkles } from "lucide-react";
 import { cardVariants } from "../BentoGrid";
 import { useLanguage } from "@/context/LanguageContext";
+import { useVariant } from "@/context/VariantContext";
 import { useChat } from "@/context/ChatContext";
 
 const tags = {
-  es: ["Claude", "Claude Code", "Agentes IA", "Lead Gen", "Web Scraping", "Extracción de datos", "Harnesses", "APIs", "SQL", "Prompting"],
-  en: ["Claude", "Claude Code", "AI Agents", "Lead Gen", "Web Scraping", "Data Extraction", "Harnesses", "APIs", "SQL", "Prompting"],
+  automatizacion: {
+    es: ["Claude", "Claude Code", "Agentes IA", "Lead Gen", "Web Scraping", "Extracción de datos", "Harnesses", "APIs", "SQL", "Prompting"],
+    en: ["Claude", "Claude Code", "AI Agents", "Lead Gen", "Web Scraping", "Data Extraction", "Harnesses", "APIs", "SQL", "Prompting"],
+  },
+  generativa: {
+    es: ["Dirección de Arte", "Imagen IA", "Video IA", "Prompt Eng.", "Consistencia Visual", "Nano Banana Pro", "Kling", "Weavy.ai", "Replicate", "ffmpeg"],
+    en: ["Art Direction", "AI Image", "AI Video", "Prompt Eng.", "Visual Consistency", "Nano Banana Pro", "Kling", "Weavy.ai", "Replicate", "ffmpeg"],
+  },
 };
 
 const content = {
-  es: {
-    badge: "En producción",
-    eyebrow: "AI Lab",
-    title: "IA & Agentes",
-    cta: "Pregúntale a mi CV",
-    body: "Diseño y desarrollo agentes de IA y automatizaciones para tareas concretas: sourcing y calificación de leads, extracción, limpieza y estructuración de datos (scraping), reportes y flujos internos, integrando APIs y SQL. En Atisa Group trabajo en el diagnóstico y adopción de IA y construí un dashboard de seguimiento para el CEO. En paralelo construyo plataformas SaaS con Claude Code, Supabase y Vercel.",
+  automatizacion: {
+    es: {
+      badge: "En producción",
+      eyebrow: "AI Lab",
+      title: "IA & Agentes",
+      cta: "Pregúntale a mi CV",
+      body: "Diseño y desarrollo agentes de IA y automatizaciones para tareas concretas: sourcing y calificación de leads, extracción, limpieza y estructuración de datos (scraping), reportes y flujos internos, integrando APIs y SQL. En Atisa Group trabajo en el diagnóstico y adopción de IA y construí un dashboard de seguimiento para el CEO. En paralelo construyo plataformas SaaS con Claude Code, Supabase y Vercel.",
+    },
+    en: {
+      badge: "Live",
+      eyebrow: "AI Lab",
+      title: "AI & Agents",
+      cta: "Ask my CV",
+      body: "I design and build AI agents and automations for concrete tasks: lead sourcing and qualification, data extraction, cleaning and structuring (scraping), reporting, and internal workflows, integrating APIs and SQL. At Atisa Group I work on AI diagnosis and adoption, and built a tracking dashboard for the CEO. On the side I build SaaS platforms with Claude Code, Supabase and Vercel.",
+    },
   },
-  en: {
-    badge: "Live",
-    eyebrow: "AI Lab",
-    title: "AI & Agents",
-    cta: "Ask my CV",
-    body: "I design and build AI agents and automations for concrete tasks: lead sourcing and qualification, data extraction, cleaning and structuring (scraping), reporting, and internal workflows, integrating APIs and SQL. At Atisa Group I work on AI diagnosis and adoption, and built a tracking dashboard for the CEO. On the side I build SaaS platforms with Claude Code, Supabase and Vercel.",
+  generativa: {
+    es: {
+      badge: "En producción",
+      eyebrow: "AI Lab",
+      title: "IA Generativa",
+      cta: "Pregúntale a mi CV",
+      body: "Produzco imagen y video con IA generativa de punta a punta: dirección de arte, generación con Nano Banana Pro (2K/4K) y video image-to-video con Kling, iterando prompts hasta la consistencia visual y controlando artefactos y calidad. Orquesto los flujos en Replicate y Weavy.ai, con post en ffmpeg. También diseño casos prácticos y capacito equipos en la adopción de estas herramientas.",
+    },
+    en: {
+      badge: "Live",
+      eyebrow: "AI Lab",
+      title: "Generative AI",
+      cta: "Ask my CV",
+      body: "I produce image and video with generative AI end to end: art direction, generation with Nano Banana Pro (2K/4K) and image-to-video with Kling, iterating prompts until visual consistency and controlling artifacts and quality. I orchestrate the flows in Replicate and Weavy.ai, with post in ffmpeg. I also design hands-on cases and train teams on adopting these tools.",
+    },
   },
 };
 
@@ -39,8 +64,10 @@ const tagItem = {
 
 export default function AICard() {
   const { lang } = useLanguage();
+  const variant = useVariant();
   const { setOpen } = useChat();
-  const t = content[lang];
+  const key = variant === "generativa" ? "generativa" : "automatizacion";
+  const t = content[key][lang];
 
   return (
     <motion.div
@@ -85,7 +112,7 @@ export default function AICard() {
           viewport={{ once: true, amount: 0.4 }}
           className="flex flex-wrap gap-1.5"
         >
-          {tags[lang].map((tag) => (
+          {tags[key][lang].map((tag) => (
             <motion.span key={tag} variants={tagItem}
               className="font-label text-xs uppercase tracking-wide px-2.5 py-1.5 rounded-lg"
               style={{ color: "var(--emerald)", background: "rgba(16,185,129,0.12)" }}>

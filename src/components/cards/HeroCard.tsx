@@ -65,6 +65,10 @@ const industries = {
     es: ["Inmobiliario", "Comercial / Industrial", "Automotriz", "Financiero", "Gastronómico", "Médico", "Tecnología / TI"],
     en: ["Real Estate", "Commercial / Industrial", "Automotive", "Financial", "Food & Beverage", "Medical", "Technology / IT"],
   },
+  generativa: {
+    es: ["Publicidad / Creativo", "Automotriz", "Gastronómico", "Inmobiliario", "Médico", "Retail / Consumo", "Tecnología / TI"],
+    en: ["Advertising / Creative", "Automotive", "Food & Beverage", "Real Estate", "Medical", "Retail / Consumer", "Technology / IT"],
+  },
 };
 
 const subtitle = {
@@ -75,6 +79,10 @@ const subtitle = {
   inmobiliario: {
     es: "Marketing Inmobiliario · Estrategia Digital · Ventas & Prospección · IA aplicada",
     en: "Real Estate Marketing · Digital Strategy · Sales & Prospecting · Applied AI",
+  },
+  generativa: {
+    es: "Dirección de Arte · IA Generativa · Contenido Audiovisual · Marketing",
+    en: "Art Direction · Generative AI · Audiovisual Content · Marketing",
   },
 };
 

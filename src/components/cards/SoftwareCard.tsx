@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 import { cardVariants } from "../BentoGrid";
 import { SiWebflow, SiSemrush, SiZapier, SiMailchimp, SiZoho, SiGithub, SiVercel, SiSupabase, SiClaude, SiReplicate, SiMeta, SiGoogleads, SiAsana } from "react-icons/si";
 import { FaLinkedin } from "react-icons/fa";
-import { BarChart3, Webhook, Bot, Terminal, Sparkles, Database, Search, Workflow } from "lucide-react";
+import { BarChart3, Webhook, Bot, Terminal, Sparkles, Database, Search, Workflow, ImageIcon, Film, Clapperboard } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 /* ── Adobe badge SVGs ── */
@@ -52,8 +52,16 @@ const groups: Group[] = [
       { name: "Claude",      Icon: SiClaude,    color: "#CC785C" },
       { name: "Claude Code", Icon: Terminal,    color: "#A0522D" },
       { name: { es: "Prompt Eng.", en: "Prompt Eng." }, Icon: Sparkles, color: "#F59E0B" },
-      { name: "Weavy.ai",    Icon: Bot,         color: "#6D00CC" },
-      { name: "Replicate",   Icon: SiReplicate, color: "#000000" },
+    ],
+  },
+  {
+    label: { es: "IA Generativa / Medios", en: "Generative AI / Media" },
+    items: [
+      { name: "Nano Banana Pro", Icon: ImageIcon,   color: "#F59E0B" },
+      { name: "Kling",           Icon: Film,        color: "#6D00CC" },
+      { name: "Weavy.ai",        Icon: Bot,         color: "#6D00CC" },
+      { name: "Replicate",       Icon: SiReplicate, color: "#000000" },
+      { name: "ffmpeg",          Icon: Clapperboard, color: "#10B981" },
     ],
   },
   {
