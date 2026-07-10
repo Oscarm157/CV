@@ -3,7 +3,7 @@
 import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "motion/react";
 import { useEffect, useRef, useState } from "react";
-import { Send, X, Sparkles } from "lucide-react";
+import { Send, X, Sparkles, RefreshCw } from "lucide-react";
 import { useChat } from "@/context/ChatContext";
 import { useVariant } from "@/context/VariantContext";
 import { useLanguage } from "@/context/LanguageContext";
@@ -59,7 +59,18 @@ const copy = {
     title: "Pregúntale a mi CV",
     sub: "Pregunta sobre mi experiencia y trayectoria",
     placeholder: "Escribe tu pregunta…",
-    examples: ["¿Tienes experiencia con web scraping?", "¿Qué automatizaciones has construido?", "¿Cómo aplicas IA en marketing?"],
+    examples: [
+      "¿Qué experiencia tienes con IA generativa?",
+      "¿Qué automatizaciones has construido?",
+      "¿Cómo aplicas IA en marketing?",
+      "¿Trabajas con generación de imagen y video?",
+      "¿Cómo usas los datos para calificar o predecir leads?",
+      "¿Qué herramientas de IA dominas?",
+      "¿Tienes experiencia con web scraping?",
+      "¿Qué proyectos has hecho por tu cuenta?",
+      "¿Estás disponible para proyectos remotos?",
+    ],
+    more: "Otras preguntas",
     note: "Respuestas generadas con IA (Claude) a partir del CV. Puede equivocarse.",
     errGeneric: "Algo falló. Intenta de nuevo en un momento.",
     errRate: "Llegaste al límite de preguntas por hoy. Escríbele a oscar.amayoral@gmail.com.",
@@ -69,7 +80,18 @@ const copy = {
     title: "Ask my CV",
     sub: "Ask about my experience and background",
     placeholder: "Type your question…",
-    examples: ["Do you have web scraping experience?", "What automations have you built?", "How do you apply AI to marketing?"],
+    examples: [
+      "What experience do you have with generative AI?",
+      "What automations have you built?",
+      "How do you apply AI to marketing?",
+      "Do you work with image and video generation?",
+      "How do you use data to score or predict leads?",
+      "Which AI tools are you strongest with?",
+      "Do you have web scraping experience?",
+      "What projects have you built on your own?",
+      "Are you available for remote work?",
+    ],
+    more: "More questions",
     note: "Answers are AI-generated (Claude) from the CV. It can be wrong.",
     errGeneric: "Something failed. Try again in a moment.",
     errRate: "You hit today's question limit. Email oscar.amayoral@gmail.com.",
@@ -86,6 +108,8 @@ export default function AskCVModal() {
   const [messages, setMessages] = useState<Msg[]>([]);
   const lastUserIdx = messages.map((m) => m.role).lastIndexOf("user");
   const [input, setInput] = useState("");
+  const [exPage, setExPage] = useState(0);
+  const pages = Math.ceil(t.examples.length / 3);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [mounted, setMounted] = useState(false);
@@ -194,15 +218,27 @@ export default function AskCVModal() {
                     <Sparkles size={16} style={{ color: "var(--emerald)" }} />
                     <span className="font-label text-xs uppercase tracking-widest">{lang === "es" ? "Prueba con" : "Try asking"}</span>
                   </div>
-                  <div className="flex flex-col gap-2">
-                    {t.examples.map((ex) => (
-                      <button key={ex} onClick={() => send(ex)}
-                        className="text-left font-grotesk text-sm text-white/80 px-4 py-3 rounded-xl transition-colors"
-                        style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)" }}>
-                        {ex}
-                      </button>
-                    ))}
-                  </div>
+                  <AnimatePresence mode="wait">
+                    <motion.div key={exPage}
+                      initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -6 }}
+                      transition={{ duration: 0.2 }}
+                      className="flex flex-col gap-2">
+                      {t.examples.slice(exPage * 3, exPage * 3 + 3).map((ex) => (
+                        <button key={ex} onClick={() => send(ex)}
+                          className="text-left font-grotesk text-sm text-white/80 px-4 py-3 rounded-xl transition-colors hover:bg-white/10"
+                          style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)" }}>
+                          {ex}
+                        </button>
+                      ))}
+                    </motion.div>
+                  </AnimatePresence>
+                  {pages > 1 && (
+                    <button onClick={() => setExPage((p) => (p + 1) % pages)}
+                      className="self-start flex items-center gap-1.5 font-label text-[11px] uppercase tracking-widest text-white/50 hover:text-white/80 transition-colors px-1 py-1">
+                      <RefreshCw size={13} style={{ color: "var(--emerald)" }} />
+                      {t.more}
+                    </button>
+                  )}
                 </div>
               )}
 
