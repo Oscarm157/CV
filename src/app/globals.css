@@ -44,13 +44,13 @@ body { overflow-x: hidden; }
 @media print {
   @page { size: A4; margin: 0; }
   html, body {
-    background: var(--cream) !important;
+    background: var(--paper) !important;
     overflow: visible !important;
   }
   .no-print { display: none !important; }
   .print-page {
-    background: var(--cream) !important;
-    padding: 12mm 14mm !important;
+    background: var(--paper) !important;
+    padding: 0 !important;
     min-height: 0 !important;
   }
   .print-sheet {
