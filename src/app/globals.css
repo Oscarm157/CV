@@ -42,15 +42,15 @@ body { overflow-x: hidden; }
 
 /* ── Carta de presentación: impresión / exportar a PDF ── */
 @media print {
-  @page { size: A4; margin: 15mm 16mm; }
+  @page { size: A4; margin: 0; }
   html, body {
-    background: #fff !important;
+    background: var(--cream) !important;
     overflow: visible !important;
   }
   .no-print { display: none !important; }
   .print-page {
-    background: #fff !important;
-    padding: 0 !important;
+    background: var(--cream) !important;
+    padding: 12mm 14mm !important;
     min-height: 0 !important;
   }
   .print-sheet {
@@ -60,7 +60,7 @@ body { overflow-x: hidden; }
     margin: 0 !important;
     max-width: 100% !important;
     width: 100% !important;
-    background: #fff !important;
+    background: var(--paper) !important;
   }
   .print-avoid { break-inside: avoid; }
   * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }

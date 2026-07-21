@@ -1,14 +1,13 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { motion } from "motion/react";
 import { Download, ArrowLeft } from "lucide-react";
 
 const parrafos = [
   "Me interesa la posición de Gerente de Marketing en Kiitos. Llevo más de diez años en marketing digital y buena parte de ese tiempo trabajando con clínicas de salud: nutrición y control de peso con My New Body y Stop Obesity, y medicina regenerativa con Novastem y Progencell. Conozco de cerca cómo se capta y se le da seguimiento a un paciente, que es justo lo que pide el puesto.",
-  "Manejo campañas de publicidad pagada en Meta y Google junto con contenido orgánico, y tomo decisiones con datos: en Atisa Group construí un dashboard de KPIs para la dirección y califico leads por score. Uso IA todos los días para ejecutar más rápido, no como adorno: construí un bot que capta y califica prospectos y un agente de voz que atiende llamadas y las registra en el CRM. Ese mismo motor de captación sirve para pacientes y también para reclutar personal, como los nutriólogos que buscan sumar.",
-  "Dirijo equipos desde hace años: fundé y llevé una agencia con un equipo de hasta doce personas entre creativos, fotógrafos y community managers, y hoy coordino ventas y analistas de CRM. Puedo dirigir la estrategia y también ejecutarla de forma directa. El esquema de medio tiempo híbrido me acomoda y puedo empezar pronto.",
+  "Manejo campañas de publicidad pagada en Meta y Google junto con contenido orgánico, y tomo decisiones con datos: en Atisa Group construí un dashboard de KPIs para la dirección y califico leads por score. Uso IA todos los días para ejecutar más rápido: construí un bot que capta y califica prospectos y un agente de voz que atiende llamadas y las registra en el CRM.",
+  "He liderado equipos: fundé y llevé una agencia con un equipo de hasta doce personas entre creativos, fotógrafos y community managers, y hoy coordino ventas y analistas de CRM. Puedo dirigir la estrategia y también ejecutarla de forma directa. Me interesó justamente la opción remota y de medio tiempo: encaja con lo que busco ahora, que es reservar tiempo para seguir formándome en IA y programación. Puedo empezar pronto.",
 ];
 
 const encaje: { req: string; ev: string }[] = [
@@ -49,38 +48,32 @@ export default function CoverLetter() {
         className="print-sheet max-w-[820px] mx-auto rounded-[20px] overflow-hidden"
         style={{ background: "var(--paper)", boxShadow: "0 8px 40px rgba(0,0,0,0.10)" }}
       >
-        <div className="px-8 sm:px-14 py-10 sm:py-12 print:px-0 print:py-0">
+        <div className="px-8 sm:px-14 py-10 sm:py-12 print:px-10 print:py-9">
           {/* Encabezado */}
           <header className="print-avoid">
-            <div className="flex items-start justify-between gap-6">
-              <div>
-                <p className="font-label text-[11px] uppercase tracking-widest text-ink/50 mb-3">
-                  Carta de presentación
-                </p>
-                <h1
-                  className="font-display font-black tracking-tighter text-ink leading-[0.9]"
-                  style={{ fontSize: "clamp(2rem, 6vw, 3.4rem)", letterSpacing: "-0.04em" }}
-                >
-                  Oscar Arredondo
-                </h1>
-                <p className="font-grotesk text-sm sm:text-base text-ink/70 mt-3">
-                  Marketing en Salud · Estrategia Digital · IA aplicada
-                </p>
-              </div>
-              <Image
-                src="/oscar.jpg"
-                alt="Oscar Arredondo"
-                width={84}
-                height={84}
-                className="rounded-full object-cover object-top w-16 h-16 sm:w-20 sm:h-20 shrink-0"
-                priority
-              />
+            <div>
+              <p className="font-label text-[11px] uppercase tracking-widest text-ink/50 mb-3">
+                Carta de presentación
+              </p>
+              <h1
+                className="font-display font-black tracking-tighter text-ink leading-[0.9]"
+                style={{ fontSize: "clamp(2rem, 6vw, 3.4rem)", letterSpacing: "-0.04em" }}
+              >
+                Oscar Arredondo
+              </h1>
+              <p className="font-grotesk text-sm sm:text-base text-ink/70 mt-3">
+                Marketing en Salud · Estrategia Digital · IA aplicada
+              </p>
             </div>
 
             <div className="mt-5 print:mt-3.5 flex flex-wrap gap-x-4 gap-y-1.5 font-grotesk text-sm text-ink/70">
               <span>oscar.amayoral@gmail.com</span>
               <span className="text-ink/25">·</span>
+              <span>+52 664-731-26-95</span>
+              <span className="text-ink/25">·</span>
               <span>Tijuana, B.C.</span>
+              <span className="text-ink/25">·</span>
+              <span>31 años</span>
               <span className="text-ink/25">·</span>
               <span>Disponible · remoto / híbrido</span>
             </div>
@@ -126,12 +119,12 @@ export default function CoverLetter() {
           {/* Cierre */}
           <footer className="mt-10 pt-6 print:mt-5 print:pt-4 border-t border-ink/10 print-avoid">
             <p className="font-grotesk text-[15px] text-ink/85 leading-relaxed mb-4 print:mb-2.5">
-              Quedo al pendiente para platicar con más detalle. Gracias por su tiempo.
+              Quedo atento y espero que podamos colaborar. Con gusto lo platicamos con más detalle.
             </p>
             <p className="font-grotesk text-sm text-ink/60">Atentamente,</p>
             <p className="font-display font-bold text-ink text-xl mt-1">Oscar Arredondo</p>
             <p className="font-grotesk text-sm text-ink/60 mt-1">
-              oscar.amayoral@gmail.com · Tijuana, B.C.
+              oscar.amayoral@gmail.com · +52 664-731-26-95 · Tijuana, B.C.
             </p>
           </footer>
         </div>
