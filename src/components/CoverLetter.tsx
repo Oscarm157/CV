@@ -7,7 +7,11 @@ import { Download, ArrowLeft } from "lucide-react";
 const parrafos = [
   {
     t: "Experiencia en el sector salud",
-    p: "Me interesa la posición de Gerente de Marketing en Kiitos. Llevo más de diez años en marketing digital y buena parte de ese tiempo trabajando con clínicas de salud en Tijuana, una de las ciudades líderes en turismo médico del país. He trabajado con doctores y clínicas de bariatría y control de peso como My New Body y Stop Obesity, y de medicina regenerativa como Novastem y Progencell, así que conozco de cerca cómo se capta y se le da seguimiento a un paciente, incluido el que viaja para atenderse.",
+    p: (
+      <>
+        Llevo más de diez años en marketing digital y buena parte de ese tiempo trabajando con clínicas de salud en Tijuana, una de las ciudades líderes en turismo médico del país. He trabajado con doctores y clínicas de bariatría y control de peso como <strong className="font-semibold text-ink">My New Body</strong> y <strong className="font-semibold text-ink">Stop Obesity</strong>, y de medicina regenerativa como <strong className="font-semibold text-ink">Novastem</strong> y <strong className="font-semibold text-ink">Progencell</strong>, así que conozco de cerca cómo se capta y se le da seguimiento a un paciente, incluido el que viaja para atenderse.
+      </>
+    ),
   },
   {
     t: "Marketing digital e IA",
@@ -89,15 +93,20 @@ export default function CoverLetter() {
           </header>
 
           {/* Destinatario */}
-          <p className="font-label text-[11px] uppercase tracking-widest text-ink/50 mt-8 mb-6 print:mt-4 print:mb-3 print-avoid">
+          <p className="font-label text-[11px] uppercase tracking-widest text-ink/50 mt-8 mb-4 print:mt-4 print:mb-3 print-avoid">
             Para Kiitos · Vacante Gerente de Marketing
+          </p>
+
+          {/* Saludo y presentación */}
+          <p className="font-grotesk text-[15px] sm:text-base text-ink/85 leading-relaxed mb-5 print:text-[13.5px] print:leading-[1.5] print:mb-3 print-avoid">
+            Hola, buen día. Soy <strong className="font-semibold text-ink">Oscar Arredondo</strong>, tengo 31 años y radico en Tijuana. Escribo porque me interesa la posición de Gerente de Marketing en Kiitos.
           </p>
 
           {/* Cuerpo */}
           <div className="flex flex-col gap-5 print:gap-3">
             {parrafos.map((item, i) => (
               <div key={i} className="print-avoid">
-                <h3 className="font-label text-[11px] uppercase tracking-widest text-ink/45 mb-1.5 print:mb-1">
+                <h3 className="font-display font-bold text-ink text-[15px] mb-1 print:mb-0.5">
                   {item.t}
                 </h3>
                 <p className="font-grotesk text-[15px] sm:text-base text-ink/85 leading-relaxed print:text-[13.5px] print:leading-[1.5]">
