@@ -5,9 +5,18 @@ import { motion } from "motion/react";
 import { Download, ArrowLeft } from "lucide-react";
 
 const parrafos = [
-  "Me interesa la posición de Gerente de Marketing en Kiitos. Llevo más de diez años en marketing digital y buena parte de ese tiempo trabajando con clínicas de salud en Tijuana, una de las ciudades líderes en turismo médico del país. He trabajado con doctores y clínicas de bariatría y control de peso como My New Body y Stop Obesity, y de medicina regenerativa como Novastem y Progencell, así que conozco de cerca cómo se capta y se le da seguimiento a un paciente, incluido el que viaja para atenderse.",
-  "Manejo la captación de pacientes de punta a punta: campañas de publicidad pagada en Meta y Google, junto con SEO y contenido orgánico, enfocadas en llenar la agenda de este tipo de clínicas. Uso IA todos los días para ejecutar más rápido: construí un bot que capta y califica prospectos y un agente de voz que atiende llamadas y las registra en el CRM.",
-  "He liderado equipos: fundé y llevé una agencia con un equipo de hasta doce personas entre creativos, fotógrafos y community managers, y hoy coordino ventas y analistas de CRM. Puedo dirigir la estrategia y también ejecutarla de forma directa. Me interesó la opción remota y de medio tiempo: encaja con lo que busco ahora, reservar tiempo para seguir formándome en IA y programación. Puedo empezar pronto.",
+  {
+    t: "Experiencia en el sector salud",
+    p: "Me interesa la posición de Gerente de Marketing en Kiitos. Llevo más de diez años en marketing digital y buena parte de ese tiempo trabajando con clínicas de salud en Tijuana, una de las ciudades líderes en turismo médico del país. He trabajado con doctores y clínicas de bariatría y control de peso como My New Body y Stop Obesity, y de medicina regenerativa como Novastem y Progencell, así que conozco de cerca cómo se capta y se le da seguimiento a un paciente, incluido el que viaja para atenderse.",
+  },
+  {
+    t: "Marketing digital e IA",
+    p: "Manejo la captación de pacientes de punta a punta: campañas de publicidad pagada en Meta y Google, junto con SEO y contenido orgánico, enfocadas en llenar la agenda de este tipo de clínicas. Uso IA todos los días para ejecutar más rápido: construí un bot que capta y califica prospectos y un agente de voz que atiende llamadas y las registra en el CRM.",
+  },
+  {
+    t: "Liderazgo y disponibilidad",
+    p: "He liderado equipos: fundé y llevé una agencia con un equipo de hasta doce personas entre creativos, fotógrafos y community managers, y hoy coordino ventas y analistas de CRM. Puedo dirigir la estrategia y también ejecutarla de forma directa. Me interesó la opción remota y de medio tiempo: encaja con lo que busco ahora, reservar tiempo para seguir formándome en IA y programación. Puedo empezar pronto.",
+  },
 ];
 
 const encaje: { req: string; ev: string }[] = [
@@ -85,14 +94,16 @@ export default function CoverLetter() {
           </p>
 
           {/* Cuerpo */}
-          <div className="flex flex-col gap-4 print:gap-2">
-            {parrafos.map((p, i) => (
-              <p
-                key={i}
-                className="font-grotesk text-[15px] sm:text-base text-ink/85 leading-relaxed print:text-[13.5px] print:leading-[1.5] print-avoid"
-              >
-                {p}
-              </p>
+          <div className="flex flex-col gap-5 print:gap-3">
+            {parrafos.map((item, i) => (
+              <div key={i} className="print-avoid">
+                <h3 className="font-label text-[11px] uppercase tracking-widest text-ink/45 mb-1.5 print:mb-1">
+                  {item.t}
+                </h3>
+                <p className="font-grotesk text-[15px] sm:text-base text-ink/85 leading-relaxed print:text-[13.5px] print:leading-[1.5]">
+                  {item.p}
+                </p>
+              </div>
             ))}
           </div>
 
@@ -129,11 +140,11 @@ export default function CoverLetter() {
             <div className="shrink-0 flex flex-col items-center gap-1.5">
               <img
                 src="/qr-cv.png"
-                alt="Chatea con mi CV"
+                alt="¡Chatea con mi CV!"
                 className="w-[92px] h-[92px] print:w-[80px] print:h-[80px]"
               />
               <span className="font-label text-[10px] uppercase tracking-widest text-ink/60 text-center leading-tight">
-                Chatea con mi CV
+                ¡Chatea con mi CV!
               </span>
             </div>
           </footer>
