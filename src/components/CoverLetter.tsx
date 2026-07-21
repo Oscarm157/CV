@@ -1,36 +1,96 @@
 "use client";
 
+import type { ReactNode } from "react";
 import Link from "next/link";
 import { motion } from "motion/react";
 import { Download, ArrowLeft } from "lucide-react";
 
-const parrafos = [
-  {
-    t: "Experiencia en el sector salud",
-    p: (
+const bold = "font-semibold text-ink";
+
+type Carta = {
+  subtitle: string;
+  destinatario: string;
+  saludo: ReactNode;
+  parrafos: { t: string; p: ReactNode }[];
+  encaje: { req: string; ev: string }[];
+};
+
+const CARTAS: Record<string, Carta> = {
+  kiitos: {
+    subtitle: "Marketing en Salud · Estrategia Digital · IA aplicada",
+    destinatario: "Para Kiitos · Vacante Gerente de Marketing",
+    saludo: (
       <>
-        Llevo más de diez años en marketing digital y buena parte de ese tiempo trabajando con clínicas de salud en Tijuana, una de las ciudades líderes en turismo médico del país. He trabajado con doctores y clínicas de bariatría y control de peso como <strong className="font-semibold text-ink">My New Body</strong> y <strong className="font-semibold text-ink">Stop Obesity</strong>, y de medicina regenerativa como <strong className="font-semibold text-ink">Novastem</strong> y <strong className="font-semibold text-ink">Progencell</strong>, así que conozco de cerca cómo se capta y se le da seguimiento a un paciente, incluido el que viaja para atenderse.
+        Hola, buen día. Soy <strong className={bold}>Oscar Arredondo</strong>, tengo 31 años y radico en Tijuana. Escribo porque me interesa la posición de Gerente de Marketing en Kiitos.
       </>
     ),
+    parrafos: [
+      {
+        t: "Experiencia en el sector salud",
+        p: (
+          <>
+            Llevo más de diez años en marketing digital y buena parte de ese tiempo trabajando con clínicas de salud en Tijuana, una de las ciudades líderes en turismo médico del país. He trabajado con doctores y clínicas de bariatría y control de peso como <strong className={bold}>My New Body</strong> y <strong className={bold}>Stop Obesity</strong>, y de medicina regenerativa como <strong className={bold}>Novastem</strong> y <strong className={bold}>Progencell</strong>, así que conozco de cerca cómo se capta y se le da seguimiento a un paciente, incluido el que viaja para atenderse.
+          </>
+        ),
+      },
+      {
+        t: "Marketing digital e IA",
+        p: "Manejo la captación de pacientes de punta a punta: campañas de publicidad pagada en Meta y Google, junto con SEO y contenido orgánico, enfocadas en llenar la agenda de este tipo de clínicas. Uso IA todos los días para ejecutar más rápido: construí un bot que capta y califica prospectos y un agente de voz que atiende llamadas y las registra en el CRM.",
+      },
+      {
+        t: "Liderazgo y disponibilidad",
+        p: "He liderado equipos: fundé y llevé una agencia con un equipo de hasta doce personas entre creativos, fotógrafos y community managers, y hoy coordino ventas y analistas de CRM. Puedo dirigir la estrategia y también ejecutarla de forma directa. Me interesó la opción remota y de medio tiempo: encaja con lo que busco ahora, reservar tiempo para seguir formándome en IA y programación. Puedo empezar pronto.",
+      },
+    ],
+    encaje: [
+      { req: "Sector salud en Tijuana", ev: "Bariatría, control de peso y medicina regenerativa con clínicas como My New Body, Stop Obesity, Novastem y Progencell, en una ciudad líder en turismo médico." },
+      { req: "Captación de pacientes", ev: "Publicidad en Meta y Google Ads, SEO y contenido orgánico para atraer y dar seguimiento a pacientes." },
+      { req: "Experiencia y liderazgo", ev: "10+ años en marketing, 7 dirigiendo mi propia agencia y hoy coordinando equipo de ventas y CRM." },
+      { req: "IA en el día a día", ev: "Bot de captación de leads, agente de voz con CRM y herramientas de IA para contenido." },
+    ],
   },
-  {
-    t: "Marketing digital e IA",
-    p: "Manejo la captación de pacientes de punta a punta: campañas de publicidad pagada en Meta y Google, junto con SEO y contenido orgánico, enfocadas en llenar la agenda de este tipo de clínicas. Uso IA todos los días para ejecutar más rápido: construí un bot que capta y califica prospectos y un agente de voz que atiende llamadas y las registra en el CRM.",
-  },
-  {
-    t: "Liderazgo y disponibilidad",
-    p: "He liderado equipos: fundé y llevé una agencia con un equipo de hasta doce personas entre creativos, fotógrafos y community managers, y hoy coordino ventas y analistas de CRM. Puedo dirigir la estrategia y también ejecutarla de forma directa. Me interesó la opción remota y de medio tiempo: encaja con lo que busco ahora, reservar tiempo para seguir formándome en IA y programación. Puedo empezar pronto.",
-  },
-];
 
-const encaje: { req: string; ev: string }[] = [
-  { req: "Sector salud en Tijuana", ev: "Bariatría, control de peso y medicina regenerativa con clínicas como My New Body, Stop Obesity, Novastem y Progencell, en una ciudad líder en turismo médico." },
-  { req: "Captación de pacientes", ev: "Publicidad en Meta y Google Ads, SEO y contenido orgánico para atraer y dar seguimiento a pacientes." },
-  { req: "Experiencia y liderazgo", ev: "10+ años en marketing, 7 dirigiendo mi propia agencia y hoy coordinando equipo de ventas y CRM." },
-  { req: "IA en el día a día", ev: "Bot de captación de leads, agente de voz con CRM y herramientas de IA para contenido." },
-];
+  ai: {
+    subtitle: "IA aplicada · Automatización · Marketing y CRM",
+    destinatario: "Para la vacante de AI Solutions Specialist · Remoto",
+    saludo: (
+      <>
+        Hola, buen día. Soy <strong className={bold}>Oscar Arredondo</strong>, tengo 31 años y radico en Tijuana. Escribo porque me interesa la posición de AI Solutions Specialist.
+      </>
+    ),
+    parrafos: [
+      {
+        t: "Qué construyo con IA",
+        p: (
+          <>
+            Uso IA todos los días para construir, no solo para probar. Construí un <strong className={bold}>bot que capta y califica prospectos</strong> y un <strong className={bold}>agente de voz que atiende llamadas en vivo</strong> y las registra en el CRM. Trabajo a diario con ChatGPT, Claude y Gemini, sus APIs y flujos automatizados con herramientas como Make para conectar procesos de ventas, marketing y operación.
+          </>
+        ),
+      },
+      {
+        t: "IA aplicada al negocio",
+        p: "Vengo del lado del negocio: más de diez años en marketing digital, dirigí mi propia agencia y hoy coordino ventas y analistas de CRM. Eso me deja ver dónde la IA de verdad sirve, automatizar captación y seguimiento, calificar leads, quitarle trabajo repetitivo al equipo, y no aplicarla por moda sino donde ahorra tiempo o dinero.",
+      },
+      {
+        t: "Sobre el inglés",
+        p: (
+          <>
+            Quiero ser claro con una cosa: el inglés todavía no lo domino. Busco un trabajo remoto justo para tener tiempo de crecer en IA y programación, y de paso mejorar el inglés. Mientras tanto me apoyo en <strong className={bold}>videollamadas con traducción en vivo</strong>; no es lo ideal, pero creo que con la IA la barrera del idioma está por desaparecer, y lo que sí aporto desde el primer día es el conocimiento práctico que he adquirido construyendo soluciones de IA.
+          </>
+        ),
+      },
+    ],
+    encaje: [
+      { req: "Agentes de IA", ev: "Bot que capta y califica prospectos y agente de voz que atiende llamadas en vivo y las registra en el CRM." },
+      { req: "IA en el día a día", ev: "Trabajo a diario con ChatGPT, Claude y Gemini, sus APIs y automatizaciones para quitar trabajo repetitivo." },
+      { req: "Visión de negocio", ev: "10+ años en marketing, agencia propia y coordinación de ventas y CRM: sé dónde la IA sí ahorra tiempo o dinero." },
+      { req: "Automatización de procesos", ev: "Conecto ventas, marketing y operación con flujos automatizados y herramientas como Make." },
+    ],
+  },
+};
 
-export default function CoverLetter() {
+export default function CoverLetter({ variant = "kiitos" }: { variant?: keyof typeof CARTAS }) {
+  const d = CARTAS[variant];
   return (
     <main className="print-page min-h-screen w-full px-4 py-10 sm:py-14" style={{ background: "var(--cream)" }}>
       {/* Acciones — solo pantalla */}
@@ -73,7 +133,7 @@ export default function CoverLetter() {
                 Oscar Arredondo
               </h1>
               <p className="font-grotesk text-sm sm:text-base text-ink/70 mt-3">
-                Marketing en Salud · Estrategia Digital · IA aplicada
+                {d.subtitle}
               </p>
             </div>
 
@@ -94,17 +154,17 @@ export default function CoverLetter() {
 
           {/* Destinatario */}
           <p className="font-label text-[11px] uppercase tracking-widest text-ink/50 mt-8 mb-4 print:mt-4 print:mb-3 print-avoid">
-            Para Kiitos · Vacante Gerente de Marketing
+            {d.destinatario}
           </p>
 
           {/* Saludo y presentación */}
           <p className="font-grotesk text-[15px] sm:text-base text-ink/85 leading-relaxed mb-5 print:text-[13.5px] print:leading-[1.5] print:mb-3 print-avoid">
-            Hola, buen día. Soy <strong className="font-semibold text-ink">Oscar Arredondo</strong>, tengo 31 años y radico en Tijuana. Escribo porque me interesa la posición de Gerente de Marketing en Kiitos.
+            {d.saludo}
           </p>
 
           {/* Cuerpo */}
           <div className="flex flex-col gap-5 print:gap-3">
-            {parrafos.map((item, i) => (
+            {d.parrafos.map((item, i) => (
               <div key={i} className="print-avoid">
                 <h3 className="font-display font-bold text-ink text-[15px] mb-1 print:mb-0.5">
                   {item.t}
@@ -122,7 +182,7 @@ export default function CoverLetter() {
               Cómo encajo con el puesto
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3.5 print:gap-y-2.5">
-              {encaje.map((e) => (
+              {d.encaje.map((e) => (
                 <div key={e.req} className="flex gap-2.5 print-avoid">
                   <span className="shrink-0 mt-[7px] w-1.5 h-1.5 rounded-full" style={{ background: "var(--emerald)" }} />
                   <p className="font-grotesk text-sm text-ink/85 leading-snug">
