@@ -63,7 +63,7 @@ const CARTAS: Record<string, Carta> = {
         t: "Qué construyo con IA",
         p: (
           <>
-            Uso IA todos los días para construir, no solo para probar. Construí un <strong className={bold}>bot que capta y califica prospectos</strong> y un <strong className={bold}>agente de voz que atiende llamadas en vivo</strong> y las registra en el CRM. Trabajo a diario con ChatGPT, Claude y Gemini, sus APIs y flujos automatizados con herramientas como Make para conectar procesos de ventas, marketing y operación.
+            Uso IA todos los días para construir, no solo para probar. Construí un <strong className={bold}>bot que capta y califica prospectos</strong> y un <strong className={bold}>agente de voz que atiende llamadas en vivo</strong> y las registra en el CRM. Trabajo a diario con ChatGPT, Claude y Gemini, sus APIs y automatizaciones que programo con código para conectar procesos de ventas, marketing y operación.
           </>
         ),
       },
@@ -72,10 +72,10 @@ const CARTAS: Record<string, Carta> = {
         p: "Vengo del lado del negocio: más de diez años en marketing digital, dirigí mi propia agencia y hoy coordino ventas y analistas de CRM. Eso me deja ver dónde la IA de verdad sirve, automatizar captación y seguimiento, calificar leads, quitarle trabajo repetitivo al equipo, y no aplicarla por moda sino donde ahorra tiempo o dinero.",
       },
       {
-        t: "Sobre el inglés",
+        t: "",
         p: (
           <>
-            Quiero ser claro con una cosa: el inglés todavía no lo domino. Busco un trabajo remoto justo para tener tiempo de crecer en IA y programación, y de paso mejorar el inglés. Mientras tanto me apoyo en <strong className={bold}>videollamadas con traducción en vivo</strong>; no es lo ideal, pero creo que con la IA la barrera del idioma está por desaparecer, y lo que sí aporto desde el primer día es el conocimiento práctico que he adquirido construyendo soluciones de IA.
+            Quiero ser claro con una cosa: el inglés todavía no lo domino. Busco un trabajo remoto justo para tener tiempo de crecer en IA y programación, y de paso mejorar el inglés. Mientras tanto me apoyo en videollamadas con traducción en vivo; no es lo ideal, pero creo que con la IA la barrera del idioma está por desaparecer, y lo que sí aporto desde el primer día es el conocimiento práctico que he adquirido construyendo soluciones de IA.
           </>
         ),
       },
@@ -84,7 +84,7 @@ const CARTAS: Record<string, Carta> = {
       { req: "Agentes de IA", ev: "Bot que capta y califica prospectos y agente de voz que atiende llamadas en vivo y las registra en el CRM." },
       { req: "IA en el día a día", ev: "Trabajo a diario con ChatGPT, Claude y Gemini, sus APIs y automatizaciones para quitar trabajo repetitivo." },
       { req: "Visión de negocio", ev: "10+ años en marketing, agencia propia y coordinación de ventas y CRM: sé dónde la IA sí ahorra tiempo o dinero." },
-      { req: "Automatización de procesos", ev: "Conecto ventas, marketing y operación con flujos automatizados y herramientas como Make." },
+      { req: "Automatización de procesos", ev: "Conecto ventas, marketing y operación con automatizaciones que programo con código." },
     ],
   },
 };
@@ -166,9 +166,11 @@ export default function CoverLetter({ variant = "kiitos" }: { variant?: keyof ty
           <div className="flex flex-col gap-5 print:gap-3">
             {d.parrafos.map((item, i) => (
               <div key={i} className="print-avoid">
-                <h3 className="font-display font-bold text-ink text-[15px] mb-1 print:mb-0.5">
-                  {item.t}
-                </h3>
+                {item.t && (
+                  <h3 className="font-display font-bold text-ink text-[15px] mb-1 print:mb-0.5">
+                    {item.t}
+                  </h3>
+                )}
                 <p className="font-grotesk text-[15px] sm:text-base text-ink/85 leading-relaxed print:text-[13.5px] print:leading-[1.5]">
                   {item.p}
                 </p>
