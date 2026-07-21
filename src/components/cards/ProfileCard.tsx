@@ -54,6 +54,30 @@ const content = {
       ],
     },
   },
+  medico: {
+    es: {
+      eyebrow: "Perfil",
+      headline: "Marketing en Salud · Captación de Pacientes · Estrategia Digital + IA",
+      p1: "Mercadólogo con +10 años en estrategia digital, generación de leads y CRM, con trabajo constante en el sector salud: clínicas de nutrición y control de peso (My New Body, Stop Obesity), medicina regenerativa (Novastem, Progencell) y equipo médico (Carl Zeiss). Manejo el ciclo completo, de la campaña a la captación del paciente y su seguimiento.",
+      p2: "Combino publicidad pagada (Meta, Google) con contenido orgánico, y decido con datos: construí un dashboard de KPIs para el CEO de Atisa Group y califico leads por score. Uso IA y automatización para ejecutar más rápido: un bot que capta y califica leads, y un agente de voz que atiende llamadas y las registra en CRM. Mismo motor de captación aplicable a pacientes y a reclutamiento de personal clínico.",
+      tags: [
+        "Marketing en Salud", "Captación de Pacientes", "Nutrición / Control de peso", "Estrategia Digital",
+        "Meta / Google Ads", "Contenido Orgánico", "SEO / SEM", "CRM", "Lead Scoring",
+        "Decisiones con Datos", "IA aplicada", "Automatización",
+      ],
+    },
+    en: {
+      eyebrow: "About",
+      headline: "Healthcare Marketing · Patient Acquisition · Digital Strategy + AI",
+      p1: "Marketer with 10+ years in digital strategy, lead generation and CRM, with steady work in healthcare: nutrition and weight-loss clinics (My New Body, Stop Obesity), regenerative medicine (Novastem, Progencell) and medical equipment (Carl Zeiss). I run the full cycle, from the campaign to patient acquisition and follow-up.",
+      p2: "I combine paid advertising (Meta, Google) with organic content, and I decide with data: I built a KPI dashboard for the CEO of Atisa Group and score leads. I use AI and automation to execute faster: a bot that sources and qualifies leads, and a voice agent that takes calls and logs them into a CRM. The same acquisition engine applies to patients and to clinical staff recruitment.",
+      tags: [
+        "Healthcare Marketing", "Patient Acquisition", "Nutrition / Weight loss", "Digital Strategy",
+        "Meta / Google Ads", "Organic Content", "SEO / SEM", "CRM", "Lead Scoring",
+        "Data-Driven", "Applied AI", "Automation",
+      ],
+    },
+  },
   generativa: {
     es: {
       eyebrow: "Perfil",

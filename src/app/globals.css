@@ -39,3 +39,29 @@ body {
 html { scroll-behavior: smooth; overflow-x: hidden; }
 body { overflow-x: hidden; }
 [id] { scroll-margin-top: 88px; }
+
+/* ── Carta de presentación: impresión / exportar a PDF ── */
+@media print {
+  @page { size: A4; margin: 15mm 16mm; }
+  html, body {
+    background: #fff !important;
+    overflow: visible !important;
+  }
+  .no-print { display: none !important; }
+  .print-page {
+    background: #fff !important;
+    padding: 0 !important;
+    min-height: 0 !important;
+  }
+  .print-sheet {
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    background: #fff !important;
+  }
+  .print-avoid { break-inside: avoid; }
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+}

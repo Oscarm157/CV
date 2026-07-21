@@ -56,6 +56,12 @@ const clients = {
   en: ["Mazda", "BMW", "Mini Cooper", "Carl Zeiss", "BBVA", "Forbes", "Produce Pay", "Chef Javier Plascencia", "+70 brands"],
 };
 
+// Variante médica: clínicas y salud al frente.
+const clientsMedico = {
+  es: ["My New Body", "Stop Obesity", "Novastem", "Progencell", "Carl Zeiss", "Mazda", "BMW", "Forbes", "+70 marcas"],
+  en: ["My New Body", "Stop Obesity", "Novastem", "Progencell", "Carl Zeiss", "Mazda", "BMW", "Forbes", "+70 brands"],
+};
+
 const industries = {
   automatizacion: {
     es: ["Automotriz", "Inmobiliario", "Gastronómico", "Médico", "Financiero", "Agrícola", "Tecnología / TI"],
@@ -68,6 +74,10 @@ const industries = {
   generativa: {
     es: ["Publicidad / Creativo", "Automotriz", "Gastronómico", "Inmobiliario", "Médico", "Retail / Consumo", "Tecnología / TI"],
     en: ["Advertising / Creative", "Automotive", "Food & Beverage", "Real Estate", "Medical", "Retail / Consumer", "Technology / IT"],
+  },
+  medico: {
+    es: ["Médico / Salud", "Nutrición / Control de peso", "Medicina regenerativa", "Automotriz", "Gastronómico", "Financiero", "Tecnología / TI"],
+    en: ["Medical / Health", "Nutrition / Weight loss", "Regenerative medicine", "Automotive", "Food & Beverage", "Financial", "Technology / IT"],
   },
 };
 
@@ -83,6 +93,10 @@ const subtitle = {
   generativa: {
     es: "Marketing Estratégico · IA Generativa · Contenido Audiovisual · Datos & Predicción",
     en: "Strategic Marketing · Generative AI · Audiovisual Content · Data & Prediction",
+  },
+  medico: {
+    es: "Marketing en Salud · Estrategia Digital · Captación de Pacientes · IA aplicada",
+    en: "Healthcare Marketing · Digital Strategy · Patient Acquisition · Applied AI",
   },
 };
 
@@ -120,6 +134,7 @@ export default function HeroCard() {
   const t = content[lang];
   const heroSubtitle = subtitle[variant][lang];
   const industryList = industries[variant][lang];
+  const clientList = variant === "medico" ? clientsMedico[lang] : clients[lang];
 
   return (
     <motion.div
@@ -218,7 +233,7 @@ export default function HeroCard() {
         >
           <p className="font-label text-xs uppercase tracking-widest text-white/50 mb-2">{t.clientsLabel}</p>
           <div className="flex flex-wrap gap-x-3 sm:gap-x-5 gap-y-1.5 mb-4">
-            {clients[lang].map(c => (
+            {clientList.map(c => (
               <span key={c} className="font-grotesk text-sm text-white/75">{c}</span>
             ))}
           </div>

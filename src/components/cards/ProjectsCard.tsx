@@ -121,6 +121,7 @@ const projectsByVariant: Record<Variant, Project[]> = {
   automatizacion: [pBotLeads, pVoicebot, pNarrativa, pDashboardKPIs, pZohoZapier, pWeavy],
   inmobiliario: [pVertice, pInmobiq, pNarrativa, pVoicebot, pZohoZapier, pWeavy],
   generativa: [pNarrativaGen, pWeavy, pVerticeGen, pBotLeads, pVoicebot, pZohoZapier],
+  medico: [pBotLeads, pVoicebot, pZohoZapier, pDashboardKPIs, pNarrativa, pWeavy],
 };
 
 const labels = {

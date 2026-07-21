@@ -20,6 +20,20 @@ const inmoOverrides: Record<"es" | "en", Record<string, string>> = {
   },
 };
 
+// Overrides para la versión médica: sube salud al frente y nombra clínicas reales.
+const medicoOverrides: Record<"es" | "en", Record<string, string>> = {
+  es: {
+    "Agencia creativa B.C.: Automotriz, Inmobiliario, Gastronómico, Médico": "Agencia creativa B.C.: Médico, Automotriz, Inmobiliario, Gastronómico",
+    "Clientes: Mazda, BMW, Mini Cooper, Carl Zeiss, Chef Javier Plascencia": "Salud: My New Body, Stop Obesity, Novastem, Progencell, Carl Zeiss",
+    "Marketing digital sectores médico e industrial": "Marketing digital para el sector salud (clínicas de nutrición, control de peso y medicina regenerativa) e industrial",
+  },
+  en: {
+    "Creative agency in Baja California: Automotive, Real Estate, Food & Beverage, Medical": "Creative agency in Baja California: Medical, Automotive, Real Estate, Food & Beverage",
+    "Clients: Mazda, BMW, Mini Cooper, Carl Zeiss, Chef Javier Plascencia": "Health: My New Body, Stop Obesity, Novastem, Progencell, Carl Zeiss",
+    "Digital marketing for medical and industrial sectors": "Digital marketing for healthcare (nutrition, weight-loss and regenerative medicine clinics) and industrial sectors",
+  },
+};
+
 const jobs = {
   es: [
     {
@@ -112,7 +126,10 @@ export default function ExperienceCard() {
   const { lang } = useLanguage();
   const variant = useVariant();
   const t = labels[lang];
-  const ov = variant === "inmobiliario" ? inmoOverrides[lang] : null;
+  const ov =
+    variant === "inmobiliario" ? inmoOverrides[lang]
+    : variant === "medico" ? medicoOverrides[lang]
+    : null;
   const jobList = ov
     ? jobs[lang].map((j) => ({ ...j, bullets: j.bullets.map((b) => ov[b] ?? b) }))
     : jobs[lang];
